@@ -31,6 +31,6 @@ jobs:
       - name: Deploy
         uses: reggionick/s3-deploy@v3
         with:
-            folder: build
-            bucket: http://privtap-bucket.s3-website.eu-central-1.amazonaws.com
-            bucket-region: eu-central-1
+          folder: build
+          bucket: privtap-bucket
+          bucket-region: eu-central-1
