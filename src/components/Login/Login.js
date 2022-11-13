@@ -1,7 +1,10 @@
 import React from 'react';
 
 function Login() {
-    return <h1>This is Login page.</h1>;
+    // redirect to external URL
+    window.location.replace('http://localhost:8080/login');
+
+    return null;
 }
 
 export default Login;

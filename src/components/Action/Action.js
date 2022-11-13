@@ -11,15 +11,13 @@ function Action() {
     const getAllActions = async () => {
         const response = await service().getAllActions();
         setActions(response.data);
-
     }
-
 
     return (
         <div>
             <h1>This is Action page.</h1>
 
-            {actions.map((action) => {
+            {actions?.map((action) => {
                 return (
                     <div>
                         {action.id +
@@ -37,6 +35,5 @@ function Action() {
         </div>
     );
 }
-
 
 export default Action;
