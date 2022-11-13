@@ -1,5 +1,3 @@
-import React from 'react';
-
 function Login() {
     // redirect to external URL
     window.location.replace('http://localhost:8080/login');
