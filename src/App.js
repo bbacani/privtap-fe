@@ -1,24 +1,21 @@
-import './App.css';
-import { axios } from './ApiService'
-import React, { useEffect } from 'react';
+import React from 'react';
+import {BrowserRouter, Route, Routes} from 'react-router-dom';
+import Home from './components/Home/Home';
+import Action from "./components/Action/Action";
+import Trigger from "./components/Trigger/Trigger";
 
 function App() {
-    // GET with Axios
-    useEffect(() => {
-       const fetch = async () => {
-          await axios.get('/')
-       };
-       fetch();
-    }, []);
+
 
     return (
-        <div className="App">
-            <header className="App-header">
-                <p>
-                    Hello!
-                </p>
-            </header>
-        </div>
+        <BrowserRouter>
+            <Routes>
+                <Route path="/" exact element={<Home/>}/>
+                <Route path="/login"/>
+                <Route path='/action' exact element={<Action/>}/>
+                <Route path='/trigger' exact element={<Trigger/>}/>
+            </Routes>
+        </BrowserRouter>
     );
 }
 
