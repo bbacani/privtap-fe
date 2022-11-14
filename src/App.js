@@ -4,17 +4,24 @@ import Home from './components/Home/Home';
 import Login from './components/Login/Login'
 import Action from "./components/Action/Action";
 import Trigger from "./components/Trigger/Trigger";
+import User from "./components/User/User";
+import AppHeader from "./components/common/Header/Header";
+import OAuth2RedirectHandler from "./components/Login/oauth2/OAuth2RedirectHandler";
 
 function App() {
 
-
     return (
         <BrowserRouter>
+            <div className="app-top-box">
+                <AppHeader />
+            </div>
             <Routes>
                 <Route path="/" exact element={<Home/>}/>
                 <Route path="/login" exact element={<Login/>}/>
                 <Route path='/action' exact element={<Action/>}/>
                 <Route path='/trigger' exact element={<Trigger/>}/>
+                <Route path='/user' exact element={<User/>}/>
+                <Route path="/oauth2/redirect" element={<OAuth2RedirectHandler/>}></Route>
             </Routes>
         </BrowserRouter>
     );
