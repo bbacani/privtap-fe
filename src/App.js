@@ -7,6 +7,7 @@ import Trigger from "./components/Trigger/Trigger";
 import User from "./components/User/User";
 import AppHeader from "./components/common/Header/Header";
 import OAuth2RedirectHandler from "./components/Login/oauth2/OAuth2RedirectHandler";
+import CreateAutomation from "./components/CreateAutomation/CreateAutomation";
 
 function App() {
 
@@ -22,6 +23,7 @@ function App() {
                 <Route path='/trigger' exact element={<Trigger/>}/>
                 <Route path='/user' exact element={<User/>}/>
                 <Route path="/oauth2/redirect" element={<OAuth2RedirectHandler/>}></Route>
+                <Route path="/create-automation" element={<CreateAutomation/>}></Route>
             </Routes>
         </BrowserRouter>
     );
