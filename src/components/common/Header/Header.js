@@ -1,30 +1,23 @@
-import React, {Component} from "react";
-import {Link, NavLink} from "react-router-dom";
+import React from "react";
 import "./Header.css";
+import {Container, Nav, Navbar} from "react-bootstrap";
 
-class Header extends Component {
-    render() {
-        return (
-            <header className="app-header">
-                <div className="container">
-                    <div className="app-branding">
-                        <Link to="/" className="app-title">
-                            PrivTap
-                        </Link>
-                    </div>
-                    <div className="app-options">
-                        <nav className="app-nav">
-                            <ul>
-                                <li>
-                                    <NavLink to="/login">Login</NavLink>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
-                </div>
-            </header>
-        );
-    }
+function Header() {
+
+    return (
+        <Navbar bg="dark" variant="dark">
+            <Container>
+                <Navbar.Brand href="/">
+                    PrivTap
+                </Navbar.Brand>
+
+                <Nav className="justify-content-end">
+                    <Nav.Link href="/login">Login</Nav.Link>
+                </Nav>
+            </Container>
+        </Navbar>
+    );
+
 }
 
 export default Header;
