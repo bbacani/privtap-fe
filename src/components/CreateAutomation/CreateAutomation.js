@@ -1,6 +1,7 @@
 import React from "react";
 import "./CreateAutomation.css";
 import {Button, Col, Container, Form, Row} from "react-bootstrap";
+import TriggerTypeList from "./TriggerTypeList";
 
 function CreateAutomation() {
 
@@ -14,12 +15,7 @@ function CreateAutomation() {
                         <Form>
                             <Form.Group className="mb-3" controlId="formTriggerPlatform">
                                 <Form.Label>Platform</Form.Label>
-                                <Form.Select aria-label="Select the platform">
-                                    <option>Select the platform</option>
-                                    <option value="1">Facebook</option>
-                                    <option value="2">Twitter</option>
-                                    <option value="3">Gmail</option>
-                                </Form.Select>
+                                <TriggerTypeList></TriggerTypeList>
                             </Form.Group>
 
                             <Form.Group className="mb-3" controlId="formTriggerEvent">

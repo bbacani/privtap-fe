@@ -11,6 +11,12 @@ export function service() {
     return {
         getAllActions: function () {
             return client.get("/action")
+        },
+        getAllTriggerTypes: function () {
+            return client.get("/triggerTypes")
         }
     }
+
+
+
 }
