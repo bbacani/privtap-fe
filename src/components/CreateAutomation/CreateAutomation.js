@@ -1,10 +1,11 @@
 import React from "react";
 import "./CreateAutomation.css";
 import {Button, Col, Container, Form, Row} from "react-bootstrap";
-import TriggerTypeList from "./TriggerTypeList";
+import TriggerPlatformList from "./TriggerPlatformList";
+import { useNavigate } from 'react-router-dom';
 
 function CreateAutomation() {
-
+    const navigate = useNavigate();
     return (
         <div>
             <h1>New automation</h1>
@@ -15,16 +16,16 @@ function CreateAutomation() {
                         <Form>
                             <Form.Group className="mb-3" controlId="formTriggerPlatform">
                                 <Form.Label>Platform</Form.Label>
-                                <TriggerTypeList></TriggerTypeList>
+                                <TriggerPlatformList></TriggerPlatformList>
                             </Form.Group>
 
                             <Form.Group className="mb-3" controlId="formTriggerEvent">
                                 <Form.Label>Event</Form.Label>
                                 <Form.Select aria-label="Select the event">
                                     <option>Select the event</option>
-                                    <option value="1">A new post is added</option>
-                                    <option value="2">An email arrived</option>
-                                    <option value="3">Something</option>
+                                    <option value="1">The user added a new post</option>
+                                    <option value="2">The user receives a message</option>
+                                    <option value="3">The user is tagged in a photo</option>
                                 </Form.Select>
                             </Form.Group>
 
@@ -59,9 +60,8 @@ function CreateAutomation() {
                                 <Form.Label>Event</Form.Label>
                                 <Form.Select aria-label="Select the event">
                                     <option>Select the event</option>
-                                    <option value="1">A new post is added</option>
-                                    <option value="2">An email arrived</option>
-                                    <option value="3">Something</option>
+                                    <option value="1">Create a new post</option>
+                                    <option value="2">Send a message to a contact</option>
                                 </Form.Select>
                             </Form.Group>
 
@@ -79,7 +79,7 @@ function CreateAutomation() {
                         </Form>
                     </Col>
                 </Row>
-                <Button variant="primary" type="submit">
+                <Button onClick={() => navigate('/')} variant="primary" type="submit">
                     Add automation
                 </Button>
             </Container>

@@ -2,26 +2,26 @@ import React, {useEffect, useState} from "react";
 import {Form} from "react-bootstrap";
 import {service} from "../../service/ApiService";
 
-export default function TriggerTypeList() {
-    const [triggerTypes, setTriggerTypes] = useState();
+export default function TriggerPlatformList() {
+    const [triggerPlatforms, setTriggerPlatforms] = useState();
 
     useEffect(() => {
-            getAllTriggerTypes();
+            getAllTriggerPlatforms();
         },[]);
 
-    const getAllTriggerTypes = async () => {
-        const response = await service().getAllTriggerTypes();
-        setTriggerTypes(response.data);
+    const getAllTriggerPlatforms = async () => {
+        const response = await service().getAllTriggerPlatforms();
+        setTriggerPlatforms(response.data);
     }
 
     return (
         <Form.Select aria-label="Select the platform">
             <option>Select the platform</option>
 
-            {triggerTypes?.map((triggerType) => {
+            {triggerPlatforms?.map((triggerPlatform) => {
                 return (
                     <option>
-                        {triggerType.name}
+                        {triggerPlatform}
                     </option>
                 )
             })
