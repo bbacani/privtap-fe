@@ -1,13 +1,23 @@
 import React, {useEffect, useState} from "react";
-import {Form} from "react-bootstrap";
+import "./CreateAutomation.css";
 import {service} from "../../service/ApiService";
+import TypeCard from "./TypeCard";
+import {Button, ButtonGroup} from "react-bootstrap";
 
-export default function TriggerTypeList() {
+export default function TriggerTypeList(props) {
     const [triggerTypes, setTriggerTypes] = useState();
+    const [active, setActive] = useState();
 
     useEffect(() => {
-            getAllTriggerTypes();
-        },[]);
+        getAllTriggerTypes();
+    }, []);
+
+    const activeButton = (triggerId) => {
+        setActive(triggerId)
+        const activeTrigger=triggerTypes?.find(trigger=> trigger.id===triggerId)
+        console.log(activeTrigger)
+        props.setSelectedTrigger(activeTrigger)
+    }
 
     const getAllTriggerTypes = async () => {
         const response = await service().getAllTriggerTypes();
@@ -15,17 +25,17 @@ export default function TriggerTypeList() {
     }
 
     return (
-        <Form.Select aria-label="Select the platform">
-            <option>Select the platform</option>
-
-            {triggerTypes?.map((triggerType) => {
-                return (
-                    <option>
-                        {triggerType.name}
-                    </option>
-                )
-            })
-            }
-        </Form.Select>
+        <div>
+            <ButtonGroup vertical>
+                {triggerTypes?.map((trigger) => {
+                    return (
+                        <Button>
+                            <TypeCard active={active} object={trigger} onChange={activeButton}/>
+                        </Button>
+                    )
+                })
+                }
+            </ButtonGroup>
+        </div>
     )
 }

@@ -1,88 +1,45 @@
-import React from "react";
+import React, {useState} from "react";
 import "./CreateAutomation.css";
-import {Button, Col, Container, Form, Row} from "react-bootstrap";
+import {Button, Stack} from "react-bootstrap";
 import TriggerTypeList from "./TriggerTypeList";
+import ActionTypeList from "./ActionTypeList";
+import AutomationModal from "./AutomationModal";
 
 function CreateAutomation() {
+
+    const [selectedTrigger, setSelectedTrigger] = useState(null)
+    const [selectedAction, setSelectedAction] = useState(null)
+    const [modalShow, setModalShow] = React.useState(false);
 
     return (
         <div>
             <h1>New automation</h1>
-            <Container>
-                <Row>
-                    <Col md className="m-5">
-                        <h1 className="mb-5">Trigger</h1>
-                        <Form>
-                            <Form.Group className="mb-3" controlId="formTriggerPlatform">
-                                <Form.Label>Platform</Form.Label>
-                                <TriggerTypeList></TriggerTypeList>
-                            </Form.Group>
 
-                            <Form.Group className="mb-3" controlId="formTriggerEvent">
-                                <Form.Label>Event</Form.Label>
-                                <Form.Select aria-label="Select the event">
-                                    <option>Select the event</option>
-                                    <option value="1">A new post is added</option>
-                                    <option value="2">An email arrived</option>
-                                    <option value="3">Something</option>
-                                </Form.Select>
-                            </Form.Group>
+            <Stack className="stack-container" direction="horizontal" gap={3}>
+                <div className="automation-text "> IF</div>
+                <div className="cards-container">
+                    <h1>Triggers</h1>
+                    <div className="cards-list">
+                        <TriggerTypeList setSelectedTrigger={setSelectedTrigger}/>
+                    </div>
+                </div>
+                <div className="automation-text">THEN</div>
+                <div className="cards-container ">
+                    <h1>Actions</h1>
+                    <div className="cards-list">
+                        <ActionTypeList setSelectedAction={setSelectedAction}/>
+                    </div>
+                </div>
+                <div className="m-3">
+                    <h3> CREATE AUTOMATION </h3>
+                    <Button variant="primary" type="submit" onClick={() => setModalShow(true)}>
+                        Add automation
+                    </Button>
+                </div>
+            </Stack>
 
-                            <Form.Group className="mb-3">
-                                <Form.Text>Which data would You like to get from this trigger?</Form.Text>
-                            </Form.Group>
-
-                            <Form.Group className="mb-3" controlId="formTriggerPrivacy">
-                                <Form.Check type="checkbox" label="Name" />
-                                <Form.Check type="checkbox" label="Email" />
-                                <Form.Check type="checkbox" label="Content of the post" />
-                                <Form.Check type="checkbox" label="Location" />
-                                <Form.Check type="checkbox" label="Images" />
-                            </Form.Group>
-                        </Form>
-                    </Col>
-
-                    <Col md className="m-5">
-                        <h1 className="mb-5">Action</h1>
-                        <Form>
-                            <Form.Group className="mb-3" controlId="formTriggerPlatform">
-                                <Form.Label>Platform</Form.Label>
-                                <Form.Select aria-label="Select the platform">
-                                    <option>Select the platform</option>
-                                    <option value="1">Facebook</option>
-                                    <option value="2">Twitter</option>
-                                    <option value="3">Gmail</option>
-                                </Form.Select>
-                            </Form.Group>
-
-                            <Form.Group className="mb-3" controlId="formTriggerEvent">
-                                <Form.Label>Event</Form.Label>
-                                <Form.Select aria-label="Select the event">
-                                    <option>Select the event</option>
-                                    <option value="1">A new post is added</option>
-                                    <option value="2">An email arrived</option>
-                                    <option value="3">Something</option>
-                                </Form.Select>
-                            </Form.Group>
-
-                            <Form.Group className="mb-3">
-                                <Form.Text>Which data would You like to share with this action?</Form.Text>
-                            </Form.Group>
-
-                            <Form.Group className="mb-3" controlId="formTriggerPrivacy">
-                                <Form.Check type="checkbox" label="Name" />
-                                <Form.Check type="checkbox" label="Email" />
-                                <Form.Check type="checkbox" label="Content of the post" />
-                                <Form.Check type="checkbox" label="Location" />
-                                <Form.Check type="checkbox" label="Images" />
-                            </Form.Group>
-                        </Form>
-                    </Col>
-                </Row>
-                <Button variant="primary" type="submit">
-                    Add automation
-                </Button>
-            </Container>
+            <AutomationModal show={modalShow} onHide={() => setModalShow(false)} trigger={selectedTrigger}
+                             action={selectedAction}/>
         </div>
     );
 }

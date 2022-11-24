@@ -14,6 +14,9 @@ export function service() {
         },
         getAllTriggerTypes: function () {
             return client.get("/triggerTypes")
+        },
+        getAllActionTypes: function () {
+            return client.get("/actionTypes")
         }
     }
 
