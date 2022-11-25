@@ -18,3 +18,35 @@
     border-radius: 15px;
     transition: all .3s;
 }
+
+.cards-list {
+    max-width: 400px;
+    max-height: 400px;
+    overflow-y: auto;
+
+}
+
+.cards-container {
+
+
+
+}
+
+.stack-container {
+
+    justify-content: space-evenly;
+
+}
+
+.automation-text {
+
+}
+
+.active {
+    background-color: #61dafb;
+}
+
+.not-active {
+    background-color: cornflowerblue;
+}
+
