@@ -30,6 +30,12 @@ export function service() {
         },
         addAutomation: function (userId, automationRequest) {
             return client.post(`/automation/${userId}`, automationRequest)
+        },
+        getAllUserAutomations: function (userId) {
+            return client.get(`/automation/${userId}`)
+        },
+        getUserById: function(userId){
+            return client.get(`/user/${userId}`)
         }
     }
 }
