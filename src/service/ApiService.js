@@ -7,6 +7,7 @@ export const client = Axios.create({
 })
 
 export function service() {
+
     return {
         getAllActions: function () {
             return client.get("/action")

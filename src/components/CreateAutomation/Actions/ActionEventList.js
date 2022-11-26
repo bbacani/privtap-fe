@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import {Form} from "react-bootstrap";
-import {service} from "../../service/ApiService";
+import {service} from "../../../service/ApiService";
 
 export default function ActionEventList(props) {
     const [actionTypes, setActionTypes] = useState();

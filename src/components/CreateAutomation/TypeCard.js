@@ -12,7 +12,6 @@ function TypeCard(props) {
             className={props.active === props.object.id ? "active" : "not-active"}
             onClick={() => clickHandler(props.object.id)}
         >
-            <Card.Header>{props.object.platform}</Card.Header>
             <Card.Body>
                 <Card.Title>{props.object.name}</Card.Title>
                 <Card.Text>{props.object.description}</Card.Text>
