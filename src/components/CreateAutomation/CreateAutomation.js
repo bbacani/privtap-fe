@@ -1,18 +1,19 @@
 import React, {useState} from "react";
 import "./CreateAutomation.css";
-import {Button, Col, Container, Form, Row} from "react-bootstrap";
+import {Col, Container, Form, Row} from "react-bootstrap";
 import TriggerPlatformList from "./Triggers/TriggerPlatformList";
-import {useNavigate} from 'react-router-dom';
 import ActionPlatformList from "./Actions/ActionPlatformList";
-import {service} from "../../service/ApiService";
 import TriggerEventCards from "./Triggers/TriggerEventCards";
 import ActionEventCards from "./Actions/ActionEventCards";
+import Button from "react-bootstrap/Button";
+import AutomationModal from "./AutomationModal";
 
 function CreateAutomation() {
     const [triggerPlatform, setTriggerPlatform] = useState();
     const [actionPlatform, setActionPlatform] = useState();
-    const [triggerId, setTriggerId] = useState();
-    const [actionId, setActionId] = useState();
+    const [selectedTrigger, setSelectedTrigger] = useState();
+    const [selectedAction, setSelectedAction] = useState();
+    const [modalShow, setModalShow] = useState(false);
 
     function handleSetTriggerPlatform(triggerPlatform) {
         setTriggerPlatform(triggerPlatform.target.value);
@@ -22,26 +23,14 @@ function CreateAutomation() {
         setActionPlatform(actionPlatform.target.value);
     }
 
-    function handleSetTriggerId(triggerId) {
-        setTriggerId(triggerId);
+    function handleSetTrigger(trigger) {
+        setSelectedTrigger(trigger);
     }
 
-    function handleSetActionId(actionId) {
-        setActionId(actionId);
+    function handleSetAction(action) {
+        setSelectedAction(action);
     }
 
-    function onSubmit() {
-        const automation = {
-            name: "Name",
-            description: "Description",
-            triggerTypeId: triggerId,
-            actionTypeId: actionId,
-        }
-        service().addAutomation(automation);
-        navigate('/');
-    }
-
-    const navigate = useNavigate();
     return (
         <div>
             <Container>
@@ -57,7 +46,8 @@ function CreateAutomation() {
 
                                 <Form.Group className="mb-3" controlId="formTriggerEvent">
                                     <Form.Label>Events</Form.Label>
-                                    <TriggerEventCards setTriggerId={handleSetTriggerId} platform={triggerPlatform}/>
+                                    <TriggerEventCards setSelectedTrigger={handleSetTrigger}
+                                                       platform={triggerPlatform}/>
                                 </Form.Group>
                             </Form>
                         </Col>
@@ -72,20 +62,28 @@ function CreateAutomation() {
 
                                 <Form.Group className="mb-3" controlId="formTriggerEvent">
                                     <Form.Label>Events</Form.Label>
-                                    <ActionEventCards setActionId={handleSetActionId} platform={actionPlatform}/>
+                                    <ActionEventCards setSelectedAction={handleSetAction} platform={actionPlatform}/>
                                 </Form.Group>
                             </Form>
                         </Col>
                     </Row>
                     <Row>
-                        <Col align="center">
-                            <Button onClick={onSubmit} variant="primary" type="submit">
-                                Create automation
-                            </Button>
-                        </Col>
+                        {selectedTrigger && selectedAction &&
+                        <div>
+                            <Col align="center" className="mb-3  gap-2">
+                                <Button variant="primary" size="lg" type="submit" onClick={() => setModalShow(true)}>
+                                    Create automation
+                                </Button>
+                            </Col>
+                            <AutomationModal show={modalShow} onHide={() => setModalShow(false)}
+                                             trigger={selectedTrigger}
+                                             action={selectedAction}/>
+                        </div>
+                        }
                     </Row>
                 </Col>
             </Container>
+
         </div>
     );
 }

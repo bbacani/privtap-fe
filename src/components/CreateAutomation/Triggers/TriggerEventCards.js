@@ -21,7 +21,7 @@ export default function TriggerEventCards(props) {
     const activeButton = (triggerId) => {
         setActive(triggerId)
         const activeTrigger = triggerTypes?.find(trigger => trigger.id === triggerId)
-        props.setTriggerId(triggerId)
+        props.setSelectedTrigger(activeTrigger)
     }
 
 

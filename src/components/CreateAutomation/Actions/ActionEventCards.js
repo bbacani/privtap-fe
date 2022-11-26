@@ -20,7 +20,7 @@ export default function ActionEventCards(props) {
     const activeButton = (actionId) => {
         setActive(actionId)
         const activeAction = actionTypes?.find(action => action.id === actionId)
-        props.setActionId(actionId)
+        props.setSelectedAction(activeAction)
     }
 
 

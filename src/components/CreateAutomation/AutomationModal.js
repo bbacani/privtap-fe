@@ -1,6 +1,9 @@
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import {useNavigate} from "react-router-dom";
+import {ArrowRight, CheckLg} from "react-bootstrap-icons";
+import {Stack} from "react-bootstrap";
+import React from "react";
 
 function AutomationModal(props) {
 
@@ -22,24 +25,31 @@ function AutomationModal(props) {
                 </Modal.Title>
             </Modal.Header>
             <Modal.Body>
-                {props.trigger && props.action ? (
-                    <div>
-                        <p>If you want to create a new automation with trigger</p>
+
+                <div align="center">
+                    <p>To create an automation:</p>
+                    <Stack direction="horizontal" className="justify-content-center mx-auto" gap={3}>
                         <h5> {props.trigger.name}</h5>
-                        <p>and action </p>
+                        <ArrowRight color="royalblue" size={96}/>
                         <h5> {props.action.name}</h5>
-                        <p>you must accept the following fields: </p>
-                        <p> {props.action.requestFieldsNames.toString()}</p>
-                    </div>) : (
-                    <div>
-                        <p>To create a new automation you must select a trigger and an action.</p>
-                    </div>
-                )}
+                    </Stack>
+                    <p>You must accept the following fields: </p>
+                    <ul className="check-list">
+                        {props.action.requestFieldsNames.map((field) => {
+                            return (
+                                <div className="check-list-item">
+                                    <CheckLg color="royalblue" size={30}/>
+                                    <li>{field}</li>
+                                </div>
+                            )
+                        })}
+                    </ul>
+                </div>
             </Modal.Body>
             <Modal.Footer>
-                {props.trigger && props.action &&
-                <Button size="lg" variant="primary" onClick={handleAcceptAutomation} >Accept</Button>
-                }
+
+                <Button size="lg" variant="primary" onClick={handleAcceptAutomation}>Accept</Button>
+
                 <Button size="lg" variant="secondary" onClick={props.onHide}>Cancel</Button>
             </Modal.Footer>
         </Modal>
