@@ -28,8 +28,8 @@ export function service() {
             return client.get("/actionTypes/platform/" + platform)
         },
         //TODO: add the parameter userId, now it's hardcoded
-        addAutomation: function(automation) {
-            return client.post("/automation/6380aa31e390fb141265465a", automation)
+        addAutomation: function(automationRequest) {
+            return client.post("/automation/63808fb3e390fb1412654659", automationRequest)
         }
     }
 }
