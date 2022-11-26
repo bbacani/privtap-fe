@@ -31,6 +31,9 @@ export function service() {
         //TODO: add the parameter userId, now it's hardcoded
         addAutomation: function(automationRequest) {
             return client.post("/automation/63808fb3e390fb1412654659", automationRequest)
+        },
+        getAllUserAutomations: function (userId){
+            return client.get("/automation/"+userId)
         }
     }
 }
