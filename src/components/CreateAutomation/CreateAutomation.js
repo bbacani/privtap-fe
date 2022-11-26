@@ -8,7 +8,7 @@ import ActionEventCards from "./Actions/ActionEventCards";
 import Button from "react-bootstrap/Button";
 import AutomationModal from "./AutomationModal";
 
-function CreateAutomation() {
+function CreateAutomation(props) {
     const [triggerPlatform, setTriggerPlatform] = useState();
     const [actionPlatform, setActionPlatform] = useState();
     const [selectedTrigger, setSelectedTrigger] = useState();
@@ -77,7 +77,8 @@ function CreateAutomation() {
                             </Col>
                             <AutomationModal show={modalShow} onHide={() => setModalShow(false)}
                                              trigger={selectedTrigger}
-                                             action={selectedAction}/>
+                                             action={selectedAction}
+                                             userId={props.userId}/>
                         </div>
                         }
                     </Row>
