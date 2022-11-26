@@ -23,9 +23,10 @@ function App() {
                 <Route path="/login" exact element={<Login/>}/>
                 <Route path='/action' exact element={<Action/>}/>
                 <Route path='/trigger' exact element={<Trigger/>}/>
-                <Route path='/user' exact element={<User id={currentUserId}/>}/>
+                <Route path='/automations' exact element={<User/>}/>
+                <Route path='/user' exact element={<User/>}/>
                 <Route path="/oauth2/redirect" element={<OAuth2RedirectHandler/>}/>
-                <Route path="/create-automation" element={<CreateAutomation id={currentUserId}/>}/>
+                <Route path="/create-automation" element={<CreateAutomation userId={currentUserId}/>}/>
             </Routes>
         </BrowserRouter>
     );
