@@ -12,8 +12,8 @@ function AutomationModal(props) {
     const handleAcceptAutomation = async () => {
         props.onHide()
         const automation = {
-            name: "Name",
-            description: "Description",
+            name: props.name,
+            description: props.description,
             actionTypeId: props.action.id,
             triggerTypeId: props.trigger.id,
         }
