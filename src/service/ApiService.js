@@ -31,11 +31,16 @@ export function service() {
         addAutomation: function (userId, automationRequest) {
             return client.post(`/automation/${userId}`, automationRequest)
         },
+        deleteAutomation: function (userId, automation) {
+            return client.delete(`/automation/${userId}`, automation)
+        },
         getAllUserAutomations: function (userId) {
             return client.get(`/automation/${userId}`)
         },
         getUserById: function(userId){
             return client.get(`/user/${userId}`)
-        }
+        },
+
+
     }
 }
