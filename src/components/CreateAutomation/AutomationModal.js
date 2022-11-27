@@ -17,7 +17,7 @@ function AutomationModal(props) {
             actionTypeId: props.action.id,
             triggerTypeId: props.trigger.id,
         }
-        await service().addAutomation(automation)
+        await service().addAutomation(props.userId, automation)
         navigate(`/automations`)
     }
 

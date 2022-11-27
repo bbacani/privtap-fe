@@ -8,7 +8,7 @@ import ActionEventCards from "./Actions/ActionEventCards";
 import Button from "react-bootstrap/Button";
 import AutomationModal from "./AutomationModal";
 
-function CreateAutomation() {
+function CreateAutomation(props) {
     const [name, setName] = useState();
     const [description, setDescription] = useState();
     const [triggerPlatform, setTriggerPlatform] = useState();

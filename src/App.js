@@ -11,6 +11,8 @@ import CreateAutomation from "./components/CreateAutomation/CreateAutomation";
 
 function App() {
 
+    const currentUserId="637fca83e390fb1412654658";
+
     return (
         <BrowserRouter>
             <div>
@@ -24,7 +26,7 @@ function App() {
                 <Route path='/automations' exact element={<User/>}/>
                 <Route path='/user' exact element={<User/>}/>
                 <Route path="/oauth2/redirect" element={<OAuth2RedirectHandler/>}/>
-                <Route path="/create-automation" element={<CreateAutomation/>}/>
+                <Route path="/create-automation" element={<CreateAutomation userId={currentUserId}/>}/>
             </Routes>
         </BrowserRouter>
     );
