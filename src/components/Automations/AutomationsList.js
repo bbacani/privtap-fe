@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {Container, Row, Stack} from "react-bootstrap";
 import {ArrowRight} from "react-bootstrap-icons";
 import Button from "react-bootstrap/Button";
@@ -6,22 +6,29 @@ import {service} from "../../service/ApiService";
 
 function AutomationList(props) {
 
+    const [automations, setAutomations] = useState()
+
+    const getAllUserAutomations = async () => {
+        const response = await service().getAllUserAutomations("63808fb3e390fb1412654659");
+        setAutomations(response.data);
+    }
+
+    useEffect(() => {
+        getAllUserAutomations();
+    }, []);
+
     const handleDeleteAutomation = async (id) => {
-        console.log(id)
-        console.log(props.userId)
-        const request={
-            automation: id
+        const request = {
+            data: id
         }
-        console.log(request)
         await service().deleteAutomation(props.userId, request)
+        await getAllUserAutomations();
     }
 
 
     return (
-
         <Container fluid className="mt-3">
-
-            {props.automations?.map((automation) => {
+            {automations?.map((automation) => {
                 return (
                     <Row xs={1} md={2} lg={2}>
                         <Stack direction="horizontal" className="justify-content-center mx-auto" gap={3}>
@@ -36,10 +43,7 @@ function AutomationList(props) {
                     </Row>
                 )
             })}
-
         </Container>
-
-
     );
 }
 

@@ -1,33 +1,28 @@
-import React, {useEffect, useState} from 'react';
-import {service} from "../../service/ApiService";
+import React from 'react';
+import {useNavigate} from "react-router-dom";
+import {Button} from "react-bootstrap";
 import AutomationList from "../Automations/AutomationsList";
 
 function User(props) {
 
-    const [automations, setAutomations] = useState()
-
-
-    useEffect(() => {
-        const getAllUserAutomations = async () => {
-            const response = await service().getAllUserAutomations("63808fb3e390fb1412654659");
-            setAutomations(response.data);
-        }
-        getAllUserAutomations();
-    }, []);
-
+    let navigate = useNavigate();
     return (
         <div>
             {props.user &&
-            <div>
-                <h1 align="center" className="my-5">User info</h1>
-                <h5>{props.user.username}</h5>
-                <h5>{props.user.email}</h5>
+            <div align="center" >
+                <h1 className="my-5">User info</h1>
+                <div align="start">
+                    <h5>{props.user.username}</h5>
+                    <h5>{props.user.email}</h5>
+                </div>
+                <h1 className="my-5">User automations</h1>
+                <AutomationList userId={props.user.id}/>
+                <Button variant="primary" className="m-3"
+                        onClick={() => navigate(`/create-automation`)}>
+                    CREATE AUTOMATION
+                </Button>
             </div>
             }
-            <div>
-                <h1 align="center" className="my-5">User automations</h1>
-                {automations && <AutomationList userId={props.user.id} automations={automations}/>}
-            </div>
         </div>
     );
 }
