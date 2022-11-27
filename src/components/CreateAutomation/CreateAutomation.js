@@ -94,7 +94,8 @@ function CreateAutomation(props) {
                                          name={name}
                                          description={description}
                                          trigger={selectedTrigger}
-                                         action={selectedAction}/>
+                                         action={selectedAction}
+                                         userId={props.userId}/>
                     </div>
                     }
                 </Row>
