@@ -34,7 +34,7 @@ export function service() {
         },
         getAllAutomations: function (userId) {
             return client.get("/automation/" + userId)
-        }
+        },
         addAutomation: function (userId, automationRequest) {
             return client.post(`/automation/${userId}`, automationRequest)
         },
