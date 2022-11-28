@@ -7,11 +7,11 @@ export default function Home(props) {
     const userId = props.userId
 
     useEffect(() => {
-        const getAllAutomations = async (userId) => {
-            const response = await service().getAllAutomations(userId);
+        const getAllUserAutomations = async (userId) => {
+            const response = await service().getAllUserAutomations(userId);
             setAutomations(response.data);
         }
-        getAllAutomations(props.userId);
+        getAllUserAutomations(props.userId);
     },[userId]);
 
     const emptyStateMessage = () => {

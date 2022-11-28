@@ -24,7 +24,6 @@ export default function ActionEventCards(props) {
         props.setSelectedAction(activeAction)
     }
 
-
     return (
         <div>
             <Container fluid className="mt-3">
@@ -37,11 +36,9 @@ export default function ActionEventCards(props) {
                                 </Button>
                             </Col>
                         )
-                    })
-                    }
+                    })}
                 </Row>
             </Container>
-
         </div>
     )
 }
