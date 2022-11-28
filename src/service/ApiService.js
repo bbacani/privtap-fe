@@ -28,9 +28,8 @@ export function service() {
         getActionTypesByPlatform: function (platform) {
             return client.get("/actionTypes/platform/" + platform)
         },
-        //TODO: add the parameter userId, now it's hardcoded
-        addAutomation: function(automation) {
-            return client.post("/automation/6380aa31e390fb141265465a", automation)
+        addAutomation: function(userId, automation) {
+            return client.post("/automation/" + userId, automation)
         },
         getAllAutomations: function (userId) {
             return client.get("/automation/" + userId)

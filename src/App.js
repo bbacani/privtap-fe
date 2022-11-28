@@ -10,20 +10,20 @@ import OAuth2RedirectHandler from "./components/Login/oauth2/OAuth2RedirectHandl
 import CreateAutomation from "./components/CreateAutomation/CreateAutomation";
 
 function App() {
-
+    const userId = "6380aa31e390fb141265465a"
     return (
         <BrowserRouter>
             <div>
                 <Header/>
             </div>
             <Routes>
-                <Route path="/" exact element={<Home/>}/>
+                <Route path="/" exact element={<Home userId={userId}/>}/>
                 <Route path="/login" exact element={<Login/>}/>
                 <Route path='/action' exact element={<Action/>}/>
                 <Route path='/trigger' exact element={<Trigger/>}/>
                 <Route path='/user' exact element={<User/>}/>
                 <Route path="/oauth2/redirect" element={<OAuth2RedirectHandler/>}></Route>
-                <Route path="/create-automation" element={<CreateAutomation/>}></Route>
+                <Route path="/create-automation" element={<CreateAutomation userId={userId}/>}></Route>
             </Routes>
         </BrowserRouter>
     );

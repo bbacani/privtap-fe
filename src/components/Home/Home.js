@@ -2,16 +2,17 @@ import React, {useEffect, useState} from 'react';
 import "./Home.css"
 import {service} from "../../service/ApiService";
 
-export default function Home() {
+export default function Home(props) {
     const [automations, setAutomations] = useState();
+    const userId = props.userId
 
     useEffect(() => {
-        const getAllAutomations = async () => {
-            const response = await service().getAllAutomations("637fca83e390fb1412654658");
+        const getAllAutomations = async (userId) => {
+            const response = await service().getAllAutomations(userId);
             setAutomations(response.data);
         }
-        getAllAutomations();
-    },[]);
+        getAllAutomations(props.userId);
+    },[userId]);
 
     const emptyStateMessage = () => {
         return (
@@ -32,7 +33,7 @@ export default function Home() {
                                     {automations?.map((automation) => {
                                         if(automation.trigger !== null && automation.action !== null) {
                                             return (
-                                                <div className="grid-item">
+                                                <div key={automation} className="grid-item">
                                                     <div>
                                                         <h4 className="cardTitle">
                                                             <span className="cardWhenThen">WHEN </span>

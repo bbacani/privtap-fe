@@ -8,12 +8,13 @@ import ActionEventCards from "./Actions/ActionEventCards";
 import Button from "react-bootstrap/Button";
 import AutomationModal from "./AutomationModal";
 
-function CreateAutomation() {
+function CreateAutomation(props) {
     const [triggerPlatform, setTriggerPlatform] = useState();
     const [actionPlatform, setActionPlatform] = useState();
     const [selectedTrigger, setSelectedTrigger] = useState();
     const [selectedAction, setSelectedAction] = useState();
     const [modalShow, setModalShow] = useState(false);
+    const userId = props.userId
 
     function handleSetTriggerPlatform(triggerPlatform) {
         setTriggerPlatform(triggerPlatform.target.value);
