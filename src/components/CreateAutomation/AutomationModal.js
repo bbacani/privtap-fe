@@ -18,7 +18,7 @@ function AutomationModal(props) {
             triggerTypeId: props.trigger.id,
         }
         await service().addAutomation(props.userId, automation)
-        navigate(`/automations`)
+        navigate(`/`)
     }
 
     const checkFieldsCount = () => {
