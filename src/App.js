@@ -11,7 +11,6 @@ import CreateAutomation from "./components/CreateAutomation/CreateAutomation";
 import {service} from "./service/ApiService";
 
 function App() {
-
     const currentUserId = "63808fb3e390fb1412654659";
 
     const [user, setUser] = useState();
@@ -30,10 +29,13 @@ function App() {
                 <Header/>
             </div>
             <Routes>
-                <Route path="/" exact element={<Home/>}/>
+                <Route path="/" exact element={<Home userId={currentUserId}/>}/>
                 <Route path="/login" exact element={<Login/>}/>
                 <Route path='/action' exact element={<Action/>}/>
                 <Route path='/trigger' exact element={<Trigger/>}/>
+                <Route path='/user' exact element={<User/>}/>
+                <Route path="/oauth2/redirect" element={<OAuth2RedirectHandler/>}></Route>
+                <Route path="/create-automation" element={<CreateAutomation userId={currentUserId}/>}></Route>
                 <Route path='/user' exact element={<User user={user}/>}/>
                 <Route path="/oauth2/redirect" element={<OAuth2RedirectHandler/>}/>
                 <Route path="/create-automation" element={<CreateAutomation userId={currentUserId}/>}/>
