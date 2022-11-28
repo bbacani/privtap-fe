@@ -12,7 +12,7 @@ function Header() {
                 </Navbar.Brand>
 
                 <Nav className="justify-content-center">
-                    <Nav.Link href="/createAutomation">
+                    <Nav.Link href="/create-automation">
                         <h4 className="createAutomation">Create automation</h4>
                     </Nav.Link>
                 </Nav>

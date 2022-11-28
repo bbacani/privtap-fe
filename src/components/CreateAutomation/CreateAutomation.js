@@ -1,81 +1,89 @@
-import React from "react";
+import React, {useState} from "react";
 import "./CreateAutomation.css";
+import {Col, Container, Form, Row} from "react-bootstrap";
+import TriggerPlatformList from "./Triggers/TriggerPlatformList";
+import ActionPlatformList from "./Actions/ActionPlatformList";
+import TriggerEventCards from "./Triggers/TriggerEventCards";
+import ActionEventCards from "./Actions/ActionEventCards";
+import Button from "react-bootstrap/Button";
+import AutomationModal from "./AutomationModal";
 
 function CreateAutomation() {
+    const [triggerPlatform, setTriggerPlatform] = useState();
+    const [actionPlatform, setActionPlatform] = useState();
+    const [selectedTrigger, setSelectedTrigger] = useState();
+    const [selectedAction, setSelectedAction] = useState();
+    const [modalShow, setModalShow] = useState(false);
+
+    function handleSetTriggerPlatform(triggerPlatform) {
+        setTriggerPlatform(triggerPlatform.target.value);
+    }
+
+    function handleSetActionPlatform(actionPlatform) {
+        setActionPlatform(actionPlatform.target.value);
+    }
+
+    function handleSetTrigger(trigger) {
+        setSelectedTrigger(trigger);
+    }
+
+    function handleSetAction(action) {
+        setSelectedAction(action);
+    }
 
     return (
         <div>
-            <h1>New automation</h1>
-            <h3>At PrivTAP we like to call this feature: If this then that</h3>
-            <br/><br/>
-            <div className="row">
-                <div className="column">
-                    <div className="triggerActionContainer">
-                        <h2>Trigger</h2>
+            <Container>
+                <Col>
+                    <Row>
+                        <Col md className="p-5">
+                            <h1 align="center" className="mb-5">Trigger</h1>
+                            <Form>
+                                <Form.Group className="mb-3" controlId="formTriggerPlatform">
+                                    <Form.Label>Platforms</Form.Label>
+                                    <TriggerPlatformList onChange={handleSetTriggerPlatform}/>
+                                </Form.Group>
+
+                                <Form.Group className="mb-3" controlId="formTriggerEvent">
+                                    <Form.Label>Events</Form.Label>
+                                    <TriggerEventCards setSelectedTrigger={handleSetTrigger}
+                                                       platform={triggerPlatform}/>
+                                </Form.Group>
+                            </Form>
+                        </Col>
+
+                        <Col md className="p-5">
+                            <h1 align="center" className="mb-5">Action</h1>
+                            <Form>
+                                <Form.Group className="mb-3" controlId="formTriggerPlatform">
+                                    <Form.Label>Platforms</Form.Label>
+                                    <ActionPlatformList onChange={handleSetActionPlatform}/>
+                                </Form.Group>
+
+                                <Form.Group className="mb-3" controlId="formTriggerEvent">
+                                    <Form.Label>Events</Form.Label>
+                                    <ActionEventCards setSelectedAction={handleSetAction} platform={actionPlatform}/>
+                                </Form.Group>
+                            </Form>
+                        </Col>
+                    </Row>
+                    <Row>
+                        {selectedTrigger && selectedAction &&
                         <div>
-                            <span>Platform:</span>
-                            <select name="cars" id="cars">
-                                <option value="volvo">Volvo</option>
-                                <option value="saab">Saab</option>
-                                <option value="mercedes">Mercedes</option>
-                                <option value="audi">Audi</option>
-                            </select>
+                            <Col align="center" className="mb-3  gap-2">
+                                <Button variant="primary" size="lg" type="submit" onClick={() => setModalShow(true)}>
+                                    Create automation
+                                </Button>
+                            </Col>
+                            <AutomationModal show={modalShow} onHide={() => setModalShow(false)}
+                                             trigger={selectedTrigger}
+                                             action={selectedAction}/>
                         </div>
-                        <div>
-                            <span>Event:</span>
-                            <select name="cars" id="cars">
-                                <option value="volvo">Volvo</option>
-                                <option value="saab">Saab</option>
-                                <option value="mercedes">Mercedes</option>
-                                <option value="audi">Audi</option>
-                            </select>
-                        </div>
-                        <br/><br/>
-                        <h3>Which data would You like to get from this trigger?</h3>
-                        <div>
-                            <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike"/>
-                            <label htmlFor="vehicle1"> I have a bike</label><br/>
-                            <input type="checkbox" id="vehicle2" name="vehicle2" value="Car"/>
-                            <label htmlFor="vehicle2"> I have a car</label><br/>
-                            <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat"/>
-                            <label htmlFor="vehicle3"> I have a boat</label><br/>
-                        </div>
-                    </div>
-                </div>
-                <div className="column">
-                    <div className="triggerActionContainer">
-                        <h2>Action</h2>
-                        <div>
-                            <span>Platform:</span>
-                            <select name="cars" id="cars">
-                                <option value="volvo">Volvo</option>
-                                <option value="saab">Saab</option>
-                                <option value="mercedes">Mercedes</option>
-                                <option value="audi">Audi</option>
-                            </select>
-                        </div>
-                        <div>
-                            <span>Event:</span>
-                            <select name="cars" id="cars">
-                                <option value="volvo">Volvo</option>
-                                <option value="saab">Saab</option>
-                                <option value="mercedes">Mercedes</option>
-                                <option value="audi">Audi</option>
-                            </select>
-                        </div>
-                        <br/><br/>
-                        <h3>Which data would You like to share with this action?</h3>
-                        <div>
-                            <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike"/>
-                            <label htmlFor="vehicle1"> I have a bike</label><br/>
-                            <input type="checkbox" id="vehicle2" name="vehicle2" value="Car"/>
-                            <label htmlFor="vehicle2"> I have a car</label><br/>
-                            <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat"/>
-                            <label htmlFor="vehicle3"> I have a boat</label><br/>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                        }
+                    </Row>
+                </Col>
+            </Container>
+
         </div>
     );
 }
