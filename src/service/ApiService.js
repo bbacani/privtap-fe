@@ -20,19 +20,19 @@ export function service() {
             return client.get("/triggerTypes/platforms")
         },
         getTriggerTypesByPlatform: function (platform) {
-            return client.get("/triggerTypes/platform/" + platform)
+            return client.get(`/triggerTypes/platform/${platform}`)
         },
         getAllActionPlatforms: function () {
             return client.get("/actionTypes/platforms")
         },
         getActionTypesByPlatform: function (platform) {
-            return client.get("/actionTypes/platform/" + platform)
+            return client.get(`/actionTypes/platform/${platform}`)
         },
-        addAutomation: function(userId, automation) {
-            return client.post("/automation/" + userId, automation)
+        addAutomation: function(userId, automationRequest) {
+            return client.post(`/automation/${userId}`, automationRequest)
         },
         getAllAutomations: function (userId) {
-            return client.get("/automation/" + userId)
+            return client.get(`/automation/${userId}`)
         }
     }
 }
