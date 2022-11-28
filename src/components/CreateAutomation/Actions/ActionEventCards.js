@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
+import "../CreateAutomation.css";
 import {service} from "../../../service/ApiService";
-import {Button, Container, Row} from "react-bootstrap";
+import {Button, Col, Container, Row} from "react-bootstrap";
 import TypeCard from "../TypeCard";
 
 export default function ActionEventCards(props) {
@@ -23,22 +24,21 @@ export default function ActionEventCards(props) {
         props.setSelectedAction(activeAction)
     }
 
-
     return (
         <div>
             <Container fluid className="mt-3">
                 <Row xs={1} md={2} lg={2}>
                     {actionTypes?.map((action) => {
                         return (
-                            <Button className="button">
-                                <TypeCard active={active} object={action} onChange={activeButton}/>
-                            </Button>
+                            <Col className="mb-2">
+                                <Button className="button">
+                                    <TypeCard active={active} object={action} onChange={activeButton}/>
+                                </Button>
+                            </Col>
                         )
-                    })
-                    }
+                    })}
                 </Row>
             </Container>
-
         </div>
     )
 }
