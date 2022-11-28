@@ -1,0 +1,17 @@
+.header {
+    box-shadow: 0 3px 10px 3px rgba(0, 0, 0, 0.07);
+}
+
+.createAutomation {
+    background-color: #34abeb;
+    font-weight: bolder;
+    font-size: 16px;
+    color: white;
+    border-radius: 20px;
+    padding: 10px;
+}
+
+.brand {
+    font-weight: bolder;
+    font-size: 24px;
+}
