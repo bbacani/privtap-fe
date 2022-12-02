@@ -5,7 +5,7 @@ function OAuth2RedirectHandler() {
 
 
     return (
-        <Navigate to="/user"/>
+        <Navigate to="/"/>
     );
 
 
