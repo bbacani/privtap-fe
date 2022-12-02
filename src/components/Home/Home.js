@@ -30,7 +30,7 @@ export default function Home(props) {
                         if (automations?.length > 0) {
                             return (
                                 <div className="grid-container">
-                                    {automations?.foreach((automation) => {
+                                    {automations?.map((automation) => {
                                         if(automation.trigger !== null && automation.action !== null) {
                                             return (
                                                 <div key={automation} className="grid-item">
@@ -47,6 +47,7 @@ export default function Home(props) {
                                         } else {
                                            emptyStateMessage()
                                         }
+                                        return null
                                         })
                                     }
                                 </div>
