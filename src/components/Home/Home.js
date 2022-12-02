@@ -12,7 +12,7 @@ export default function Home(props) {
             setAutomations(response.data);
         }
         getAllUserAutomations(props.userId);
-    },[userId]);
+    },[props.userId, userId]);
 
     const emptyStateMessage = () => {
         return (
@@ -30,7 +30,7 @@ export default function Home(props) {
                         if (automations?.length > 0) {
                             return (
                                 <div className="grid-container">
-                                    {automations?.map((automation) => {
+                                    {automations?.foreach((automation) => {
                                         if(automation.trigger !== null && automation.action !== null) {
                                             return (
                                                 <div key={automation} className="grid-item">
