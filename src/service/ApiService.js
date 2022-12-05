@@ -22,11 +22,17 @@ export function service() {
         getTriggerTypesByPlatform: function (platform) {
             return client.get(`/triggerTypes/platform/${platform}`)
         },
+        registerTriggerType: function (triggerType){
+            return client.post('/triggerType',triggerType)
+        },
         getAllActionPlatforms: function () {
             return client.get("/actionTypes/platforms")
         },
         getActionTypesByPlatform: function (platform) {
             return client.get(`/actionTypes/platform/${platform}`)
+        },
+        registerActionType: function (actionType){
+            return client.post('/actionTypes',actionType)
         },
         addAutomation: function (userId, automationRequest) {
             return client.post(`/automation/${userId}`, automationRequest)

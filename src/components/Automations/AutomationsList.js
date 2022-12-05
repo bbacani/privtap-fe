@@ -15,7 +15,7 @@ function AutomationList(props) {
 
     useEffect(() => {
         getAllUserAutomations().then();
-    } );
+    });
 
     const handleDeleteAutomation = async (id) => {
         const request = {
