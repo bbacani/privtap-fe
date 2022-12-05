@@ -9,13 +9,13 @@ function AutomationList(props) {
     const [automations, setAutomations] = useState()
 
     const getAllUserAutomations = async () => {
-        const response = await service().getAllUserAutomations("63808fb3e390fb1412654659");
+        const response = await service().getAllUserAutomations(props.userId);
         setAutomations(response.data);
     }
 
     useEffect(() => {
-        getAllUserAutomations();
-    }, []);
+        getAllUserAutomations().then();
+    } );
 
     const handleDeleteAutomation = async (id) => {
         const request = {

@@ -3,30 +3,102 @@
     font-size: 40px;
     text-align: center;
     font-weight: bolder;
+    color: black;
+    font-style: normal;
+    line-height: 22px;
+    margin-bottom: 1em;
 }
 
-.grid-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    padding: 40px 30px 0px 30px;
-    gap: 50px 50px;
-}
-
-.grid-item {
-    background-color: rgba(255, 255, 255);
-    border: 1px solid rgba(0, 0, 0, 0.2);
-    box-shadow: 0 3px 10px 3px rgba(0, 0, 0, 0.07);
-    padding: 30px;
-    font-size: 18px;
+.home-button {
+    background: #222222;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(20px);
+    border-radius: 10px;
     text-align: center;
 }
 
-.cardTitle {
-    font-weight: bold;
-    font-size: 18px;
+
+.grid-container {
+    backdrop-filter: blur(2px);
+    height: 100%;
+    padding: 40px 30px 30px 30px;
+    margin: 30px 30px;
 }
 
-.cardWhenThen {
-    font-weight: bold;
-    font-size: 24px;
+.grid-item {
+    background: #282828;
+    border-radius: 2em;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    box-shadow: 0 3px 10px 3px rgba(0, 0, 0, 0.07);
+    font-size: 18px;
+    text-align: center;
+    position: relative;
+    padding-top: 5%;
+}
+
+.cardTitle {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    color: white;
+}
+
+.cardWhen {
+    font-style: normal;
+    font-weight: 800;
+    font-size: 35px;
+    line-height: 50px;
+    color: #222222;
+
+}
+
+.cardThen {
+    margin-top: 2rem;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 35px;
+    line-height: 50px;
+    color: #222222;
+}
+
+.details-button {
+    position: absolute;
+    border: transparent;
+    background: linear-gradient(152.78deg, rgba(163, 163, 163, 0.68) 10.77%, rgba(255, 255, 255, 0.41) 83.79%);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(5px);
+    border-radius: 70px;
+    top: 7%;
+    right: 5%;
+    z-index: 1000;
+}
+
+.platform-button {
+    width: 80%;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 20px;
+    border: transparent;
+    background: #000000;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+    font-size: 16px;
+    position: absolute;
+    top: -5%;
+    left: 10%;
+}
+
+.sub-text{
+    font-size: 30px;
+    text-align: center;
+    font-weight: bolder;
+    color: black;
+    font-style: normal;
+    line-height: 22px;
+    margin-bottom: 1em;
+
 }

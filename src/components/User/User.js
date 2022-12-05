@@ -8,15 +8,14 @@ function User(props) {
     let navigate = useNavigate();
     return (
         <div>
-            {props.user &&
+            {props.userId &&
             <div align="center" >
                 <h1 className="my-5">User info</h1>
                 <div align="start">
-                    <h5>{props.user.username}</h5>
-                    <h5>{props.user.email}</h5>
+                    <h5>{props.userId}</h5>
                 </div>
                 <h1 className="my-5">User automations</h1>
-                <AutomationList userId={props.user.id}/>
+                <AutomationList userId={props.userId}/>
                 <Button variant="primary" className="m-3"
                         onClick={() => navigate(`/create-automation`)}>
                     CREATE AUTOMATION
