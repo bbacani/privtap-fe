@@ -1,0 +1,67 @@
+.box {
+    width: fit-content;
+    height: 400px;
+
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    margin: auto;
+}
+
+.grey-text {
+    color: #676767;
+}
+
+.googleButton {
+    height: 30px;
+    margin-right: 10px;
+}
+
+.bottom-centered {
+    width: 500px;
+    position: absolute;
+    left:50%;
+    margin-left:-250px;
+    bottom: 0;
+}
+
+.artist-bubble {
+    display: flex;
+}
+
+.chat-bubble {
+    flex: 1;
+    position: relative;
+    bottom: 100px;
+    margin-right: -60px;
+}
+
+.artist-div {
+    flex: 1;
+}
+
+.artist {
+    width: 80%;
+}
+
+.bubble-img {
+    width: 90%;
+}
+
+.centered-text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 20px 60px 30px 30px;
+    height: 120px;
+    padding: 5% 0;
+}
+
+.centered-text, p {
+    font-size: 20px;
+    color: #ffffff;
+    font-weight: 600;
+}
