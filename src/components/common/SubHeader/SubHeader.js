@@ -1,6 +1,6 @@
 import React from "react";
 import "./SubHeader.css";
-import {Container, Nav, Stack} from "react-bootstrap";
+import {Container, Stack} from "react-bootstrap";
 
 function SubHeader(props) {
 
@@ -18,8 +18,14 @@ function SubHeader(props) {
 
                 </Stack>
                 :
-                <Nav className="justify-content-end"> <Nav.Link href="/login">Login</Nav.Link>
-                </Nav>
+                <Stack direction="horizontal" className="m-3 justify-content-center">
+
+                    <h2>Home</h2>
+                    <h2>Explore</h2>
+
+                    <h2>Our mission</h2>
+
+                </Stack>
             }
         </Container>
 
