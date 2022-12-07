@@ -6,14 +6,16 @@ import img from "../../images/No results found.png"
 export default function NoAutomations() {
 
     return (
-        <div>
+        <div className=" automation-list-body" >
 
-            <Col align="center" className="mb-3  gap-2">
-                <Image fluid roundedCircle src={img}/>
+            <Col align="center" >
+                <Image fluid  className="image" src={img}/>
                 <p className="sub-text">Your automation list is looking really empty...</p>
                 <p className="sub-text">Try creating one!</p>
-                <Button className="home-button" variant="secondary" size="lg" href="/create-automation">Create
-                    new automation</Button>
+                <Col align="center" className="mb-3  gap-2">
+                    <Button className="home-button" variant="secondary" mar size="lg" href="/create-automation">Create
+                        new automation</Button>
+                </Col>
             </Col>
         </div>
     )

@@ -11,11 +11,11 @@ function Header(props) {
                 <Navbar.Brand href="/">
                     <h4 className="brand">privTAP</h4>
                 </Navbar.Brand>
-                {props.userId ?
+                {props.authenticated ?
                     <Nav>
-                        <Person color="white" size={40}/>
-                        <Navbar.Text>USERNAME</Navbar.Text>
-                        <Nav.Link className="mx-3" href="/logout">Logout</Nav.Link>
+                        <Person href="/profile" color="white" size={40}/>
+                        <Nav.Link href="/profile">{props.user.username}</Nav.Link>
+                        <Nav.Link className="mx-3" onClick={props.onLogout}>Logout</Nav.Link>
                     </Nav>
                     :
                     <Nav className="justify-content-end">

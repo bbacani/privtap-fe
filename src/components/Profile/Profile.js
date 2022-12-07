@@ -1,24 +1,27 @@
 import React, {useEffect, useState} from 'react';
-import "./Home.css"
-import {service} from "../../service/ApiService";
+import "./Profile.css"
 import AutomationGrid from "./AutomationGrid";
 import NoAutomations from "./NoAutomations";
+import {service} from "../../service/ApiService";
+import SubHeader from "../common/SubHeader/SubHeader";
 
-export default function Home(props) {
+export default function Profile(props) {
+
     const [automations, setAutomations] = useState();
-    const userId = props.userId
 
     useEffect(() => {
         const getAllUserAutomations = async (userId) => {
             const response = await service().getAllUserAutomations(userId);
             setAutomations(response.data);
         }
-        getAllUserAutomations(props.userId);
-    }, [userId]);
+        if (props.user)
+            getAllUserAutomations(props.user.id).then();
+    }, [props.user]);
 
     return (
         <div>
             <div>
+                <SubHeader authenticated={props.authenticated}/>
                 <div>
                     {(() => {
                         if (automations?.length > 0) {
@@ -33,4 +36,5 @@ export default function Home(props) {
             </div>
         </div>
     );
+
 }

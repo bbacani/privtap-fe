@@ -10,11 +10,17 @@
 }
 
 .home-button {
-    background: #222222;
+    background: #FFFFFF;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(20px);
-    border-radius: 10px;
+    color: #222222;
+    font-weight: 600;
+    font-size: 25px;
+    line-height: 40px;
     text-align: center;
+    margin-top: 3rem;
+    border-radius: 20px;
+    padding: 5px 30px;
 }
 
 
@@ -41,27 +47,21 @@
     font-weight: 400;
     font-size: 22px;
     line-height: 50px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
     color: white;
+    text-align: left;
 }
 
 .cardWhen {
-    font-style: normal;
     font-weight: 800;
-    font-size: 35px;
+    font-size: 26px;
     line-height: 50px;
     color: #222222;
 
 }
 
 .cardThen {
-    margin-top: 2rem;
-    font-style: normal;
     font-weight: 800;
-    font-size: 35px;
+    font-size: 26px;
     line-height: 50px;
     color: #222222;
 }
@@ -73,32 +73,40 @@
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     backdrop-filter: blur(5px);
     border-radius: 70px;
-    top: 7%;
-    right: 5%;
+    top: 5px;
+    right: -5%;
     z-index: 1000;
 }
 
 .platform-button {
-    width: 80%;
+
     color: white;
-    padding: 10px 15px;
-    border-radius: 20px;
-    border: transparent;
-    background: #000000;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
-    font-size: 16px;
-    position: absolute;
-    top: -5%;
-    left: 10%;
+    font-size: 12px;
+    position: relative;
+    left: 20px;
+    top: 1rem;
+    margin-bottom: 1.5rem;
+
+
 }
 
-.sub-text{
-    font-size: 30px;
+.sub-text {
+    font-size: 20px;
     text-align: center;
     font-weight: bolder;
-    color: black;
+    color: white;
     font-style: normal;
     line-height: 22px;
     margin-bottom: 1em;
 
+}
+
+.automation-list-body {
+    background-color: #222222;
+    padding-bottom: 5em;
+}
+
+.image{
+    height: 300px;
+    width: 300px;
 }
