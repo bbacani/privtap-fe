@@ -10,6 +10,7 @@ import OAuth2RedirectHandler from "./components/Login/oauth2/OAuth2RedirectHandl
 import CreateAutomation from "./components/CreateAutomation/CreateAutomation";
 import {service} from "./service/ApiService";
 import SignUp from "./components/SignUp/SignUp";
+import LandingPage from "./components/LandingPage/LandingPage";
 
 function App() {
     const currentUserId = "63808fb3e390fb1412654659";
@@ -27,10 +28,11 @@ function App() {
     return (
         <BrowserRouter>
             <div>
-                <Header/>
+                {/*<Header/>*/}
             </div>
             <Routes>
                 <Route path="/" exact element={<Home userId={currentUserId}/>}/>
+                <Route path="/landing-page" exact element={<LandingPage/>}/>
                 <Route path="/login" exact element={<Login/>}/>
                 <Route path="/signup" exact element={<SignUp/>}/>
                 <Route path='/action' exact element={<Action/>}/>
