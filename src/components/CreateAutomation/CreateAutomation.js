@@ -42,11 +42,13 @@ function CreateAutomation(props) {
                         <Form>
                             <FormGroup className="mb-3">
                                 <Form.Label>Name</Form.Label>
-                                <FormControl onChange={e => setName(e.target.value)} placeholder="Give a name to your new automation"></FormControl>
+                                <FormControl onChange={e => setName(e.target.value)}
+                                             placeholder="Give a name to your new automation"/>
                             </FormGroup>
                             <FormGroup className="mb-3">
                                 <Form.Label>Description</Form.Label>
-                                <FormControl onChange={e => setDescription(e.target.value)} placeholder="Describe your automation"></FormControl>
+                                <FormControl onChange={e => setDescription(e.target.value)}
+                                             placeholder="Describe your automation"/>
                             </FormGroup>
                         </Form>
                     </Col>
@@ -95,13 +97,14 @@ function CreateAutomation(props) {
                                          description={description}
                                          trigger={selectedTrigger}
                                          action={selectedAction}
-                                         userId={props.userId}/>
+                                         userId={props.user?.id}/>
                     </div>
                     }
                 </Row>
             </Container>
         </div>
     );
+
 }
 
 export default CreateAutomation;
