@@ -63,8 +63,8 @@ export function service() {
         getCurrentUser: function () {
             return client.get(`/user`)
         },
-        getPlatformLogin: function () {
-            return client.get(`/platform/spotify/authorizationUrl`)
+        getPlatformLogin: function (scopes) {
+            return client.get(`/platform/spotify/authorizationUrl`,{params: {scopes: scopes}})
         },
         getOAuthToken: function (platformName, userId, code) {
             return client.get(`/platform/${platformName}/oauthToken/${userId}`, {params: {code: code}})

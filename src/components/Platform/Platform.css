@@ -21,7 +21,12 @@
 
 }
 
-.scope-button{
+.scope-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: bottom;
+    height: 50px;
     margin: 1rem;
     background-color: white;
     border-radius: 10px;
