@@ -64,7 +64,8 @@ export function service() {
             return client.get(`/user`)
         },
         getPlatformLogin: function (scopes) {
-            return client.get(`/platform/spotify/authorizationUrl`,{params: {scopes: scopes}})
+            console.log("given scopes: " + scopes)
+            return client.get(`/platform/spotify/authorizationUrl?scopes=${scopes.map((scope) => scope).join(',')}`)
         },
         getOAuthToken: function (platformName, userId, code) {
             return client.get(`/platform/${platformName}/oauthToken/${userId}`, {params: {code: code}})
@@ -72,7 +73,6 @@ export function service() {
         getPlatformScopes: function (platformName) {
             return client.get(`/platform/${platformName}/oauthScopes`)
         },
-
 
 
     }
