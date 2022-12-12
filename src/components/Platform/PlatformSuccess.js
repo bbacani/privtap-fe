@@ -1,11 +1,29 @@
-import React from "react";
-import {Button, Container} from "react-bootstrap";
-import {SPOTIFY_AUTH_URL} from "../../config/constants";
+import React, {useEffect} from "react";
+import {Container} from "react-bootstrap";
 import {service} from "../../service/ApiService";
-import {useNavigate} from "react-router-dom";
 
 
 function PlatformSuccess(props) {
+
+    const code = getUrlParameter('code');
+
+    function getUrlParameter(name) {
+        name = name.replace(/[[]/, '\\[').replace(/[\]]/, '\\]');
+        var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+
+        var results = regex.exec(window.location.href);
+        return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+    }
+
+
+    useEffect(() => {
+        const getOAuthToken = async () => {
+            console.log(code)
+           await service().getOAuthToken("spotify", props.user,code)
+
+        }
+        getOAuthToken().then()
+    }, []);
 
 
     return (

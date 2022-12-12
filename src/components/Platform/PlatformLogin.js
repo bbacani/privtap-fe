@@ -10,10 +10,12 @@ function PlatformLogin(props) {
     const navigate = useNavigate();
     const getPlatformLogin = async () => {
         const response= await service().getPlatformLogin();
+
         console.log(response.data)
         window.location.href=response.data
-
     }
+
+
 
 
     return (

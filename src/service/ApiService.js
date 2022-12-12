@@ -66,6 +66,10 @@ export function service() {
         getPlatformLogin: function () {
             return client.get(`/platform/spotify/authorizationUrl`)
         },
+        getOAuthToken: function (platformName, userId, code) {
+            return client.get(`/${platformName}/oauthToken/${userId}`, {params: {userCode: code}})
+        },
+
 
     }
 }
