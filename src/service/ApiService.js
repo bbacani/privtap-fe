@@ -63,6 +63,9 @@ export function service() {
         getCurrentUser: function () {
             return client.get(`/user`)
         },
+        getPlatformLogin: function () {
+            return client.get(`/platform/spotify/authorizationUrl`)
+        },
 
     }
 }

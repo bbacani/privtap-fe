@@ -14,6 +14,9 @@ import RegisterTriggerType from "./components/Platform/TriggerType/RegisterTrigg
 import {ACCESS_TOKEN} from "./config/constants";
 import Login from "./components/Login/Login";
 import Home from "./components/common/Home";
+import PlatformScopes from "./components/Platform/PlatformScopes";
+import PlatformLogin from "./components/Platform/PlatformLogin";
+import PlatformSuccess from "./components/Platform/PlatformSuccess";
 
 function App() {
     const currentUserId = "63808fb3e390fb1412654659";
@@ -59,8 +62,12 @@ function App() {
                 <Route path='/trigger' exact element={<Trigger/>}/>
                 <Route path='/trigger/register' exact element={<RegisterTriggerType/>}/>
                 <Route path="/oauth2/redirect" element={<OAuth2RedirectHandler authenticated={authenticated}/>}/>
-                <Route path="/create-automation" element={<CreateAutomation authenticated={authenticated} user={user}/>}/>
+                <Route path="/create-automation"
+                       element={<CreateAutomation authenticated={authenticated} user={user}/>}/>
                 <Route path='/user' exact element={<User userId={currentUserId}/>}/>
+                <Route path="/scopes" exact element={<PlatformScopes/>}/>
+                <Route path="/platform-login" exact element={<PlatformLogin/>}/>
+                <Route path="/spotify/successfulLogin" exact element={<PlatformSuccess/>}/>
             </Routes>
         </BrowserRouter>
     );
