@@ -26,8 +26,9 @@ function PlatformScopes(props) {
 
 
     const onSubmit = async (data) => {
-        await service().getPlatformLogin(data.scopes)
+        const response =await service().getPlatformLogin(data.scopes)
         console.log(data.scopes);
+        window.location.href=response.data
     };
 
     return (
