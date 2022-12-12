@@ -17,16 +17,22 @@ function PlatformSuccess(props) {
 
 
     useEffect(() => {
+        console.log(props.user)
         const getOAuthToken = async () => {
             console.log("getOAuthToken " + code)
             await service().getOAuthToken(props.platform, props.user.id, code)
         }
         if (props.user)
             getOAuthToken().then()
-    }, []);
+    }, [props.user]);
 
 
-    return <Navigate to="/profile"/>
+    // return <Navigate to="/profile"/>
+    return (
+        <div>
+            {props.user && <Navigate to="/profile"/>}
+        </div>
+    )
 }
 
 export default PlatformSuccess;
