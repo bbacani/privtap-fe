@@ -65,9 +65,9 @@ function App() {
                 <Route path="/create-automation"
                        element={<CreateAutomation authenticated={authenticated} user={user}/>}/>
                 <Route path='/user' exact element={<User userId={currentUserId}/>}/>
-                <Route path="/scopes" exact element={<PlatformScopes/>}/>
+                <Route path="/scopes" exact element={<PlatformScopes platformName={"spotify"}/>}/>
                 <Route path="/platform-login" exact element={<PlatformLogin/>}/>
-                <Route path="/spotify/successfulLogin" exact element={<PlatformSuccess user={user}/>}/>
+                <Route path="/spotify/successfulLogin" exact element={<PlatformSuccess platform={"spotify"}  user={user}/>}/>
             </Routes>
         </BrowserRouter>
     );

@@ -1,0 +1,29 @@
+.scope-list-body {
+    background-color: #222222;
+    padding-bottom: 5em;
+    color: white;
+}
+
+.platform-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.scope-list-container {
+    margin: 2rem;
+}
+
+.confirm-button {
+    background: #A98EE7;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+
+}
+
+.scope-button{
+    margin: 1rem;
+    background-color: white;
+    border-radius: 10px;
+    color: #222222;
+}

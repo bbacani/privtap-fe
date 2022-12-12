@@ -1,6 +1,6 @@
 import React, {useEffect} from "react";
-import {Container} from "react-bootstrap";
 import {service} from "../../service/ApiService";
+import {Navigate} from "react-router-dom";
 
 
 function PlatformSuccess(props) {
@@ -19,21 +19,14 @@ function PlatformSuccess(props) {
     useEffect(() => {
         const getOAuthToken = async () => {
             console.log("getOAuthToken " + code)
-            await service().getOAuthToken("spotify", props.user.id, code)
+            await service().getOAuthToken(props.platform, props.user.id, code)
         }
         if (props.user)
             getOAuthToken().then()
-    }, [props.user]);
+    }, []);
 
 
-    return (
-
-        <Container fluid className="p-3 my-5">
-
-            <h1>SPOTIFY LOGIN success</h1>
-
-        </Container>
-    );
+    return <Navigate to="/profile"/>
 }
 
 export default PlatformSuccess;
