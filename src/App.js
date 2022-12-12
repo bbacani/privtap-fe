@@ -67,7 +67,7 @@ function App() {
                 <Route path='/user' exact element={<User userId={currentUserId}/>}/>
                 <Route path="/scopes" exact element={<PlatformScopes/>}/>
                 <Route path="/platform-login" exact element={<PlatformLogin/>}/>
-                <Route path="/spotify/successfulLogin" exact element={<PlatformSuccess user={user} />}/>
+                <Route path="/spotify/successfulLogin" exact element={<PlatformSuccess user={user}/>}/>
             </Routes>
         </BrowserRouter>
     );

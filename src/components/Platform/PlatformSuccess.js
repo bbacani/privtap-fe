@@ -19,10 +19,11 @@ function PlatformSuccess(props) {
     useEffect(() => {
         const getOAuthToken = async () => {
             console.log(code)
-           await service().getOAuthToken("spotify", props.user,code)
+           await service().getOAuthToken("spotify", props.user.id,code)
 
         }
-        getOAuthToken().then()
+        if (props.user)
+            getOAuthToken().then()
     }, []);
 
 
