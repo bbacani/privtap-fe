@@ -8,7 +8,6 @@ import Header from "./components/common/Header/Header";
 import OAuth2RedirectHandler from "./components/Login/oauth2/OAuth2RedirectHandler";
 import CreateAutomation from "./components/CreateAutomation/CreateAutomation";
 import {service} from "./service/ApiService";
-import Trigger from "./components/Platform/TriggerType/Trigger";
 import RegisterActionType from "./components/Platform/ActionType/RegisterActionType";
 import RegisterTriggerType from "./components/Platform/TriggerType/RegisterTriggerType";
 import {ACCESS_TOKEN} from "./config/constants";
@@ -56,7 +55,6 @@ function App() {
                 <Route path="/profile" element={<Profile authenticated={authenticated} user={user}/>}> </Route>
                 <Route path="/login" exact element={<Login/>}/>
                 <Route path='/action/register' exact element={<RegisterActionType/>}/>
-                <Route path='/trigger' exact element={<Trigger/>}/>
                 <Route path='/trigger/register' exact element={<RegisterTriggerType/>}/>
                 <Route path="/oauth2/redirect" element={<OAuth2RedirectHandler authenticated={authenticated}/>}/>
                 <Route path="/create-automation" element={<CreateAutomation authenticated={authenticated} user={user}/>}/>

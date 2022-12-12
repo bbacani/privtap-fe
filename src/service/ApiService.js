@@ -24,29 +24,26 @@ export function service() {
 
 
     return {
-        getAllActions: function () {
-            return client.get("/action")
-        },
         getAllTriggerTypes: function () {
             return client.get("/triggerTypes")
         },
         getAllTriggerPlatforms: function () {
-            return client.get("/triggerTypes/platforms")
+            return client.get("/platform/triggerPlatforms")
         },
-        getTriggerTypesByPlatform: function (platform) {
-            return client.get(`/triggerTypes/platform/${platform}`)
+        getTriggerTypesByPlatform: function (platformName) {
+            return client.get(`/platform/${platformName}/allTriggerTypes`)
         },
-        registerTriggerType: function (triggerType) {
-            return client.post('/triggerType', triggerType)
+        registerTriggerType: function (platformName, triggerType) {
+            return client.post(`/${platformName}/triggerType`, triggerType)
         },
         getAllActionPlatforms: function () {
-            return client.get("/actionTypes/platforms")
+            return client.get("/platform/actionPlatforms")
         },
-        getActionTypesByPlatform: function (platform) {
-            return client.get(`/actionTypes/platform/${platform}`)
+        getActionTypesByPlatform: function (platformName) {
+            return client.get(`/platform/${platformName}/allActionTypes`)
         },
-        registerActionType: function (actionType) {
-            return client.post('/actionTypes', actionType)
+        registerActionType: function (platformName, actionType) {
+            return client.post(`/${platformName}/actionTypes`, actionType)
         },
         addAutomation: function (userId, automationRequest) {
             return client.post(`/automation/${userId}`, automationRequest)
