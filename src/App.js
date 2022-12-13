@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
 import './App.css';
-import Profile from './components/Profile/Profile';
+import UserAutomations from './components/Profile/Profile';
 
 import User from "./components/User/User";
 import Header from "./components/common/Header/Header";
@@ -12,10 +12,10 @@ import RegisterActionType from "./components/Platform/ActionType/RegisterActionT
 import RegisterTriggerType from "./components/Platform/TriggerType/RegisterTriggerType";
 import {ACCESS_TOKEN} from "./config/constants";
 import Login from "./components/Login/Login";
-import Home from "./components/common/Home";
 import PlatformScopes from "./components/Platform/PlatformScopes";
 import PlatformLogin from "./components/Platform/PlatformLogin";
 import PlatformSuccess from "./components/Platform/PlatformSuccess";
+import Home from "./components/Home/Home";
 
 function App() {
     const currentUserId = "63808fb3e390fb1412654659";
@@ -54,8 +54,9 @@ function App() {
                 <Header authenticated={authenticated} user={user} onLogout={handleLogout}/>
             </div>
             <Routes>
-                <Route path="/" exact element={<Home authenticated={authenticated}/>}/>
-                <Route path="/profile" element={<Profile authenticated={authenticated} user={user}/>}> </Route>
+                <Route path="/home" exact element={<Home authenticated={authenticated} user={user}/>}/>
+                <Route path="/automations"
+                       element={<UserAutomations authenticated={authenticated} user={user}/>}> </Route>
                 <Route path="/login" exact element={<Login/>}/>
                 <Route path='/action/register' exact element={<RegisterActionType/>}/>
                 <Route path='/trigger/register' exact element={<RegisterTriggerType/>}/>
@@ -65,7 +66,8 @@ function App() {
                 <Route path='/user' exact element={<User userId={currentUserId}/>}/>
                 <Route path="/scopes" exact element={<PlatformScopes platformName={"spotify"}/>}/>
                 <Route path="/platform-login" exact element={<PlatformLogin/>}/>
-                <Route path="/spotify/successfulLogin" exact element={<PlatformSuccess platform={"spotify"}  user={user}/>}/>
+                <Route path="/spotify/successfulLogin" exact
+                       element={<PlatformSuccess platform={"spotify"} user={user}/>}/>
             </Routes>
         </BrowserRouter>
     );

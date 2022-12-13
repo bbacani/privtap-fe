@@ -8,7 +8,7 @@ function Header(props) {
     return (
         <Navbar bg="dark" variant="dark" className="header">
             <Container>
-                <Navbar.Brand href="/">
+                <Navbar.Brand href="/home">
                     <h4 className="brand">privTAP</h4>
                 </Navbar.Brand>
                 {props.authenticated ?
