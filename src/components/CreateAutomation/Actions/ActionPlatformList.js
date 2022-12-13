@@ -8,6 +8,7 @@ export default function ActionPlatformList(props) {
     useEffect(() => {
         const getAllActionPlatforms = async () => {
             const response = await service().getAllActionPlatforms();
+            console.log("action"+response.data)
             setActionPlatforms(response.data);
         }
             getAllActionPlatforms();

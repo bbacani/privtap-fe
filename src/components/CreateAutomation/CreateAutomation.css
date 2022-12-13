@@ -71,7 +71,22 @@
 
 }
 
+.upper-container{
+    display: flex;
+    position: relative;
+    background-color: #222222;
+    padding: 3em;
+    color: white;
+
+}
+
+.upper-container-text{
+    width: 60%;
+}
 
 
+.create-automation-image{
 
+    width: 300px;
+}
 

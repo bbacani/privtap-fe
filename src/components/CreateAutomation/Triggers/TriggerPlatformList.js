@@ -8,6 +8,7 @@ export default function TriggerPlatformList(props) {
     useEffect(() => {
         const getAllTriggerPlatforms = async () => {
             const response = await service().getAllTriggerPlatforms();
+            console.log("trigger"+response.data)
             setTriggerPlatforms(response.data);
         }
             getAllTriggerPlatforms();
