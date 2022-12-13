@@ -1,24 +1,25 @@
 import React, {useEffect, useState} from "react";
-import {Button, Container, Image, Row} from "react-bootstrap";
+import {Container, Image, Row} from "react-bootstrap";
 import SubHeader from "../common/SubHeader/SubHeader";
-import "./Home.css"
+import "./Explore.css"
+import "../Home/Home.css"
 import {service} from "../../service/ApiService";
-import img from "../../images/home-pic.png"
-import img2 from "../../images/home-pic-2.png"
+import img2 from "../../images/explore-bottom-pic.png"
 import PlatformCard from "../common/PlatformCard";
+import imgLogos from "../../images/platform_logos.png"
 
 
-function Home(props) {
+function Explore(props) {
 
     const [platforms, setPlatforms] = useState();
 
-
+    useEffect(() => {
         const getPlatformNames = async () => {
             const response = await service().getPlatformNames();
             setPlatforms(response.data);
-            console.log("platforme" + response.data)
         }
-
+        getPlatformNames().then();
+    }, []);
 
 
     return (
@@ -26,25 +27,22 @@ function Home(props) {
             <SubHeader authenticated={props.authenticated}/>
 
             <div>
-                {props.user?.id &&
+
                 <Container fluid>
-                    <div align="start" className="user-container">
-                        <h1 className="my-5">{props.user.username}</h1>
+                    <div align="start" className="mt-5">
+                        <p className="text-big">Explore platforms</p>
+                        <p className="text-big">Dive into their possibilities</p>
+                        <p className="text-big"> Create automations using them</p>
 
-                        <p className="description">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                            Maxime mollitia, molestiae quas vel sint commodi repudiandae consequuntur
-                            voluptatum laborum numquam blanditiis harum quisquam eius sed odit fugiat iusto
-                            fuga praesentium optio, eaque rerum! Provident similique accusantium nemo</p>
+                        <p className="text-small">Platforms registered to PrivTAP can be used to create useful and automations.
+                            Want to turn on Your favourite playlist on Your smart TV anytime You enter Your apartment?
+                            Phillips and Spotify got You covered!</p>
 
-                        <Button variant="secondary" size="lg" className="platform-home-button"
-                        onClick={getPlatformNames}>
-                            See used platform
-                        </Button>
-                        <Image fluid className="home-image" src={img}/>
+                        <Image fluid className="image-logo" src={imgLogos}/>
                     </div>
                     {platforms &&
                     <div className="platform-list-body">
-                        <h3> Platforms used</h3>
+                        <h3> Popular</h3>
                         <Container fluid className="grid-container">
                             <Row xs={2} md={4} lg={5} className="justify-content-start">
                                 {platforms?.map((platform) => {
@@ -56,10 +54,12 @@ function Home(props) {
                         </Container>
                     </div>
                     }
+
                     <div className="home-end">
-                        <h2 className="bottom-big-text"> You are taking the most out of our platforms!</h2>
-                        <h4>And You are doing it without sharing any unwanted personal info :)</h4>
+                        <h2 className="bottom-big-text"> Automations help You stay up to date with Your tasks, make things happen automatically and more</h2>
                         <Image fluid className="home-image-bottom" src={img2}/>
+                        <h4>And they are quite fun</h4>
+
 
                     </div>
                 </Container>
@@ -69,4 +69,4 @@ function Home(props) {
     );
 }
 
-export default Home;
+export default Explore;

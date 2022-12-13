@@ -14,21 +14,21 @@ function SubHeader(props) {
 
         <Container className="subheader-container">
 
-            {props.authenticated ?
+
                 <Stack direction="horizontal" className="justify-content-center ">
 
                     <a href="/home"
                        className={active === "1" ? " subheader-item active" : "subheader-item"}
                        id={"1"}
                        onClick={handleClick}>Home</a>
-                    <a href="/automations"
+                    <a href="/explore"
                        className={active === "2" ? " subheader-item active" : "subheader-item"}
                        id={"2"}
-                       onClick={handleClick}>Automations</a>
-                    <a href="/platforms"
+                       onClick={handleClick}>Explore</a>
+                    <a href="/automations"
                        className={active === "3" ? " subheader-item active" : "subheader-item"}
                        id={"3"}
-                       onClick={handleClick}>Platforms</a>
+                       onClick={handleClick}>Automations</a>
                     <a href="/mission"
                        className={active === "4" ? " subheader-item active" : "subheader-item"}
                        id={"4"}
@@ -36,15 +36,8 @@ function SubHeader(props) {
 
 
                 </Stack>
-                :
-                <Stack direction="horizontal" className="m-3 justify-content-center">
 
-                    <h2>Home</h2>
-                    <h2>Explore</h2>
-                    <h2>Our mission</h2>
 
-                </Stack>
-            }
         </Container>
 
     );

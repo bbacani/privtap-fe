@@ -16,6 +16,7 @@ import PlatformScopes from "./components/Platform/PlatformScopes";
 import PlatformLogin from "./components/Platform/PlatformLogin";
 import PlatformSuccess from "./components/Platform/PlatformSuccess";
 import Home from "./components/Home/Home";
+import Explore from "./components/Explore/Explore";
 
 function App() {
     const currentUserId = "63808fb3e390fb1412654659";
@@ -58,6 +59,7 @@ function App() {
                 <Route path="/automations"
                        element={<UserAutomations authenticated={authenticated} user={user}/>}> </Route>
                 <Route path="/login" exact element={<Login/>}/>
+                <Route path="/explore" exact element={<Explore/>}/>
                 <Route path='/action/register' exact element={<RegisterActionType/>}/>
                 <Route path='/trigger/register' exact element={<RegisterTriggerType/>}/>
                 <Route path="/oauth2/redirect" element={<OAuth2RedirectHandler authenticated={authenticated}/>}/>
