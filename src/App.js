@@ -9,7 +9,6 @@ import OAuth2RedirectHandler from "./components/Login/oauth2/OAuth2RedirectHandl
 import CreateAutomation from "./components/CreateAutomation/CreateAutomation";
 import {service} from "./service/ApiService";
 import SignUp from "./components/SignUp/SignUp";
-import LandingPage from "./components/LandingPage/LandingPage";
 import RegisterActionType from "./components/Platform/ActionType/RegisterActionType";
 import RegisterTriggerType from "./components/Platform/TriggerType/RegisterTriggerType";
 import {ACCESS_TOKEN} from "./config/constants";
@@ -44,7 +43,7 @@ function App() {
         localStorage.removeItem(ACCESS_TOKEN);
         setAuthenticated(false)
         setUser(null)
-
+        window.location.href = "/";
     }
 
     return (
@@ -56,6 +55,7 @@ function App() {
                 <Route path="/" exact element={<Home authenticated={authenticated}/>}/>
                 <Route path="/profile" element={<Profile authenticated={authenticated} user={user}/>}> </Route>
                 <Route path="/login" exact element={<Login/>}/>
+                <Route path="/signup" exact element={<SignUp/>}/>
                 <Route path='/action/register' exact element={<RegisterActionType/>}/>
                 <Route path='/trigger/register' exact element={<RegisterTriggerType/>}/>
                 <Route path="/oauth2/redirect" element={<OAuth2RedirectHandler authenticated={authenticated}/>}/>

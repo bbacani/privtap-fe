@@ -1,16 +1,15 @@
 import React from "react";
-import {Container} from "react-bootstrap";
-import SubHeader from "./SubHeader/SubHeader";
+import LandingPage from "../LandingPage/LandingPage";
+import {useNavigate} from "react-router-dom";
 
 
 function Home(props) {
+    const navigate = useNavigate();
+    if (props.authenticated) {
+        navigate('/profile')
+    }
     return (
-        <Container fluid className="p-3 my-5">
-            <SubHeader authenticated={props.authenticated}/>
-
-           <h1>Home page</h1>
-
-        </Container>
+        <LandingPage />
     );
 }
 
