@@ -1,8 +1,7 @@
 import React from "react";
 import "./Login.css";
 import googleLogo from "../Login/img/google-logo.png"
-import artist from "../Login/img/Artist.png"
-import bubble from "../Login/img/chat-bubble.png"
+import personAndComputer from "../Login/img/person-and-computer.png"
 import {GOOGLE_AUTH_URL} from "../../config/constants";
 import {Button, Col, Container, Image, Row} from "react-bootstrap";
 
@@ -37,16 +36,8 @@ function Login() {
                 </Container>
             </div>
             <div className="bottom-centered">
-                <div className="artist-bubble">
-                    <div className="chat-bubble">
-                        <Image className="bubble-img" src={bubble} />
-                        <div className="centered-text">
-                            <center><p>Did you miss your automations?</p></center>
-                        </div>
-                    </div>
-                    <div className="artist-div">
-                        <Image className="artist" src={artist} />
-                    </div>
+                <div>
+                    <Image className="personAndComputer" src={personAndComputer}/>
                 </div>
             </div>
         </div>

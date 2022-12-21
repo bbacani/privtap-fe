@@ -28,40 +28,6 @@
     bottom: 0;
 }
 
-.artist-bubble {
-    display: flex;
-}
-
-.chat-bubble {
-    flex: 1;
-    position: relative;
-    bottom: 100px;
-    margin-right: -60px;
-}
-
-.artist-div {
-    flex: 1;
-}
-
-.artist {
-    width: 80%;
-}
-
-.bubble-img {
-    width: 90%;
-}
-
-.centered-text {
-    position: absolute;
-    top: 0;
-    left: 0;
-    margin: 20px 60px 30px 30px;
-    height: 120px;
-    padding: 10% 0;
-}
-
-.centered-text, p {
-    font-size: 20px;
-    color: #ffffff;
-    font-weight: 600;
+.personAndComputer {
+    width: 500px;
 }
