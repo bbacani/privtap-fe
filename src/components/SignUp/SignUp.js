@@ -1,12 +1,12 @@
 import React from "react";
-import "./Login.css";
+import "./SignUp.css";
 import googleLogo from "../Login/img/google-logo.png"
 import artist from "../Login/img/Artist.png"
 import bubble from "../Login/img/chat-bubble.png"
 import {GOOGLE_AUTH_URL} from "../../config/constants";
 import {Button, Col, Container, Image, Row} from "react-bootstrap";
 
-function Login() {
+function SignUp() {
     return (
         <div>
             <div className="box">
@@ -14,7 +14,7 @@ function Login() {
                     <Col className="justify-content-md-center">
                         <Row>
                             <h2 align="center">
-                                Sign in to
+                                Sign up to
                             </h2>
                         </Row>
                         <Row>
@@ -24,13 +24,13 @@ function Login() {
                         </Row>
                         <Row>
                             <h5 align="center" className="grey-text">
-                                Login to find back your automations.
+                                Register to start creating your automations today.
                             </h5>
                         </Row>
                         <Row>
                             <Button className="mt-4" href={GOOGLE_AUTH_URL} size="lg" style={{backgroundColor: '#222222'}}>
                                 <Image className="googleButton" src={googleLogo} alt="Google"/>
-                                Sign in with Google
+                                Sign up with Google
                             </Button>
                         </Row>
                     </Col>
@@ -41,7 +41,7 @@ function Login() {
                     <div className="chat-bubble">
                         <Image className="bubble-img" src={bubble} />
                         <div className="centered-text">
-                            <center><p>Did you miss your automations?</p></center>
+                            <center><p>Are you ready to create awesome automations?</p></center>
                         </div>
                     </div>
                     <div className="artist-div">
@@ -53,4 +53,4 @@ function Login() {
     );
 }
 
-export default Login;
+export default SignUp;

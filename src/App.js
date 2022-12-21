@@ -8,6 +8,8 @@ import Header from "./components/common/Header/Header";
 import OAuth2RedirectHandler from "./components/Login/oauth2/OAuth2RedirectHandler";
 import CreateAutomation from "./components/CreateAutomation/CreateAutomation";
 import {service} from "./service/ApiService";
+import SignUp from "./components/SignUp/SignUp";
+import LandingPage from "./components/LandingPage/LandingPage";
 import RegisterActionType from "./components/Platform/ActionType/RegisterActionType";
 import RegisterTriggerType from "./components/Platform/TriggerType/RegisterTriggerType";
 import {ACCESS_TOKEN} from "./config/constants";
