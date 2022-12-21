@@ -14,15 +14,18 @@ function AutomationModal(props) {
         const automation = {
             name: props.name,
             description: props.description,
+            triggerTypePlatformName: props.trigger.platformName,
+            actionTypePlatformName: props.action.platformName,
             actionTypeId: props.action.id,
             triggerTypeId: props.trigger.id,
         }
+
         await service().addAutomation(props.userId, automation)
-        navigate(`/`)
+        navigate(`/profile`)
     }
 
     const checkFieldsCount = () => {
-        return props.action.requestFieldsNames.length <= props.trigger.requestFieldsNames.length
+        return props.action.requestFields.length <= props.trigger.requestFields.length
     }
 
     return (
@@ -48,7 +51,7 @@ function AutomationModal(props) {
                         </Stack>
                         <p>You must accept the following information:</p>
                         <ul className="check-list">
-                            {props.action.requestFieldsNames.map((field) => {
+                            {props.action.requestFields.map((field) => {
                                 return (
                                     <div className="check-list-item">
                                         <CheckLg color="royalblue" size={30}/>
@@ -70,7 +73,7 @@ function AutomationModal(props) {
                         <p>Selected trigger doesn't provide enough information for selected action.</p>
                         <Stack direction="horizontal" className="justify-content-center mx-auto" gap={3}>
                             <ul className="check-list">
-                                {props.trigger.requestFieldsNames.map((field) => {
+                                {props.trigger.requestFields.map((field) => {
                                     return (
                                         <div className="check-list-item">
                                             <Dot color="royalblue" size={30}/>
@@ -80,7 +83,7 @@ function AutomationModal(props) {
                                 })}
                             </ul>
                             <ul className="check-list">
-                                {props.action.requestFieldsNames.map((field) => {
+                                {props.action.requestFields.map((field) => {
                                     return (
                                         <div className="check-list-item">
                                             <Dot color="royalblue" size={30}/>
