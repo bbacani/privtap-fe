@@ -4,6 +4,9 @@ import {Button} from "react-bootstrap";
 import AutomationList from "../Automations/AutomationsList";
 
 function User(props) {
+    if (!props.authenticated) {
+        window.location.href = "/";
+    }
 
     let navigate = useNavigate();
     return (

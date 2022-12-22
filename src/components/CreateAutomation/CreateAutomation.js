@@ -9,6 +9,10 @@ import Button from "react-bootstrap/Button";
 import AutomationModal from "./AutomationModal";
 
 function CreateAutomation(props) {
+    if (!props.authenticated) {
+        window.location.href = "/";
+    }
+
     const [name, setName] = useState();
     const [description, setDescription] = useState();
     const [triggerPlatform, setTriggerPlatform] = useState();

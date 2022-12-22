@@ -10,14 +10,16 @@ function Header(props) {
         '/profile',
         '/action/register',
         '/trigger/register',
-        '/user'
+        '/user',
+        '/login',
+        '/signup'
     ]
     const showHeader = locationsWithHeader.includes(location.pathname);
 
     return showHeader? (
         <Navbar bg="dark" variant="dark" className="header">
             <Container>
-                <Navbar.Brand href="/">
+                <Navbar.Brand href={props.authenticated ? '/profile' : '/'}>
                     <h4 className="brand">privTAP</h4>
                 </Navbar.Brand>
                 {props.authenticated ?

@@ -6,6 +6,9 @@ import {service} from "../../service/ApiService";
 import SubHeader from "../common/SubHeader/SubHeader";
 
 export default function Profile(props) {
+    if (!props.authenticated) {
+        window.location.href = "/";
+    }
 
     const [automations, setAutomations] = useState();
 
