@@ -10,9 +10,9 @@ const LandingPage = () => {
         <div className="landing-page-container">
             <div className="landing-page-container01">
                 <div className="landing-page-container02">
-                    <a href="\signup" className="landing-page-sign-up">Sign Up</a>
+                    <a href="/signup" className="landing-page-sign-up">Sign Up</a>
                     <span className="landing-page-login">
-            <a href="\login" className="landing-page-log-in">Login</a>
+            <a href="/login" className="landing-page-log-in">Login</a>
             <br></br>
             <br></br>
           </span>

@@ -13,7 +13,7 @@ function Login() {
                     <Col className="justify-content-md-center">
                         <Row>
                             <h2 align="center">
-                                Sign in to
+                                Login to
                             </h2>
                         </Row>
                         <Row>
@@ -23,13 +23,13 @@ function Login() {
                         </Row>
                         <Row>
                             <h5 align="center" className="grey-text">
-                                Login to find back your automations.
+                                Log in to find back your automations.
                             </h5>
                         </Row>
                         <Row>
                             <Button className="mt-4" href={GOOGLE_AUTH_URL} size="lg" style={{backgroundColor: '#222222'}}>
                                 <Image className="googleButton" src={googleLogo} alt="Google"/>
-                                Sign in with Google
+                                Login with Google
                             </Button>
                         </Row>
                     </Col>
