@@ -12,7 +12,8 @@ function Header(props) {
         '/trigger/register',
         '/user',
         '/login',
-        '/signup'
+        '/signup',
+        '/create-automation'
     ]
     const showHeader = locationsWithHeader.includes(location.pathname);
 

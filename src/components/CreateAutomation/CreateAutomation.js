@@ -7,10 +7,14 @@ import TriggerEventCards from "./Triggers/TriggerEventCards";
 import ActionEventCards from "./Actions/ActionEventCards";
 import Button from "react-bootstrap/Button";
 import AutomationModal from "./AutomationModal";
+import {useNavigate} from "react-router-dom";
 
 function CreateAutomation(props) {
+    const navigate = useNavigate();
     if (!props.authenticated) {
-        window.location.href = "/";
+        // window.location.href = "/";
+        //TODO: navigate doesn't work, fix it
+        navigate('/')
     }
 
     const [name, setName] = useState();
