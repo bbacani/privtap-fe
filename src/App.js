@@ -12,6 +12,9 @@ import RegisterTriggerType from "./components/Platform/TriggerType/RegisterTrigg
 import {ACCESS_TOKEN} from "./config/constants";
 import Login from "./components/Login/Login";
 import Home from "./components/common/Home";
+import SpLogin from "./components/ServiceProviders/Login/SpLogin";
+import SpSignUp from "./components/ServiceProviders/SignUp/SpSignUp";
+import SpLandingPage from "./components/ServiceProviders/LandingPage/SpLandingPage";
 
 function App() {
     const [user, setUser] = useState(null)
@@ -60,6 +63,10 @@ function App() {
                         <ProtectedRoute authenticated={authenticated}>
                             <CreateAutomation authenticated={authenticated} user={user}/>
                         </ProtectedRoute> }/>
+                {/* Service Provider */}
+                <Route path="/developers/login" exact element={<SpLogin/>}/>
+                <Route path="/developers/signup" exact element={<SpSignUp/>}/>
+                <Route path="/developers" exact element={<SpLandingPage/>}/>
                 <Route path='/action/register' exact element={<RegisterActionType/>}/>
                 <Route path='/trigger/register' exact element={<RegisterTriggerType/>}/>
             </Routes>
