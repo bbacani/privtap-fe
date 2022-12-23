@@ -15,6 +15,7 @@ import Home from "./components/common/Home";
 import SpLogin from "./components/ServiceProviders/Login/SpLogin";
 import SpSignUp from "./components/ServiceProviders/SignUp/SpSignUp";
 import SpLandingPage from "./components/ServiceProviders/LandingPage/SpLandingPage";
+import ProtectedRoute from "./components/common/ProtectedRoute";
 
 function App() {
     const [user, setUser] = useState(null)
