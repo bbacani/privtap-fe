@@ -55,8 +55,14 @@ function App() {
                 <Route path="/login" exact element={<Login/>}/>
                 <Route path="/signup" exact element={<SignUp/>}/>
                 <Route path="/oauth2/redirect" element={<OAuth2RedirectHandler authenticated={authenticated}/>}/>
-                <Route path="/profile" element={<Profile authenticated={authenticated} user={user}/>}/>
-                <Route path="/create-automation" element={<CreateAutomation authenticated={authenticated} user={user}/>}/>
+                <Route path="/profile" element={
+                    <ProtectedRoute authenticated={authenticated}>
+                        <Profile authenticated={authenticated} user={user}/>
+                    </ProtectedRoute> }/>
+                <Route path="/create-automation" element={
+                        <ProtectedRoute authenticated={authenticated}>
+                            <CreateAutomation authenticated={authenticated} user={user}/>
+                        </ProtectedRoute> }/>
                 {/* Service Provider */}
                 <Route path="/developers/login" exact element={<SpLogin/>}/>
                 <Route path="/developers/signup" exact element={<SpSignUp/>}/>
