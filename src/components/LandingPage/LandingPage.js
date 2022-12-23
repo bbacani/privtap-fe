@@ -42,6 +42,9 @@ const LandingPage = () => {
                             Get Started Now!
                         </button>
                     </a>
+                    <a href="/developers" className="developer">
+                        I am a developer >
+                    </a>
                 </div>
             </div>
             <div className="landing-page-features">

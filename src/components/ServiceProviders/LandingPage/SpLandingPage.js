@@ -41,6 +41,9 @@ const SpLandingPage = () => {
                             Get Started Now!
                         </button>
                     </a>
+                    <a href="/" className="developer">
+                        I am a user >
+                    </a>
                 </div>
             </div>
             <div className="landing-page-features">
