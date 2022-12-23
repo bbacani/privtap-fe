@@ -10,20 +10,20 @@ const SpLandingPage = () => {
         <div className="landing-page-container">
             <div className="landing-page-container01">
                 <div className="landing-page-container02">
-                    <a href="\signup" className="landing-page-sign-up">Sign Up</a>
+                    <a href="/developers/signup" className="landing-page-sign-up">Sign Up</a>
                     <span className="landing-page-login">
-            <a href="\login" className="landing-page-log-in">Login</a>
+            <a href="/developers/login" className="landing-page-log-in">Login</a>
             <br></br>
             <br></br>
           </span>
                 </div>
             </div>
-            <div className="landing-page-priv-t-a-p-the-first">
+            <div className="landing-page-priv-t-a-p-the-first2">
                 <div className="landing-page-container03">
-                    <h1 className="landing-page-text03">PrivTAP</h1>
+                    <h1 className="landing-page-text03">PrivTAP for developers</h1>
                     <h1 className="landing-page-text04">
             <span>
-              The first trigger action platform
+              Create triggers and actions
               <span
                   dangerouslySetInnerHTML={{
                       __html: ' ',
@@ -31,16 +31,18 @@ const SpLandingPage = () => {
               />
             </span>
                         <br></br>
-                        <span>that preserves Privacy</span>
+                        <span>preserving user privacy</span>
                     </h1>
                     <span className="landing-page-text08">
-            You control the entire flow of sensitive data while being able to
-            use amazing automations!
+            Integrating your services into an existing platform has never been easier.
           </span>
-                    <a href="/signup">
+                    <a href="/developers/signup">
                         <button  type="button" className="landing-page-button button">
                             Get Started Now!
                         </button>
+                    </a>
+                    <a href="/" className="developer">
+                        I am a user >
                     </a>
                 </div>
             </div>
@@ -75,7 +77,7 @@ const SpLandingPage = () => {
                     Access your automations from everywhere
                   </span>
                                 </li>
-                                <a href="/signup">
+                                <a href="/developers/signup">
                                     <button type="button" className="landing-page-button1 button">
                                         Get Started Now!
                                     </button>
@@ -132,7 +134,7 @@ const SpLandingPage = () => {
                     We share only the minimal required information
                   </span>
                                 </li>
-                                <a href="/signup">
+                                <a href="/developers/signup">
                                     <button type="button" className="landing-page-button2 button">
                                         Get Started Now!
                                     </button>
@@ -171,7 +173,7 @@ const SpLandingPage = () => {
                     Customizable flow of information
                   </span>
                                 </li>
-                                <a href="/signup">
+                                <a href="/developers/signup">
                                     <button type="button" className="landing-page-button3 button">
                                         Get Started Now!
                                     </button>

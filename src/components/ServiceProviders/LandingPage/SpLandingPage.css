@@ -49,14 +49,14 @@
     color: var(--dl-color-gray-white);
     font-size: 15px;
 }
-.landing-page-priv-t-a-p-the-first {
+.landing-page-priv-t-a-p-the-first2 {
     flex: 0 0 auto;
     width: 100%;
     height: 100vh;
     display: flex;
     align-items: flex-start;
     background-size: cover;
-    background-image: url("images/bg.png");
+    background-image: url("images/bg2.png");
 }
 .landing-page-container03 {
     flex: 0 0 auto;
@@ -449,17 +449,6 @@
     width: 100%;
     object-fit: cover;
 }
-.landing-page-our-goal-is {
-    flex: 0 0 auto;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: flex-start;
-    padding-top: 100px;
-    padding-bottom: 100px;
-    background-size: cover;
-    background-image: url("images/Frame11.png");
-}
 .landing-page-container13 {
     flex: 1;
     width: auto;
@@ -492,4 +481,15 @@
     color: var(--dl-color-gray-900);
     font-size: 1.2vw;
     margin-top: 10px;
+}
+.developer {
+    margin-top: 15px;
+    margin-left: 10px;
+    color: #FFFFFF;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+}
+.developer:hover {
+    color: #FFFFFF;
 }

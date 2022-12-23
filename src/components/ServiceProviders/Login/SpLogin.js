@@ -13,7 +13,7 @@ function SpLogin() {
                     <Col className="justify-content-md-center">
                         <Row>
                             <h2 align="center">
-                                Log in to
+                                Login to
                             </h2>
                         </Row>
                         <Row>
@@ -29,7 +29,7 @@ function SpLogin() {
                         <Row>
                             <Button className="mt-4" href={GOOGLE_AUTH_URL} size="lg" style={{backgroundColor: '#222222'}}>
                                 <Image className="googleButton" src={googleLogo} alt="Google"/>
-                                Log in with Google
+                                Login with Google
                             </Button>
                         </Row>
                     </Col>
