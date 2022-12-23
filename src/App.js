@@ -2,8 +2,6 @@ import React, {useEffect, useState} from 'react';
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
 import './App.css';
 import Profile from './components/Profile/Profile';
-
-import User from "./components/User/User";
 import Header from "./components/common/Header/Header";
 import OAuth2RedirectHandler from "./components/Login/oauth2/OAuth2RedirectHandler";
 import CreateAutomation from "./components/CreateAutomation/CreateAutomation";
@@ -14,17 +12,18 @@ import RegisterTriggerType from "./components/Platform/TriggerType/RegisterTrigg
 import {ACCESS_TOKEN} from "./config/constants";
 import Login from "./components/Login/Login";
 import Home from "./components/common/Home";
+import SpLogin from "./components/ServiceProviders/Login/SpLogin";
+import SpSignUp from "./components/ServiceProviders/SignUp/SpSignUp";
+import SpLandingPage from "./components/ServiceProviders/LandingPage/SpLandingPage";
 
 function App() {
-    const currentUserId = "63808fb3e390fb1412654659";
-
     const [user, setUser] = useState(null)
-    const [authenticated, setAuthenticated] = useState(false)
-
+    const [authenticated, setAuthenticated] = useState(null)
 
     useEffect(() => {
         const getCurrentUser = async () => {
             if (!localStorage.getItem(ACCESS_TOKEN)) {
+                setAuthenticated(false)
                 return Promise.reject("No access token set.");
             }
             await service().getCurrentUser().then(response => {
@@ -53,14 +52,17 @@ function App() {
             </div>
             <Routes>
                 <Route path="/" exact element={<Home authenticated={authenticated}/>}/>
-                <Route path="/profile" element={<Profile authenticated={authenticated} user={user}/>}> </Route>
                 <Route path="/login" exact element={<Login/>}/>
                 <Route path="/signup" exact element={<SignUp/>}/>
+                <Route path="/oauth2/redirect" element={<OAuth2RedirectHandler authenticated={authenticated}/>}/>
+                <Route path="/profile" element={<Profile authenticated={authenticated} user={user}/>}/>
+                <Route path="/create-automation" element={<CreateAutomation authenticated={authenticated} user={user}/>}/>
+                {/* Service Provider */}
+                <Route path="/developers/login" exact element={<SpLogin/>}/>
+                <Route path="/developers/signup" exact element={<SpSignUp/>}/>
+                <Route path="/developers" exact element={<SpLandingPage/>}/>
                 <Route path='/action/register' exact element={<RegisterActionType/>}/>
                 <Route path='/trigger/register' exact element={<RegisterTriggerType/>}/>
-                <Route path="/oauth2/redirect" element={<OAuth2RedirectHandler authenticated={authenticated}/>}/>
-                <Route path="/create-automation" element={<CreateAutomation authenticated={authenticated} user={user}/>}/>
-                <Route path='/user' exact element={<User userId={currentUserId}/>}/>
             </Routes>
         </BrowserRouter>
     );
