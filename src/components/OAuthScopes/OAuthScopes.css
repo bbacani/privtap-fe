@@ -7,3 +7,21 @@
     width: 2px;
     height: 100%;
 }
+
+.see-all{
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.see-all:hover{
+    color: #FFFFFF;
+}
+
+.purpleButton{
+    background-color: #A98EE7;
+    border:0;
+}
+
+.purpleButton:hover{
+    background-color: #8b70c9;
+}

@@ -1,9 +1,27 @@
 import React from 'react';
 import './OAuthScopes.css';
-import {Col, Row} from "react-bootstrap";
+import {Button, Col, Row} from "react-bootstrap";
 import Scope from "./Scope";
 
+function createPairs(strings) {
+    let pairs = [];
+    //for each pair of strings in input
+    for (let i = 0; i < strings.length; i += 2) {
+        //create an array of pairs
+        if(i+1 < strings.length) {
+            pairs.push([strings[i], strings[i + 1]]);
+        } else {
+            pairs.push([strings[i]]);
+        }
+    }
+    return pairs;
+}
+
 function OAuthScopes(props) {
+    const platformName = "Facebook"
+    const scopes = ["Reading your user info", "Reading your user info", "Posting to Your timeline", "Posting to Your timeline"]
+    const pairedScopes = createPairs(scopes);
+
     return (
         <div className="dark-background">
             <div className="p-5">
@@ -34,18 +52,28 @@ function OAuthScopes(props) {
                                 Tell us which scopes of data you feel okay sharing with us
                             </h4>
                             <text className="text-white my-2">
-                                This is a list of all the Facebook scopes you are currently not sharing with us. Unchecking some of them may disable the creation of this automation.
+                                This is a list of all the {platformName} scopes you are currently not sharing with us. Unchecking some of them may disable the creation of this automation.
                             </text>
                             <Row className="justify-content-sm-start">
-                                <Col sm="auto" className="p-0 ps-3">
-                                    <Scope title="Reading your user info"></Scope>
-                                    <Scope title="Reading your user info"></Scope>
-                                </Col>
-                                <Col sm="auto">
-                                    <Scope title="Posting to Your timeline"></Scope>
-                                    <Scope title="Posting to Your timeline"></Scope>
-                                </Col>
+                                {pairedScopes.map((pairScopes) => {
+                                    return(
+                                            <Col sm="auto" className="p-0 ps-2">
+                                                <Scope title={pairScopes[0]}></Scope>
+                                                {pairScopes.length > 1 ?
+                                                    <Scope title={pairScopes[1]}></Scope> :
+                                                null}
+                                            </Col>
+                                    );
+                                })}
                             </Row>
+                        </Row>
+                        <Row>
+                            <a href="/facebook" className="see-all">See all scopes shared with {platformName} ></a>
+                        </Row>
+                        <Row>
+                            <Col>
+                                <Button size="md" className="my-5 px-5 purpleButton">Confirm</Button>
+                            </Col>
                         </Row>
                     </Col>
                 </Row>
