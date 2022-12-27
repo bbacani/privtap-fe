@@ -17,6 +17,7 @@ import SpSignUp from "./components/ServiceProviders/SignUp/SpSignUp";
 import SpLandingPage from "./components/ServiceProviders/LandingPage/SpLandingPage";
 import ProtectedRoute from "./components/common/ProtectedRoute";
 import SpRegistrationForm from "./components/ServiceProviders/RegistrationForm/SpRegistrationForm";
+import OAuthScopes from "./components/OAuthScopes/OAuthScopes";
 
 function App() {
     const [user, setUser] = useState(null)
@@ -65,6 +66,7 @@ function App() {
                         <ProtectedRoute authenticated={authenticated}>
                             <CreateAutomation authenticated={authenticated} user={user}/>
                         </ProtectedRoute> }/>
+                <Route path='/scopes' exact element={<OAuthScopes/>}/>
                 {/* Service Provider */}
                 <Route path="/developers/login" exact element={<SpLogin/>}/>
                 <Route path="/developers/signup" exact element={<SpSignUp/>}/>

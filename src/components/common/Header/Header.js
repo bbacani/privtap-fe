@@ -13,6 +13,7 @@ function Header(props) {
         '/user',
         '/login',
         '/signup',
+        '/scopes',
         '/create-automation',
         '/developers/login',
         '/developers/signup',
