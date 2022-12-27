@@ -1,6 +1,6 @@
 import React from 'react';
 import './OAuthScopes.css';
-import {Button, Col, Row} from "react-bootstrap";
+import {Button, Col, Container, Row} from "react-bootstrap";
 import Scope from "./Scope";
 
 function createPairs(strings) {
@@ -19,7 +19,7 @@ function createPairs(strings) {
 
 function OAuthScopes(props) {
     const platformName = "Facebook"
-    const scopes = ["Reading your user info", "Reading your user info", "Posting to Your timeline", "Posting to Your timeline"]
+    const scopes = ["Reading your user info", "Reading your user info", "Posting to Your timeline", "Posting to Your timeline", "Posting to Your timeline", "Posting to Your timeline", "Posting to Your timeline"]
     const pairedScopes = createPairs(scopes);
 
     return (
@@ -43,7 +43,7 @@ function OAuthScopes(props) {
                     <Col sm="auto">
                         <div className="line" />
                     </Col>
-                    <Col sm={7}>
+                    <Col className="ms-5" sm={7}>
                         <Row>
                             <h3 className="text-white">
                                 We value the privacy of your personal data
@@ -54,25 +54,27 @@ function OAuthScopes(props) {
                             <text className="text-white my-2">
                                 This is a list of all the {platformName} scopes you are currently not sharing with us. Unchecking some of them may disable the creation of this automation.
                             </text>
-                            <Row className="justify-content-sm-start">
-                                {pairedScopes.map((pairScopes) => {
-                                    return(
+                            <Container fluid>
+                                <Row className="justify-content-sm-start flex-nowrap overflow-auto customScrollbar">
+                                    {pairedScopes.map((pairScopes) => {
+                                        return(
                                             <Col sm="auto" className="p-0 ps-2">
                                                 <Scope title={pairScopes[0]}></Scope>
                                                 {pairScopes.length > 1 ?
                                                     <Scope title={pairScopes[1]}></Scope> :
-                                                null}
+                                                    null}
                                             </Col>
-                                    );
-                                })}
-                            </Row>
+                                        );
+                                    })}
+                                </Row>
+                            </Container>
                         </Row>
                         <Row>
                             <a href="/facebook" className="see-all">See all scopes shared with {platformName} ></a>
                         </Row>
                         <Row>
                             <Col>
-                                <Button size="md" className="my-5 px-5 purpleButton">Confirm</Button>
+                                <Button size="lg" className="mt-5 px-5 purpleButton">Confirm</Button>
                             </Col>
                         </Row>
                     </Col>

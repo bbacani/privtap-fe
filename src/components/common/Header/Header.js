@@ -23,7 +23,7 @@ function Header(props) {
     const developers = location.pathname.startsWith("/developers");
 
     return showHeader? (
-        <Navbar bg="dark" variant="dark" className="header">
+        <Navbar variant="dark" className="header">
             <Container>
                 { developers ?
                     <Navbar.Brand href={props.authenticated ? '/developers/profile' : '/developers'}>
