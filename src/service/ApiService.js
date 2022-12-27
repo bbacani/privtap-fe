@@ -60,6 +60,9 @@ export function service() {
         getCurrentUser: function () {
             return client.get(`/user`)
         },
-
+        sendFormData: function(userId, formData) {
+            console.log(userId)
+            console.log(formData)
+        }
     }
 }
