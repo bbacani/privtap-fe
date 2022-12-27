@@ -16,6 +16,7 @@ import SpLogin from "./components/ServiceProviders/Login/SpLogin";
 import SpSignUp from "./components/ServiceProviders/SignUp/SpSignUp";
 import SpLandingPage from "./components/ServiceProviders/LandingPage/SpLandingPage";
 import ProtectedRoute from "./components/common/ProtectedRoute";
+import SpRegistrationForm from "./components/ServiceProviders/RegistrationForm/SpRegistrationForm";
 
 function App() {
     const [user, setUser] = useState(null)
@@ -70,6 +71,7 @@ function App() {
                 <Route path="/developers" exact element={<SpLandingPage/>}/>
                 <Route path='/action/register' exact element={<RegisterActionType/>}/>
                 <Route path='/trigger/register' exact element={<RegisterTriggerType/>}/>
+                <Route path='/developers/create' exact element={<SpRegistrationForm/>}/>
             </Routes>
         </BrowserRouter>
     );

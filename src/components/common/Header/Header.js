@@ -15,7 +15,8 @@ function Header(props) {
         '/signup',
         '/create-automation',
         '/developers/login',
-        '/developers/signup'
+        '/developers/signup',
+        '/developers/create'
     ]
     const showHeader = locationsWithHeader.includes(location.pathname);
     const developers = location.pathname.startsWith("/developers");
