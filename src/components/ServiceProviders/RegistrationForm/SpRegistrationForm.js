@@ -1,10 +1,11 @@
 import React from "react";
 import "./SpRegistrationForm.css";
-import {Col, Container, Form, FormControl, FormGroup, Row} from "react-bootstrap";
+import group from "../RegistrationForm/img/Group.png"
+import {Button, Col, Container, Form, FormControl, FormGroup, Image, Row} from "react-bootstrap";
 
 function SpRegistrationForm() {
     return (
-        <div className="selected-text">
+        <div>
             <Container className="p-5">
                 <Row className="justify-content-md-center">
                     <Col lg="6">
@@ -44,9 +45,17 @@ function SpRegistrationForm() {
                                 <FormControl placeholder="Add your Client secret" />
                             </FormGroup>
                         </Form>
+                        <Col align="center" className="mt-5">
+                            <Button className="px-5" variant="dark" size="lg" type="submit">
+                                Submit
+                            </Button>
+                        </Col>
                     </Col>
                 </Row>
             </Container>
+                <div>
+                    <Image className="d-none d-lg-block group" src={group}/>
+                </div>
         </div>
     );
 }

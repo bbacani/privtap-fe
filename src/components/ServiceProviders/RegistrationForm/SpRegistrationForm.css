@@ -12,3 +12,10 @@
     box-shadow: none;
     -webkit-box-shadow: none;
 }
+
+.group{
+    width: 35%;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
