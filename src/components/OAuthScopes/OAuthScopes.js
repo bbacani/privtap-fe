@@ -1,7 +1,9 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import './OAuthScopes.css';
 import {Button, Col, Container, Row} from "react-bootstrap";
 import Scope from "./Scope";
+import {service} from "../../service/ApiService";
+import {useNavigate} from "react-router-dom";
 
 function createPairs(strings) {
     let pairs = [];
@@ -18,9 +20,37 @@ function createPairs(strings) {
 }
 
 function OAuthScopes(props) {
-    const platformName = "Facebook"
-    const scopes = ["Reading your user info", "Reading your user info", "Posting to Your timeline", "Posting to Your timeline", "Posting to Your timeline", "Posting to Your timeline", "Posting to Your timeline"]
+    const navigate = useNavigate();
+
+    const platformName = "spotify"
+    // const scopes = ["Reading your user info", "Reading your user info", "Posting to Your timeline", "Posting to Your timeline", "Posting to Your timeline", "Posting to Your timeline", "Posting to Your timeline"]
+    const [scopes, setScopes] = useState([]);
     const pairedScopes = createPairs(scopes);
+    // Boolean Array to indicate if a scope is selected or not
+    const [scopesState, setScopesState] = useState([]);
+
+    useEffect(() => {
+        const getMissingOauthScopes = async (userId, platform) => {
+            const response = await service().getMissingOauthScopes(userId, platform);
+            setScopes(response.data);
+            setScopesState(response.data.map(() => false))
+        }
+        if (props.user)
+            getMissingOauthScopes(props.user.id, platformName).then();
+    }, [props.user]);
+
+    function setScopeStateByName(name, state) {
+        const i = scopes.findIndex(e => e === name);
+        const newScopesState = [...scopesState];
+        newScopesState[i] = state;
+        setScopesState(newScopesState);
+    }
+
+    function handleConfirmButton() {
+        const selectedScopes = scopes.filter((element, index) => scopesState[index]);
+        service().addOAuthScopes(props.user.id, platformName, selectedScopes);
+        navigate('/profile')
+    }
 
     return (
         <div className="dark-background">
@@ -30,17 +60,17 @@ function OAuthScopes(props) {
                         <h1 className="text-white">
                             Almost done!
                         </h1>
-                        <text className="text-white">
+                        <p className="text-white">
                             This will be your new automation once finished:
-                        </text>
+                        </p>
 
-                        {/*TODO: Remove!*/}
+                        {/* TODO: Remove! */}
                         <div style={{width: "300px", height: "300px"}}>
 
                         </div>
 
                     </Col>
-                    <Col sm="auto">
+                    <Col sm="auto" className="d-none d-lg-block">
                         <div className="line" />
                     </Col>
                     <Col className="ms-5" sm={7}>
@@ -51,17 +81,17 @@ function OAuthScopes(props) {
                             <h4 className="text-white">
                                 Tell us which scopes of data you feel okay sharing with us
                             </h4>
-                            <text className="text-white my-2">
+                            <p className="text-white my-2">
                                 This is a list of all the {platformName} scopes you are currently not sharing with us. Unchecking some of them may disable the creation of this automation.
-                            </text>
+                            </p>
                             <Container fluid>
                                 <Row className="justify-content-sm-start flex-nowrap overflow-auto customScrollbar">
                                     {pairedScopes.map((pairScopes) => {
                                         return(
-                                            <Col sm="auto" className="p-0 ps-2">
-                                                <Scope title={pairScopes[0]}></Scope>
+                                            <Col sm="auto" className="p-0 ps-2" key={pairScopes[0]}>
+                                                <Scope callback={setScopeStateByName} title={pairScopes[0]}></Scope>
                                                 {pairScopes.length > 1 ?
-                                                    <Scope title={pairScopes[1]}></Scope> :
+                                                    <Scope callback={setScopeStateByName} title={pairScopes[1]}></Scope> :
                                                     null}
                                             </Col>
                                         );
@@ -74,7 +104,7 @@ function OAuthScopes(props) {
                         </Row>
                         <Row>
                             <Col>
-                                <Button size="lg" className="mt-5 px-5 purpleButton">Confirm</Button>
+                                <Button onClick={handleConfirmButton} size="lg" className="mt-5 px-5 purpleButton">Confirm</Button>
                             </Col>
                         </Row>
                     </Col>

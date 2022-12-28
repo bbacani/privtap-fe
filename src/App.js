@@ -66,7 +66,7 @@ function App() {
                         <ProtectedRoute authenticated={authenticated}>
                             <CreateAutomation authenticated={authenticated} user={user}/>
                         </ProtectedRoute> }/>
-                <Route path='/scopes' exact element={<OAuthScopes/>}/>
+                <Route path='/scopes' exact element={<OAuthScopes authenticated={authenticated} user={user} />}/>
                 {/* Service Provider */}
                 <Route path="/developers/login" exact element={<SpLogin/>}/>
                 <Route path="/developers/signup" exact element={<SpSignUp/>}/>

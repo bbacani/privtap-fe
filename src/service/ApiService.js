@@ -61,8 +61,22 @@ export function service() {
             return client.get(`/user`)
         },
         sendFormData: function(userId, formData) {
+            //TODO: add the endpoint
             console.log(userId)
             console.log(formData)
+        },
+        getOauthScopes: function(platform) {
+            return client.get(`/platform/${platform}/oauthScopes`)
+        },
+        getMissingOauthScopes: function(userId, platform) {
+            //TODO: change with the right endpoint
+            return client.get(`/platform/${platform}/oauthScopes`)
+        },
+        addOAuthScopes: function(userId, platform, scopes) {
+            //TODO: add the endpoint
+            console.log("UserId:" + userId)
+            console.log("Platform: " + platform)
+            console.log("Selected OAuth Scopes: " + scopes)
         }
     }
 }

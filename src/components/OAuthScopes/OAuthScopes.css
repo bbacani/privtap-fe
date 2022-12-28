@@ -1,11 +1,8 @@
-/*.dark-background{*/
-/*    background-color: #222222;*/
-/*}*/
-
-body{
+.dark-background{
     /* If you want to change the background color, change it also in the scrollbar */
     /* See the other comment down in this file */
-    background: #222222;;
+    background-color: #222222;
+    min-height: calc(100vh - 63px);
 }
 
 .line{

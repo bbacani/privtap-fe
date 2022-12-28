@@ -7,21 +7,22 @@ function Scope(props) {
     const title = props.title;
 
     function handleClick() {
+        props.callback(title, !allowed);
         setAllowed(!allowed);
     }
 
     return(
         <div className="card" onClick={handleClick}>
-            <Row className="justify-content-sm-center align-items-center">
+            <Row className="justify-content-sm-start align-items-center">
                 <Col sm="auto">
                     <div className="circle m-3" style={{backgroundColor: allowed ? "#A98EE7" : "#000000"}}></div>
                 </Col>
                 <Col sm="auto">
                     <Row>
-                        <text className="scope-title">{title}</text>
+                        <p className="scope-title">{title}</p>
                     </Row>
                     <Row>
-                        <text className="scope-state">{allowed ? "allowed" : "not allowed"}</text>
+                        <p className="scope-state">{allowed ? "allowed" : "not allowed"}</p>
                     </Row>
                 </Col>
             </Row>
