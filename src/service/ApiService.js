@@ -77,6 +77,10 @@ export function service() {
             console.log("UserId:" + userId)
             console.log("Platform: " + platform)
             console.log("Selected OAuth Scopes: " + scopes)
+        },
+        getPlatformName: function(id) {
+            //TODO: add the endpoint
+            return id;
         }
     }
 }

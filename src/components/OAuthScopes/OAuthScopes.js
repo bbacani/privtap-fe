@@ -23,7 +23,6 @@ function OAuthScopes(props) {
     const navigate = useNavigate();
 
     const platformName = "spotify"
-    // const scopes = ["Reading your user info", "Reading your user info", "Posting to Your timeline", "Posting to Your timeline", "Posting to Your timeline", "Posting to Your timeline", "Posting to Your timeline"]
     const [scopes, setScopes] = useState([]);
     const pairedScopes = createPairs(scopes);
     // Boolean Array to indicate if a scope is selected or not
