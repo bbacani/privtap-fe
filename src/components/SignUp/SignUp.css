@@ -21,7 +21,6 @@
 }
 
 .bottom-centered {
-    width: 500px;
     position: absolute;
     left:50%;
     margin-left:-250px;

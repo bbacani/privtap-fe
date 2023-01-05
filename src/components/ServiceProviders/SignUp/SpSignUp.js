@@ -1,11 +1,11 @@
 import React from "react";
-import "./Login.css";
-import googleLogo from "../Login/img/google-logo.png"
-import personAndComputer from "../Login/img/person-and-computer.png"
-import {GOOGLE_AUTH_URL} from "../../config/constants";
+import "./SpSignUp.css";
+import googleLogo from "../SignUp/img/google-logo.png"
+import personAndComputer from "../SignUp/img/person-and-computer.png"
+import {GOOGLE_AUTH_URL} from "../../../config/constants";
 import {Button, Col, Container, Image, Row} from "react-bootstrap";
 
-function Login() {
+function SpSignUp() {
     return (
         <div>
             <div className="box">
@@ -13,7 +13,7 @@ function Login() {
                     <Col className="justify-content-md-center">
                         <Row>
                             <h2 align="center">
-                                Login to
+                                Sign up to
                             </h2>
                         </Row>
                         <Row>
@@ -23,13 +23,13 @@ function Login() {
                         </Row>
                         <Row>
                             <h5 align="center" className="grey-text">
-                                Log in to find back your automations.
+                                Sign up to start creating triggers and actions.
                             </h5>
                         </Row>
                         <Row>
                             <Button className="mt-4" href={GOOGLE_AUTH_URL} size="lg" style={{backgroundColor: '#222222'}}>
                                 <Image className="googleButton" src={googleLogo} alt="Google"/>
-                                Login with Google
+                                Sign up with Google
                             </Button>
                         </Row>
                     </Col>
@@ -44,4 +44,4 @@ function Login() {
     );
 }
 
-export default Login;
+export default SpSignUp;

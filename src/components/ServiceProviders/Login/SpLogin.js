@@ -1,11 +1,11 @@
 import React from "react";
-import "./Login.css";
+import "./SpLogin.css";
 import googleLogo from "../Login/img/google-logo.png"
 import personAndComputer from "../Login/img/person-and-computer.png"
-import {GOOGLE_AUTH_URL} from "../../config/constants";
+import {GOOGLE_AUTH_URL} from "../../../config/constants";
 import {Button, Col, Container, Image, Row} from "react-bootstrap";
 
-function Login() {
+function SpLogin() {
     return (
         <div>
             <div className="box">
@@ -23,7 +23,7 @@ function Login() {
                         </Row>
                         <Row>
                             <h5 align="center" className="grey-text">
-                                Log in to find back your automations.
+                                Log in to manage your triggers and actions.
                             </h5>
                         </Row>
                         <Row>
@@ -44,4 +44,4 @@ function Login() {
     );
 }
 
-export default Login;
+export default SpLogin;

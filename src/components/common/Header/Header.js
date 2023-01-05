@@ -2,15 +2,35 @@ import React from "react";
 import "./Header.css";
 import {Container, Nav, Navbar} from "react-bootstrap";
 import {Person} from "react-bootstrap-icons";
+import { useLocation } from 'react-router-dom';
 
 function Header(props) {
+    const location = useLocation();
+    const locationsWithHeader = [
+        '/profile',
+        '/action/register',
+        '/trigger/register',
+        '/user',
+        '/login',
+        '/signup',
+        '/create-automation',
+        '/developers/login',
+        '/developers/signup'
+    ]
+    const showHeader = locationsWithHeader.includes(location.pathname);
+    const developers = location.pathname.startsWith("/developers");
 
-    return (
+    return showHeader? (
         <Navbar bg="dark" variant="dark" className="header">
             <Container>
-                <Navbar.Brand href="/home">
-                    <h4 className="brand">privTAP</h4>
-                </Navbar.Brand>
+                { developers ?
+                    <Navbar.Brand href={props.authenticated ? '/developers/profile' : '/developers'}>
+                        <h4 className="brand">privTAP for developers</h4>
+                    </Navbar.Brand> :
+                    <Navbar.Brand href={props.authenticated ? '/profile' : '/'}>
+                        <h4 className="brand">privTAP</h4>
+                    </Navbar.Brand>
+                }
                 {props.authenticated ?
                     <Nav>
                         <Person href="/profile" color="white" size={40}/>
@@ -19,12 +39,12 @@ function Header(props) {
                     </Nav>
                     :
                     <Nav className="justify-content-end">
-                        <Nav.Link href="/login">Login</Nav.Link>
+                        <Nav.Link href={developers ? "/developers/login" : "/login"}>Login</Nav.Link>
                     </Nav>
                 }
             </Container>
         </Navbar>
-    );
+    ) : null;
 
 }
 

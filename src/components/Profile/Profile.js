@@ -5,8 +5,7 @@ import NoAutomations from "./NoAutomations";
 import {service} from "../../service/ApiService";
 import SubHeader from "../common/SubHeader/SubHeader";
 
-export default function UserAutomations(props) {
-
+export default function Profile(props) {
     const [automations, setAutomations] = useState();
 
     useEffect(() => {
