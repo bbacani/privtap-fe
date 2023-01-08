@@ -30,7 +30,7 @@ function PlatformSuccess(props) {
     // return <Navigate to="/profile"/>
     return (
         <div>
-            {props.user && <Navigate to="/profile"/>}
+            {props.user && <Navigate to="/home"/>}
         </div>
     )
 }

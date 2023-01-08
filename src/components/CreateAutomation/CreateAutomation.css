@@ -19,39 +19,50 @@
     transition: all .3s;
 }
 
-
-.button .active {
-    z-index: 1000;
-    background-color: rgb(13, 172, 241);
-    border: none;
-    margin: 0;
-    padding: 0;
-    -webkit-transition: all ease-in-out 300ms;
-    transition: all ease-in-out 300ms;
-    box-shadow: 0 37px 20px -20px rgba(0, 0, 0, 0.2);
-    -webkit-transform: scale(1.1);
-    transform: scale(1.1);
+.cardTitle {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 50px;
+    color: white;
+    text-align: left;
 }
 
-.button .not-active {
-    border: none;
-    margin: 0;
-    padding: 0;
-    background-color: transparent;
-    -webkit-transition: all ease-in-out 300ms;
-    transition: all ease-in-out 300ms;
-    box-shadow: 0 17px 10px -10px rgba(0, 0, 0, 0.4);
+.platform-button {
+    font-size: 12px;
+    position: relative;
+    left: 20px;
+    top: 1rem;
+    margin-bottom: 1.5rem;
+    color: #D3D3D3;
 }
 
-.button {
-    display: inline-block;
-    background: #4285f4;
-    color: #fff;
-    border-radius: 5px;
-    cursor: pointer;
-    margin: 0;
-    padding: 0;
 
+.button-choice .active {
+    background: #A98EE7;
+    border-radius: 20px;
+    color: black;
+
+
+}
+
+.button-choice .not-active {
+    background: #282828;
+    border-radius: 20px;
+
+}
+
+.button-choice {
+    background: transparent;
+    color: white;
+    border: none;
+    font-size: 18px;
+    text-align: center;
+    position: relative;
+    margin: 0;
+    padding: 5px;
+    border-radius: 20px;
+    width: 100%;
 }
 
 .check-list {
@@ -67,11 +78,11 @@
 
     list-style-type: none;
     margin-bottom: 0.5rem;
-   display: inline-flex;
+    display: inline-flex;
 
 }
 
-.upper-container{
+.upper-container {
     display: flex;
     position: relative;
     background-color: #222222;
@@ -80,13 +91,50 @@
 
 }
 
-.upper-container-text{
+.upper-container-text {
     width: 60%;
 }
 
-
-.create-automation-image{
-
+.create-automation-image {
     width: 300px;
 }
 
+.platform-col {
+    background: #D3D3D3;
+    border-radius: 30px;
+    margin: 1rem;
+    padding: 1rem;
+}
+
+.platform-col-secondary{
+    background: #4E4E4E;
+    border-radius: 30px;
+    margin: 1rem;
+    padding: 1rem;
+}
+.next-text{
+    color: gray;
+    display: flex;
+    flex-direction: row;
+  justify-content: center;
+}
+
+.types-row{
+    background-color: #222222;
+    color: white;
+}
+
+
+.browse-button {
+    background: #A98EE7;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(20px);
+    color: #FFFFFF;
+    font-weight: 600;
+    font-size: 25px;
+    line-height: 40px;
+    text-align: center;
+    margin-top: 3rem;
+    border-radius: 20px;
+    padding: 5px 30px;
+}

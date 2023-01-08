@@ -2,11 +2,11 @@ import React, {useEffect, useState} from "react";
 import {Container, Image, Row} from "react-bootstrap";
 import SubHeader from "../common/SubHeader/SubHeader";
 import "./Explore.css"
-import "../Home/Home.css"
+import "../Home/Homepage.css"
 import {service} from "../../service/ApiService";
 import img2 from "../../images/explore-bottom-pic.png"
-import PlatformCard from "../common/PlatformCard";
 import imgLogos from "../../images/platform_logos.png"
+import PlatformCardExplore from "./PlatformCardExplore";
 
 
 function Explore(props) {
@@ -47,7 +47,7 @@ function Explore(props) {
                             <Row xs={2} md={4} lg={5} className="justify-content-start">
                                 {platforms?.map((platform) => {
                                     return (
-                                        <PlatformCard name={platform}/>
+                                        <PlatformCardExplore name={platform}/>
                                     )
                                 })}
                             </Row>
@@ -58,7 +58,7 @@ function Explore(props) {
                     <div className="home-end">
                         <h2 className="bottom-big-text"> Automations help You stay up to date with Your tasks, make things happen automatically and more</h2>
                         <Image fluid className="home-image-bottom" src={img2}/>
-                        <h4>And they are quite fun</h4>
+                        <h4>And they are quite fun!</h4>
 
 
                     </div>

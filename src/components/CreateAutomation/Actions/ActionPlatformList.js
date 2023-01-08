@@ -1,30 +1,41 @@
 import React, {useEffect, useState} from "react";
-import {Form} from "react-bootstrap";
+import {Button, Col, Container, Form, Row} from "react-bootstrap";
 import {service} from "../../../service/ApiService";
+import TypeCard from "../TypeCard";
 
 export default function ActionPlatformList(props) {
     const [actionPlatforms, setActionPlatforms] = useState();
+    const [active, setActive] = useState();
 
     useEffect(() => {
         const getAllActionPlatforms = async () => {
             const response = await service().getAllActionPlatforms();
-            console.log("action"+response.data)
             setActionPlatforms(response.data);
         }
             getAllActionPlatforms();
         },[]);
 
-    return (
-        <Form.Select aria-label="Select the platform" onChange={props.onChange}>
-            <option>Select the platform</option>
+    const activeButton = (platform) => {
+        setActive(platform)
+        props.setActionPlatform(platform)
+    }
 
-            {actionPlatforms?.map((actionPlatform) => {
-                return (
-                    <option>
-                        {actionPlatform}
-                    </option>
-                )})
-            }
-        </Form.Select>
+    return (
+        <div>
+            <Container fluid className="mt-3">
+                <Row xs={1} md={2} lg={2}>
+                    {actionPlatforms?.map((actionPlatform) => {
+                        return (
+                            <Col className="mb-2">
+                                <Button className="button-choice" variant="secondary" >
+                                    <TypeCard active={active} platform={actionPlatform} onChange={activeButton}/>
+                                </Button>
+                            </Col>
+                        )
+                    })
+                    }
+                </Row>
+            </Container>
+        </div>
     )
 }

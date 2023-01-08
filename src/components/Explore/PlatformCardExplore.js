@@ -2,7 +2,7 @@ import {Col} from "react-bootstrap";
 import React, {useEffect, useState} from "react";
 import "../Profile/Profile.css"
 import {service} from "../../service/ApiService";
-export default function PlatformCard(props) {
+export default function PlatformCardExplore(props) {
 
     const [platform, setPlatform] = useState();
 
@@ -10,7 +10,7 @@ export default function PlatformCard(props) {
         const getPlatformByName = async () => {
             const response = await service().getPlatformByName(props.name);
             setPlatform(response.data);
-
+            console.log(response.data)
         }
         getPlatformByName().then();
     }, []);
@@ -25,6 +25,7 @@ export default function PlatformCard(props) {
                     {props.name}
                 </h4>
             </div>
+            <div className="platform-button"> {platform?.actionTypes.length} actions and {platform?.triggerTypes.length} triggers</div>
         </Col>
     )
 }

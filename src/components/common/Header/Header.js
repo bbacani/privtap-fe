@@ -7,7 +7,9 @@ import { useLocation } from 'react-router-dom';
 function Header(props) {
     const location = useLocation();
     const locationsWithHeader = [
-        '/profile',
+        '/automations',
+        '/home',
+        '/explore',
         '/action/register',
         '/trigger/register',
         '/user',
@@ -27,14 +29,14 @@ function Header(props) {
                     <Navbar.Brand href={props.authenticated ? '/developers/profile' : '/developers'}>
                         <h4 className="brand">privTAP for developers</h4>
                     </Navbar.Brand> :
-                    <Navbar.Brand href={props.authenticated ? '/profile' : '/'}>
+                    <Navbar.Brand href={props.authenticated ? '/home' : '/'}>
                         <h4 className="brand">privTAP</h4>
                     </Navbar.Brand>
                 }
                 {props.authenticated ?
                     <Nav>
-                        <Person href="/profile" color="white" size={40}/>
-                        <Nav.Link href="/profile">{props.user.username}</Nav.Link>
+                        <Person href="/home" color="white" size={40}/>
+                        <Nav.Link href="/home">{props.user.username}</Nav.Link>
                         <Nav.Link className="mx-3" onClick={props.onLogout}>Logout</Nav.Link>
                     </Nav>
                     :

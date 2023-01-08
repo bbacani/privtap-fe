@@ -72,6 +72,9 @@ export function service() {
         getPlatformNames: function () {
             return client.get(`/platform/`)
         },
+        getPlatformByName: function (platformName) {
+            return client.get(`/platform/${platformName}/name`)
+        },
 
 
     }

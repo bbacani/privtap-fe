@@ -21,7 +21,7 @@
 .home-image {
     position: absolute;
     right: 5%;
-    top: 50%;
+    top: 30%;
     height: 300px;
     width: 300px;
 }
@@ -62,4 +62,8 @@
     align-items: center;
     color: #000000;
 
+}
+
+.bottom-small-text{
+    max-width: 50%;
 }

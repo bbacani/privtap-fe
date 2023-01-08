@@ -21,7 +21,7 @@ function AutomationModal(props) {
         }
 
         await service().addAutomation(props.userId, automation)
-        navigate(`/profile`)
+        navigate(`/home`)
     }
 
     const checkFieldsCount = () => {
@@ -46,7 +46,7 @@ function AutomationModal(props) {
                         <p>To create an automation:</p>
                         <Stack direction="horizontal" className="justify-content-center mx-auto" gap={3}>
                             <h5> {props.trigger.name}</h5>
-                            <ArrowRight color="royalblue" size={96}/>
+                            <ArrowRight color="purple" size={96}/>
                             <h5> {props.action.name}</h5>
                         </Stack>
                         <p>You must accept the following information:</p>
@@ -66,7 +66,7 @@ function AutomationModal(props) {
                         <h3>Can't create selected automation!</h3>
                         <Stack direction="horizontal" className="justify-content-center mx-auto" gap={3}>
                             <h5> {props.trigger.name}</h5>
-                            <ArrowRight color="royalblue" size={96}/>
+                            <ArrowRight color="purple" size={96}/>
                             <h5> {props.action.name}</h5>
                         </Stack>
                         <h5>Information mismatch</h5>
@@ -98,7 +98,7 @@ function AutomationModal(props) {
             </Modal.Body>
             <Modal.Footer>
                 {checkFieldsCount() &&
-                <Button size="lg" variant="primary" onClick={handleAcceptAutomation}>Accept</Button>}
+                <Button size="lg" variant="primary" style={{backgroundColor: '#A98EE7'}} onClick={handleAcceptAutomation}>Accept</Button>}
                 <Button size="lg" variant="secondary" onClick={props.onHide}>Cancel</Button>
             </Modal.Footer>
         </Modal>

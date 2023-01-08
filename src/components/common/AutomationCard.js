@@ -17,7 +17,6 @@ export default function AutomationCard(props) {
                     {props.automation.action.name}
                 </h4>
             </div>
-            <div className="platform-button"> PLATFORM - PLATFORM</div>
         </Col>
     )
 }
