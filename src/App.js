@@ -17,8 +17,8 @@ import SpSignUp from "./components/ServiceProviders/SignUp/SpSignUp";
 import SpLandingPage from "./components/ServiceProviders/LandingPage/SpLandingPage";
 import ProtectedRoute from "./components/common/ProtectedRoute";
 import Homepage from "./components/Home/Homepage";
-import Explore from "./components/Explore/Explore";
 import HomepageSP from "./components/ServiceProviders/Homepage/HomepageSP";
+import Explore from "./components/Explore/Explore";
 
 function App() {
     const [user, setUser] = useState(null)

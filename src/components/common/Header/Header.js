@@ -42,17 +42,7 @@ function Header(props) {
                         <Nav.Link href={developers ? "/developers/login" : "/login"}>Login</Nav.Link>
                     </Nav>
                 }
-                {props.providerAuthenticated ?
-                    <Nav>
-                        <Person href="/home" color="white" size={40}/>
-                        <Nav.Link href="/home">bbacani</Nav.Link>
-                        <Nav.Link className="mx-3" onClick={props.onLogout}>Logout</Nav.Link>
-                    </Nav>
-                    :
-                    <Nav className="justify-content-end">
-                        <Nav.Link href={developers ? "/developers/login" : "/login"}>Login</Nav.Link>
-                    </Nav>
-                }
+
             </Container>
         </Navbar>
     ) : null;
