@@ -42,7 +42,7 @@ const SpLandingPage = () => {
                         </button>
                     </a>
                     <a href="/" className="developer">
-                        I am a user >
+                        I am a user {'>'}
                     </a>
                 </div>
             </div>
@@ -89,7 +89,7 @@ const SpLandingPage = () => {
                         <div className="landing-page-container06">
                             <img
                                 src={bro}
-                                alt="image"
+                                alt=""
                                 className="landing-page-image1"
                             />
                         </div>
@@ -100,7 +100,7 @@ const SpLandingPage = () => {
                         <div className="landing-page-container07">
                             <img
                                 src={rafiki}
-                                alt="image"
+                                alt=""
                                 className="landing-page-image3"
                             />
                         </div>
@@ -185,7 +185,7 @@ const SpLandingPage = () => {
                         <div className="landing-page-container12">
                             <img
                                 src={lastfiki}
-                                alt="image"
+                                alt=""
                                 className="landing-page-image5"
                             />
                         </div>
@@ -196,7 +196,7 @@ const SpLandingPage = () => {
                 <div className="landing-page-container13">
                     <img
                         src={security}
-                        alt="image"
+                        alt=""
                         className="landing-page-image6"
                     />
                 </div>
