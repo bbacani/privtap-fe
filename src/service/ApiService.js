@@ -1,32 +1,49 @@
 import Axios from 'axios'
-import {API_BASE_URL} from "../config/constants";
+import {ACCESS_TOKEN, API_BASE_URL} from "../config/constants";
 
-export const client = Axios.create({
-    headers: {'Access-Control-Allow-Origin': '*'},
-    withCredentials: true,
-    baseURL: API_BASE_URL,
-})
 
 export function service() {
 
-    return {
-        getAllActions: function () {
-            return client.get("/action")
+    const client = Axios.create({
+        headers: {
+            'Access-Control-Allow-Origin': '*',
+            'Content-Type': 'application/json',
+            "Authorization": "none"
+
         },
+        withCredentials: true,
+        baseURL: API_BASE_URL,
+    })
+
+    if (localStorage.getItem(ACCESS_TOKEN)) {
+        client.interceptors.request.use(req => {
+            req.headers.authorization = "Bearer " + localStorage.getItem(ACCESS_TOKEN)
+            return req;
+        });
+    }
+
+
+    return {
         getAllTriggerTypes: function () {
             return client.get("/triggerTypes")
         },
         getAllTriggerPlatforms: function () {
-            return client.get("/triggerTypes/platforms")
+            return client.get("/platform/triggerPlatforms")
         },
-        getTriggerTypesByPlatform: function (platform) {
-            return client.get(`/triggerTypes/platform/${platform}`)
+        getTriggerTypesByPlatform: function (platformName) {
+            return client.get(`/platform/${platformName}/allTriggerTypes`)
+        },
+        registerTriggerType: function (platformName, triggerType) {
+            return client.post(`/${platformName}/triggerType`, triggerType)
         },
         getAllActionPlatforms: function () {
-            return client.get("/actionTypes/platforms")
+            return client.get("/platform/actionPlatforms")
         },
-        getActionTypesByPlatform: function (platform) {
-            return client.get(`/actionTypes/platform/${platform}`)
+        getActionTypesByPlatform: function (platformName) {
+            return client.get(`/platform/${platformName}/allActionTypes`)
+        },
+        registerActionType: function (platformName, actionType) {
+            return client.post(`/${platformName}/actionTypes`, actionType)
         },
         addAutomation: function (userId, automationRequest) {
             return client.post(`/automation/${userId}`, automationRequest)
@@ -37,8 +54,12 @@ export function service() {
         getAllUserAutomations: function (userId) {
             return client.get(`/automation/${userId}`)
         },
-        getUserById: function(userId){
+        getUserById: function (userId) {
             return client.get(`/user/${userId}`)
         },
+        getCurrentUser: function () {
+            return client.get(`/user`)
+        },
+
     }
 }

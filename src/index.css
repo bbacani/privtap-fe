@@ -15,7 +15,8 @@ code {
 html {
   height: 100%;
 }
+
 body {
   min-height: 100%;
+  background-image: url("images/background_pattern.png");
 }
-
