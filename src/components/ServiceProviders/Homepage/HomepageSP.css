@@ -8,7 +8,7 @@
     color: white;
 }
 
-.platform-home-button {
+.trigger-button {
     background: #222222;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
     backdrop-filter: blur(20px);

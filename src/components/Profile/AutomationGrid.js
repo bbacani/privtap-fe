@@ -10,8 +10,7 @@ export default function AutomationGrid(props) {
     return (
         <div className="automation-list-body">
             <Stack direction="horizontal" className="justify-content-between mx-5" gap={3}>
-                <Button className="browse-button" variant="secondary" mar size="lg" href="/create-automation">Browse
-                    existing automations</Button>
+
                 <Button className="home-button" variant="secondary" mar size="lg" href="/create-automation">Create new
                     automation</Button>
             </Stack>

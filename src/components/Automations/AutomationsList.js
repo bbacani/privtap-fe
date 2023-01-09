@@ -31,7 +31,7 @@ function AutomationList(props) {
             {automations?.map((automation) => {
                 return (
                     <Row xs={1} md={2} lg={2}>
-                        <Stack direction="horizontal" className="justify-content-center mx-auto  platform-home-button" gap={3}>
+                        <Stack direction="horizontal" className="justify-content-center mx-auto  platform-home" gap={3}>
                             <h5> {automation.trigger.name}</h5>
                             <ArrowRight color="purple" size={80}/>
                             <h5> {automation.action.name}</h5>

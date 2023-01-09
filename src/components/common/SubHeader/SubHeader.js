@@ -29,15 +29,10 @@ function SubHeader(props) {
                        className={active === "3" ? " subheader-item active" : "subheader-item"}
                        id={"3"}
                        onClick={handleClick}>Automations</a>
-                    <a href="/mission"
-                       className={active === "4" ? " subheader-item active" : "subheader-item"}
-                       id={"4"}
-                       onClick={handleClick}>Our mission</a>
+
 
 
                 </Stack>
-
-
         </Container>
 
     );

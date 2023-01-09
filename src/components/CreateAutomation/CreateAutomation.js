@@ -41,14 +41,12 @@ function CreateAutomation(props) {
         <div>
             <SubHeader authenticated={props.authenticated}/>
             <div className="upper-container">
-
                 <div className="upper-container-text">
                     <h1 align="start" className="mb-5">Use Your imagination and create something unique </h1>
                     <h4>We also have ready to use automations. Feel free to browse them and add them to Your
                         automation list!</h4>
                 </div>
                 <Image fluid className="create-automation-image" src={img}/>
-
             </div>
             <Container className="p-5">
                 <h1>New automation</h1>
@@ -90,14 +88,15 @@ function CreateAutomation(props) {
                         </Row>
                         <Row>
                             {triggerPlatform &&
-                            <Col md className="platform-col-secondary">
-                                <TriggerEventCards setSelectedTrigger={handleSetTrigger} platform={triggerPlatform}/>
-                            </Col>
+                                <Col md className="platform-col-secondary">
+                                    <TriggerEventCards setSelectedTrigger={handleSetTrigger}
+                                                       platform={triggerPlatform}/>
+                                </Col>
                             }
                             {actionPlatform &&
-                            <Col md className="platform-col-secondary">
-                                <ActionEventCards setSelectedAction={handleSetAction} platform={actionPlatform}/>
-                            </Col>
+                                <Col md className="platform-col-secondary">
+                                    <ActionEventCards setSelectedAction={handleSetAction} platform={actionPlatform}/>
+                                </Col>
                             }
                         </Row>
 

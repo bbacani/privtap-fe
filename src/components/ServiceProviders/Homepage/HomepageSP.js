@@ -27,7 +27,7 @@ function HomepageSP(props) {
     return (
         <div>
             <HeaderSPlogged/>
-            <SubHeader authenticated={props.authenticated}/>
+
 
             <div>
 
@@ -39,10 +39,10 @@ function HomepageSP(props) {
                             <Stack direction="vertical" className="right-panel " gap={3}>
                                 <h3>Make triggers and actions users will love</h3>
                                 <p>Nobody likes triggers that are too complex or actions that are boring :)</p>
-                                <Button variant="secondary" size="lg" className="platform-home-button" href="/trigger/register">
+                                <Button variant="secondary" size="lg" className="trigger-button" href="/trigger/register">
                                     Add trigger
                                 </Button>
-                                <Button variant="secondary" size="lg" className="platform-home-button" href="/action/register">
+                                <Button variant="secondary" size="lg" className="trigger-button" href="/action/register">
                                     Add action
                                 </Button>
                             </Stack>

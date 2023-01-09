@@ -42,7 +42,6 @@ function Header(props) {
                         <Nav.Link href={developers ? "/developers/login" : "/login"}>Login</Nav.Link>
                     </Nav>
                 }
-
             </Container>
         </Navbar>
     ) : null;
