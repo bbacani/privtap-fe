@@ -74,8 +74,6 @@ export function service() {
         },
         getPlatformByName: function (platformName) {
             return client.get(`/platform/${platformName}/name`)
-        },
-
-
+        }
     }
 }

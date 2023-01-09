@@ -1,6 +1,7 @@
 import React from 'react';
 import {useForm} from 'react-hook-form';
 import {Button, Col, Container, Form, Row} from "react-bootstrap";
+import HeaderSPlogged from "../../common/Header/HeaderSPlogged";
 
 
 function RegisterActionType() {
@@ -21,6 +22,8 @@ function RegisterActionType() {
     }
 
     return (
+        <div>
+        <HeaderSPlogged/>
         <Container className="p-5">
             <h1 align="center" className="mb-5">Register action</h1>
             <Form onSubmit={handleSubmit(onSubmit)}>
@@ -34,12 +37,12 @@ function RegisterActionType() {
                         <Form.Group className="mb-2">
                             <Form.Label>Name</Form.Label>
                             <Form.Control {...register("name")}
-                                          placeholder="Give a name to your new automation"/>
+                                          placeholder="Give a name to your new action"/>
                         </Form.Group>
                         <Form.Group className="mb-2">
                             <Form.Label>Description</Form.Label>
                             <Form.Control {...register("description")}
-                                          as="textarea" rows={3} placeholder="Describe your automation"/>
+                                          as="textarea" rows={3} placeholder="Describe your action"/>
                         </Form.Group>
                         <Form.Group className="mb-2">
                             <Form.Label>URL</Form.Label>
@@ -117,6 +120,7 @@ function RegisterActionType() {
                 </Row>
             </Form>
         </Container>
+        </div>
     )
 }
 

@@ -10,23 +10,21 @@ function Header(props) {
         '/automations',
         '/home',
         '/explore',
-        '/action/register',
-        '/trigger/register',
         '/user',
         '/login',
         '/signup',
-        '/create-automation',
-        '/developers/login',
-        '/developers/signup'
+        '/create-automation'
     ]
     const showHeader = locationsWithHeader.includes(location.pathname);
     const developers = location.pathname.startsWith("/developers");
+
+    console.log(props.providerAuthenticated)
 
     return showHeader? (
         <Navbar bg="dark" variant="dark" className="header">
             <Container>
                 { developers ?
-                    <Navbar.Brand href={props.authenticated ? '/developers/profile' : '/developers'}>
+                    <Navbar.Brand href={props.providerAuthenticated ? '/developers/profile' : '/developers'}>
                         <h4 className="brand">privTAP for developers</h4>
                     </Navbar.Brand> :
                     <Navbar.Brand href={props.authenticated ? '/home' : '/'}>
@@ -37,6 +35,17 @@ function Header(props) {
                     <Nav>
                         <Person href="/home" color="white" size={40}/>
                         <Nav.Link href="/home">{props.user.username}</Nav.Link>
+                        <Nav.Link className="mx-3" onClick={props.onLogout}>Logout</Nav.Link>
+                    </Nav>
+                    :
+                    <Nav className="justify-content-end">
+                        <Nav.Link href={developers ? "/developers/login" : "/login"}>Login</Nav.Link>
+                    </Nav>
+                }
+                {props.providerAuthenticated ?
+                    <Nav>
+                        <Person href="/home" color="white" size={40}/>
+                        <Nav.Link href="/home">bbacani</Nav.Link>
                         <Nav.Link className="mx-3" onClick={props.onLogout}>Logout</Nav.Link>
                     </Nav>
                     :

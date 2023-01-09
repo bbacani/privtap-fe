@@ -6,6 +6,9 @@ import "./HomepageSP.css"
 import SubHeader from "../../common/SubHeader/SubHeader";
 import {service} from "../../../service/ApiService";
 import {ArrowRight} from "react-bootstrap-icons";
+import Header from "../../common/Header/Header";
+import HeaderSP from "../../common/Header/HeaderSP";
+import HeaderSPlogged from "../../common/Header/HeaderSPlogged";
 
 
 function HomepageSP(props) {
@@ -23,6 +26,7 @@ function HomepageSP(props) {
 
     return (
         <div>
+            <HeaderSPlogged/>
             <SubHeader authenticated={props.authenticated}/>
 
             <div>
@@ -35,10 +39,10 @@ function HomepageSP(props) {
                             <Stack direction="vertical" className="right-panel " gap={3}>
                                 <h3>Make triggers and actions users will love</h3>
                                 <p>Nobody likes triggers that are too complex or actions that are boring :)</p>
-                                <Button variant="secondary" size="lg" className="platform-home-button">
+                                <Button variant="secondary" size="lg" className="platform-home-button" href="/trigger/register">
                                     Add trigger
                                 </Button>
-                                <Button variant="secondary" size="lg" className="platform-home-button">
+                                <Button variant="secondary" size="lg" className="platform-home-button" href="/action/register">
                                     Add action
                                 </Button>
                             </Stack>
