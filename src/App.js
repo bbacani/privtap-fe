@@ -16,6 +16,9 @@ import SpLogin from "./components/ServiceProviders/Login/SpLogin";
 import SpSignUp from "./components/ServiceProviders/SignUp/SpSignUp";
 import SpLandingPage from "./components/ServiceProviders/LandingPage/SpLandingPage";
 import ProtectedRoute from "./components/common/ProtectedRoute";
+import Homepage from "./components/Home/Homepage";
+import Explore from "./components/Explore/Explore";
+import HomepageSP from "./components/ServiceProviders/Homepage/HomepageSP";
 
 function App() {
     const [user, setUser] = useState(null)
@@ -46,6 +49,7 @@ function App() {
         window.location.href = "/";
     }
 
+
     return (
         <BrowserRouter>
             <div>
@@ -53,21 +57,24 @@ function App() {
             </div>
             <Routes>
                 <Route path="/" exact element={<Home authenticated={authenticated}/>}/>
+                <Route path="/home" exact element={<Homepage authenticated={authenticated} user={user}/>}/>
+                <Route path="/explore" exact element={<Explore authenticated={authenticated}/>}/>
                 <Route path="/login" exact element={<Login/>}/>
                 <Route path="/signup" exact element={<SignUp/>}/>
                 <Route path="/oauth2/redirect" element={<OAuth2RedirectHandler authenticated={authenticated}/>}/>
-                <Route path="/profile" element={
+                <Route path="/automations" element={
                     <ProtectedRoute authenticated={authenticated}>
                         <Profile authenticated={authenticated} user={user}/>
-                    </ProtectedRoute> }/>
+                    </ProtectedRoute>}/>
                 <Route path="/create-automation" element={
-                        <ProtectedRoute authenticated={authenticated}>
-                            <CreateAutomation authenticated={authenticated} user={user}/>
-                        </ProtectedRoute> }/>
+                    <ProtectedRoute authenticated={authenticated}>
+                        <CreateAutomation authenticated={authenticated} user={user}/>
+                    </ProtectedRoute>}/>
                 {/* Service Provider */}
                 <Route path="/developers/login" exact element={<SpLogin/>}/>
                 <Route path="/developers/signup" exact element={<SpSignUp/>}/>
                 <Route path="/developers" exact element={<SpLandingPage/>}/>
+                <Route path="/developers/home" exact element={<HomepageSP/>}/>
                 <Route path='/action/register' exact element={<RegisterActionType/>}/>
                 <Route path='/trigger/register' exact element={<RegisterTriggerType/>}/>
             </Routes>

@@ -4,10 +4,12 @@ import googleLogo from "../SignUp/img/google-logo.png"
 import personAndComputer from "../SignUp/img/person-and-computer.png"
 import {GOOGLE_AUTH_URL} from "../../../config/constants";
 import {Button, Col, Container, Image, Row} from "react-bootstrap";
+import HeaderSP from "../../common/Header/HeaderSP";
 
 function SpSignUp() {
     return (
         <div>
+            <HeaderSP/>
             <div className="box">
                 <Container>
                     <Col className="justify-content-md-center">

@@ -1,0 +1,69 @@
+.description {
+    max-width: 70%;
+}
+
+.platform-list-body {
+    background-color: #222222;
+    padding: 1em;
+    color: white;
+}
+
+.platform-home-button {
+    background: #222222;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(20px);
+    border-radius: 15px;
+    padding-right: 5rem;
+    padding-left: 5rem;
+    margin-top: 2rem;
+}
+
+.home-image {
+    position: absolute;
+    right: 5%;
+    top: 30%;
+    height: 300px;
+    width: 300px;
+}
+
+.home-image-bottom {
+    position: absolute;
+    right: 5%;
+    top: 0;
+    height: 300px;
+
+}
+
+.user-container {
+    position: relative;
+    height: 400px;
+}
+
+.platform-title {
+    color: white;
+}
+
+.home-end {
+    position: relative;
+    margin-top: 5rem;
+    padding-bottom: 10em;
+
+
+}
+
+.bottom-big-text {
+    max-width: 50%;
+    max-height: 400px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 50px;
+    line-height: 80px;
+    display: flex;
+    align-items: center;
+    color: #000000;
+
+}
+
+.bottom-small-text{
+    max-width: 50%;
+}
