@@ -8,17 +8,11 @@ function RegisterTriggerType() {
     const {
         register,
         handleSubmit,
-        formState: {errors},
     } = useForm();
 
     const onSubmit = (data) => {
         console.log(data);
     };
-
-    const registerTriggerType = async (triggerType) => {
-        // const response = await service().registerTriggerType(triggerType);
-        console.log(triggerType)
-    }
 
     return (
         <Container className="p-5">

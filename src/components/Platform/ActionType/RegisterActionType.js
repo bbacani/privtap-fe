@@ -8,17 +8,11 @@ function RegisterActionType() {
     const {
         register,
         handleSubmit,
-        formState: {errors},
     } = useForm();
 
     const onSubmit = (data) => {
         console.log(data);
     };
-
-    const registerActionType = async (actionType) => {
-        // const response = await service().registerActionType(actionType);
-        console.log(actionType)
-    }
 
     return (
         <Container className="p-5">
