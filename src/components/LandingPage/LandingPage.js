@@ -43,7 +43,7 @@ const LandingPage = () => {
                         </button>
                     </a>
                     <a href="/developers" className="developer">
-                        I am a developer
+                        I am a developer {'>'}
                     </a>
                 </div>
             </div>

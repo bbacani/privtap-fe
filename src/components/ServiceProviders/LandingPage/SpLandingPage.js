@@ -42,7 +42,7 @@ const SpLandingPage = () => {
                         </button>
                     </a>
                     <a href="/" className="developer">
-                        I am a user
+                        I am a user {'>'}
                     </a>
                 </div>
             </div>
