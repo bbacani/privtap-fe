@@ -86,8 +86,22 @@
     text-align: center;
     position: relative;
     padding-top: 5%;
+    padding-bottom: 5%;
 }
 
 .type-container{
     width: 50%;
+}
+
+.scope-title-text{
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: #FFFFFF;
+}
+
+.scope-state-text{
+    margin: 0;
+    font-size: 12px;
+    color: #555555;
 }

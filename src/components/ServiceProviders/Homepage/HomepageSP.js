@@ -42,11 +42,9 @@ function HomepageSP(props) {
                                 {platform?.actionTypes?.map((action) => {
                                     return (
                                         <div className="mb-5 mx-2  type-item"
-                                             style={{backgroundColor: platform?.color}}>
-
-                                                <p className="scope-title">{action.name}</p>
-
-                                                <p className="scope-state">{action.description}</p>
+                                             style={{backgroundColor: '#222222'}}>
+                                                <p className="scope-title-text">{action.name}</p>
+                                                <p className="scope-state-text">{action.description}</p>
 
                                         </div>
                                     );
@@ -57,11 +55,11 @@ function HomepageSP(props) {
                                 {platform?.triggerTypes?.map((trigger) => {
                                     return (
                                         <div className="mb-5 mx-2  type-item"
-                                             style={{backgroundColor: platform?.color}}>
+                                             style={{backgroundColor: '#222222'}}>
 
-                                                <p className="scope-title">{trigger.name}</p>
+                                                <p className="scope-title-text">{trigger.name}</p>
 
-                                                <p className="scope-state">{trigger.description}</p>
+                                                <p className="scope-state-text">{trigger.description}</p>
 
                                         </div>
                                     );
