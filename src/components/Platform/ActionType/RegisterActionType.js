@@ -16,7 +16,6 @@ function RegisterActionType() {
     const {
         register,
         handleSubmit,
-        formState: {errors},
     } = useForm();
 
     const {
@@ -49,12 +48,10 @@ function RegisterActionType() {
         setScopes([...scopes, scope])
     };
 
-
     const handleClickScopes = (scopeName) => {
         setScopes(scopes.filter(item => item.name !== scopeName))
     }
-
-
+    
     return (
         <div>
             <HeaderSPlogged/>

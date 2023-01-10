@@ -16,7 +16,6 @@ function RegisterTriggerType() {
     const {
         register,
         handleSubmit,
-        formState: {errors},
     } = useForm();
 
     const {
@@ -48,11 +47,9 @@ function RegisterTriggerType() {
         setScopes([...scopes, scope])
     };
 
-
     const handleClickScopes = (scopeName) => {
         setScopes(scopes.filter(item => item.name !== scopeName))
     }
-
 
     return (
         <div>
