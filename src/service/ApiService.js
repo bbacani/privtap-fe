@@ -60,7 +60,6 @@ export function service() {
         getCurrentUser: function () {
             return client.get(`/user`)
         },
-        // ana
         getPlatformLogin: function (scopes) {
             return client.get(`/platform/spotify/authorizationUrl?scopes=${scopes.map((scope) => scope).join(',')}`)
         },
@@ -75,8 +74,7 @@ export function service() {
         },
         getPlatformByName: function (platformName) {
             return client.get(`/platform/${platformName}/name`)
-        }
-        // miei giù
+        },
         sendFormData: function(userId, formData) {
             //TODO: add the endpoint
             console.log(userId)
