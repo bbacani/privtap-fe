@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import "./CreateAutomation.css";
-import {Col, Container, Form, Image, Row, Stack} from "react-bootstrap";
+import {Col, Container, Image, Row} from "react-bootstrap";
 import TriggerPlatformList from "./Triggers/TriggerPlatformList";
 import ActionPlatformList from "./Actions/ActionPlatformList";
 import TriggerEventCards from "./Triggers/TriggerEventCards";
@@ -9,8 +9,6 @@ import Button from "react-bootstrap/Button";
 import AutomationModal from "./AutomationModal";
 import img from "../../images/Social media marketing in mobile online.png";
 import SubHeader from "../common/SubHeader/SubHeader";
-import PlatformCard from "../common/PlatformCard";
-import {ArrowDown, ArrowDownShort, ArrowDownSquare, ArrowRight} from "react-bootstrap-icons";
 
 function CreateAutomation(props) {
     const [name, setName] = useState();
