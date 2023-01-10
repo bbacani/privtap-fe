@@ -66,12 +66,14 @@ function App() {
                 <Route path="/signup" exact element={<SignUp/>}/>
                 <Route path="/oauth2/redirect" element={<OAuth2RedirectHandler authenticated={authenticated}/>}/>
                 <Route path="/automations" element={
+                    <ProtectedRoute authenticated={authenticated}>
+                        <Profile authenticated={authenticated} user={user}/>
+                    </ProtectedRoute> }/>
                 <Route path="/:platform/successfulLogin" element={<OAuth2ScopesRedirectHandler authenticated={authenticated}/>}/>
                 <Route path="/create-automation" element={
                     <ProtectedRoute authenticated={authenticated}>
                         <CreateAutomation authenticated={authenticated} user={user}/>
                     </ProtectedRoute>}/>
-                    </ProtectedRoute> }/>
                 <Route path='/scopes/:platform' exact element={
                     <ProtectedRoute authenticated={authenticated}>
                         <PlatformOAuthScopes authenticated={authenticated} user={user} />
