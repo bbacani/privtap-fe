@@ -67,3 +67,8 @@
 .bottom-small-text{
     max-width: 50%;
 }
+
+.clickHover{
+    cursor: pointer;
+    user-select: none;
+}
