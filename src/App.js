@@ -19,6 +19,7 @@ import ProtectedRoute from "./components/common/ProtectedRoute";
 import SpRegistrationForm from "./components/ServiceProviders/RegistrationForm/SpRegistrationForm";
 import OAuthScopes from "./components/OAuthScopes/OAuthScopes";
 import PlatformOAuthScopes from "./components/OAuthScopes/PlatformOAuthScopes";
+import OAuth2ScopesRedirectHandler from "./components/OAuthScopes/OAuth2ScopesRedirectHandler";
 
 function App() {
     const [user, setUser] = useState(null)
@@ -59,6 +60,7 @@ function App() {
                 <Route path="/login" exact element={<Login/>}/>
                 <Route path="/signup" exact element={<SignUp/>}/>
                 <Route path="/oauth2/redirect" element={<OAuth2RedirectHandler authenticated={authenticated}/>}/>
+                <Route path="/:platform/successfulLogin" element={<OAuth2ScopesRedirectHandler authenticated={authenticated}/>}/>
                 <Route path="/profile" exact element={
                     <ProtectedRoute authenticated={authenticated}>
                         <Profile authenticated={authenticated} user={user}/>

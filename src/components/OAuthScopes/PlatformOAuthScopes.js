@@ -29,14 +29,14 @@ function PlatformOAuthScopes(props) {
     const [scopesState, setScopesState] = useState([]);
 
     useEffect(() => {
-        const getOauthScopes = async (platform) => {
-            const response = await service().getOauthScopes(platform);
+        const getActivatedOauthScopes = async (userId, platform) => {
+            const response = await service().getActivatedOauthScopes(userId, platform);
             setScopes(response.data);
             setScopesState(response.data.map(() => false))
         }
         if (props.user)
-            getOauthScopes(platformName).then();
-    }, [props.user]);
+            getActivatedOauthScopes(props.user.id, platformName).then();
+    }, [props.user, platformName]);
 
     function setScopeStateByName(name, state) {
         const i = scopes.findIndex(e => e === name);
@@ -70,10 +70,10 @@ function PlatformOAuthScopes(props) {
                         <Row className="justify-content-sm-start flex-nowrap overflow-auto customScrollbar">
                             {pairedScopes.map((pairScopes) => {
                                 return(
-                                    <Col sm="auto" className="p-0 ps-2" key={pairScopes[0]}>
-                                        <Scope callback={setScopeStateByName} title={pairScopes[0]}></Scope>
+                                    <Col sm="auto" className="p-0 ps-2" key={pairScopes[0].name}>
+                                        <Scope callback={setScopeStateByName} title={pairScopes[0].name}></Scope>
                                         {pairScopes.length > 1 ?
-                                            <Scope callback={setScopeStateByName} title={pairScopes[1]}></Scope> :
+                                            <Scope callback={setScopeStateByName} title={pairScopes[1].name}></Scope> :
                                             null}
                                     </Col>
                                 );

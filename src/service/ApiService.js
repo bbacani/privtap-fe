@@ -65,18 +65,25 @@ export function service() {
             console.log(userId)
             console.log(formData)
         },
-        getOauthScopes: function(platform) {
+        getOauthScopes: function(userId, platform) {
             return client.get(`/platform/${platform}/oauthScopes`)
+        },
+        getActivatedOauthScopes: function(userId, platform) {
+            return client.get(`/platform/${platform}/oauthScopes/${userId}`);
         },
         getMissingOauthScopes: function(userId, platform) {
-            //TODO: change with the right endpoint
-            return client.get(`/platform/${platform}/oauthScopes`)
+            return client.get(`/platform/${platform}/unacceptedOauthScopes/${userId}`);
         },
-        addOAuthScopes: function(userId, platform, scopes) {
-            //TODO: add the endpoint
-            console.log("UserId:" + userId)
-            console.log("Platform: " + platform)
-            console.log("Selected OAuth Scopes: " + scopes)
+        addOAuthScopes: async function (userId, platform, scopes) {
+            const response = await client.post(`/platform/${platform}/authorizationUrl`, scopes)
+            const url = response.data
+            window.location.href = url;
+        },
+        addToken: async function (platform, code) {
+            const user = await this.getCurrentUser()
+            const userId = user.data.id
+            console.log("Sending request to: " + `/platform/${platform}/oauthToken/${userId}?code=${code}`)
+            return client.get(`/platform/${platform}/oauthToken/${userId}?code=${code}`);
         },
         getPlatformName: function(id) {
             //TODO: add the endpoint

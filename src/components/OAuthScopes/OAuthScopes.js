@@ -36,10 +36,10 @@ function OAuthScopes(props) {
         }
         if (props.user)
             getMissingOauthScopes(props.user.id, platformName).then();
-    }, [props.user]);
+    }, [props.user, platformName]);
 
     function setScopeStateByName(name, state) {
-        const i = scopes.findIndex(e => e === name);
+        const i = scopes.findIndex(e => e.name === name);
         const newScopesState = [...scopesState];
         newScopesState[i] = state;
         setScopesState(newScopesState);
@@ -47,6 +47,7 @@ function OAuthScopes(props) {
 
     function handleConfirmButton() {
         const selectedScopes = scopes.filter((element, index) => scopesState[index]);
+
         service().addOAuthScopes(props.user.id, platformName, selectedScopes);
         navigate('/profile')
     }
@@ -87,10 +88,10 @@ function OAuthScopes(props) {
                                 <Row className="justify-content-sm-start flex-nowrap overflow-auto customScrollbar">
                                     {pairedScopes.map((pairScopes) => {
                                         return(
-                                            <Col sm="auto" className="p-0 ps-2" key={pairScopes[0]}>
-                                                <Scope callback={setScopeStateByName} title={pairScopes[0]}></Scope>
+                                            <Col sm="auto" className="p-0 ps-2" key={pairScopes[0].name}>
+                                                <Scope callback={setScopeStateByName} title={pairScopes[0].name}></Scope>
                                                 {pairScopes.length > 1 ?
-                                                    <Scope callback={setScopeStateByName} title={pairScopes[1]}></Scope> :
+                                                    <Scope callback={setScopeStateByName} title={pairScopes[1].name}></Scope> :
                                                     null}
                                             </Col>
                                         );
@@ -99,7 +100,7 @@ function OAuthScopes(props) {
                             </Container>
                         </Row>
                         <Row>
-                            <a href="/facebook" className="see-all">See all scopes shared with {platformName} ></a>
+                            <a href={"/scopes/" + platformName} className="see-all">See all scopes shared with {platformName} ></a>
                         </Row>
                         <Row>
                             <Col>
