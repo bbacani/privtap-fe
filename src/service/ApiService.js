@@ -74,6 +74,35 @@ export function service() {
         },
         getPlatformByName: function (platformName) {
             return client.get(`/platform/${platformName}/name`)
+        },
+        sendFormData: function(userId, formData) {
+            //TODO: add the endpoint
+            console.log(userId)
+            console.log(formData)
+        },
+        getOauthScopes: function(userId, platform) {
+            return client.get(`/platform/${platform}/oauthScopes`)
+        },
+        getActivatedOauthScopes: function(userId, platform) {
+            return client.get(`/platform/${platform}/oauthScopes/${userId}`);
+        },
+        getMissingOauthScopes: function(userId, platform) {
+            return client.get(`/platform/${platform}/unacceptedOauthScopes/${userId}`);
+        },
+        addOAuthScopes: async function (userId, platform, scopes) {
+            const response = await client.post(`/platform/${platform}/authorizationUrl`, scopes)
+            const url = response.data
+            window.location.href = url;
+        },
+        addToken: async function (platform, code) {
+            const user = await this.getCurrentUser()
+            const userId = user.data.id
+            console.log("Sending request to: " + `/platform/${platform}/oauthToken/${userId}?code=${code}`)
+            return client.get(`/platform/${platform}/oauthToken/${userId}?code=${code}`);
+        },
+        getPlatformName: function(id) {
+            //TODO: add the endpoint
+            return id;
         }
     }
 }

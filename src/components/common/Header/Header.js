@@ -13,9 +13,19 @@ function Header(props) {
         '/user',
         '/login',
         '/signup',
-        '/create-automation'
+        '/create-automation',
+        '/create-automation/scopes',
+        '/developers/login',
+        '/developers/signup',
+        '/developers/create'
     ]
-    const showHeader = locationsWithHeader.includes(location.pathname);
+    // All the locations that starts with the string in the following Array should display the Header
+    // Ex. /scopes/*
+    const sublocationsWithHeader = [
+        '/scopes/'
+    ]
+    const isSublocation = sublocationsWithHeader.map((x) => location.pathname.startsWith(x)).reduce((acc, element) => acc || element, false);
+    const showHeader = locationsWithHeader.includes(location.pathname) || isSublocation;
     const developers = location.pathname.startsWith("/developers");
 
     console.log(props.providerAuthenticated)

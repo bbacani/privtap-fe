@@ -1,0 +1,30 @@
+.circle{
+    width: 30px;
+    height: 30px;
+    background-color: black;
+    border-radius: 50%;
+    border: 5px solid #000000;
+}
+
+.circle:active{
+    background-color: blue;
+}
+
+.card{
+    cursor: pointer;
+    user-select: none;
+    padding-right: 30px;
+    margin-bottom: 10px;
+}
+
+.scope-title{
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.scope-state{
+    margin: 0;
+    font-size: 12px;
+    color: #555555;
+}
