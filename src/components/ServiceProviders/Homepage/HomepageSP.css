@@ -1,0 +1,107 @@
+.description {
+    max-width: 70%;
+}
+
+.platform-list-body {
+    background-color: #222222;
+    padding: 1em;
+    color: white;
+}
+
+.trigger-button {
+    background: #222222;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(20px);
+    border-radius: 15px;
+    padding-right: 5rem;
+    padding-left: 5rem;
+    margin-top: 2rem;
+    width: 300px;
+}
+
+.home-image {
+    position: absolute;
+    right: 5%;
+    top: 30%;
+    height: 300px;
+    width: 300px;
+}
+
+.home-image-bottom {
+    position: absolute;
+    right: 5%;
+    top: 0;
+    height: 300px;
+
+}
+
+.user-container {
+    position: relative;
+    height: 400px;
+}
+
+.platform-title {
+    color: white;
+}
+
+.home-end {
+    position: relative;
+    margin-top: 5rem;
+    padding-bottom: 10em;
+
+
+}
+
+.bottom-big-text {
+    max-width: 50%;
+    max-height: 400px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 50px;
+    line-height: 80px;
+    display: flex;
+    align-items: center;
+    color: #000000;
+
+}
+
+.bottom-small-text{
+    max-width: 50%;
+}
+
+.right-panel{
+    justify-content: end;
+    align-content: end;
+    padding-top: 5em;
+    padding-left: 5em;
+
+}
+
+.type-item{
+    background: #282828;
+    border-radius: 2em;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    box-shadow: 0 3px 10px 3px rgba(0, 0, 0, 0.07);
+    font-size: 18px;
+    text-align: center;
+    position: relative;
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+
+.type-container{
+    width: 50%;
+}
+
+.scope-title-text{
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: #FFFFFF;
+}
+
+.scope-state-text{
+    margin: 0;
+    font-size: 12px;
+    color: #555555;
+}

@@ -19,7 +19,7 @@ function OAuth2RedirectHandler() {
 
     if (token) {
         localStorage.setItem(ACCESS_TOKEN, token);
-        return <Navigate to="/profile"/>
+        return <Navigate to="/home"/>
     } else {
         alert(error)
         return <Navigate to="/login"/>

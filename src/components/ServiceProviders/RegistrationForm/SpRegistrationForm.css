@@ -1,0 +1,21 @@
+.form-control{
+    background-color: #E2E2E2;
+    color: #000000;
+    margin: 4px;
+}
+
+.form-control:focus{
+    background-color: #C0BFBF;
+    border-color: #000000;
+    border-width: 3px;
+    margin: 0;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+}
+
+.group{
+    width: 35%;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}

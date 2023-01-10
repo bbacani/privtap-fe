@@ -34,7 +34,7 @@ export function service() {
             return client.get(`/platform/${platformName}/allTriggerTypes`)
         },
         registerTriggerType: function (platformName, triggerType) {
-            return client.post(`/${platformName}/triggerType`, triggerType)
+            return client.post(`/serviceProvider/${platformName}/triggerType`, triggerType)
         },
         getAllActionPlatforms: function () {
             return client.get("/platform/actionPlatforms")
@@ -43,7 +43,7 @@ export function service() {
             return client.get(`/platform/${platformName}/allActionTypes`)
         },
         registerActionType: function (platformName, actionType) {
-            return client.post(`/${platformName}/actionTypes`, actionType)
+            return client.post(`/serviceProvider/${platformName}/actionType`, actionType)
         },
         addAutomation: function (userId, automationRequest) {
             return client.post(`/automation/${userId}`, automationRequest)
@@ -60,6 +60,49 @@ export function service() {
         getCurrentUser: function () {
             return client.get(`/user`)
         },
-
+        getPlatformLogin: function (scopes) {
+            return client.get(`/platform/spotify/authorizationUrl?scopes=${scopes.map((scope) => scope).join(',')}`)
+        },
+        getOAuthToken: function (platformName, userId, code) {
+            return client.get(`/platform/${platformName}/oauthToken/${userId}`, {params: {code: code}})
+        },
+        getPlatformScopes: function (platformName) {
+            return client.get(`/platform/${platformName}/oauthScopes`)
+        },
+        getPlatformNames: function () {
+            return client.get(`/platform/`)
+        },
+        getPlatformByName: function (platformName) {
+            return client.get(`/platform/${platformName}/name`)
+        },
+        sendFormData: function(userId, formData) {
+            //TODO: add the endpoint
+            console.log(userId)
+            console.log(formData)
+        },
+        getOauthScopes: function(userId, platform) {
+            return client.get(`/platform/${platform}/oauthScopes`)
+        },
+        getActivatedOauthScopes: function(userId, platform) {
+            return client.get(`/platform/${platform}/oauthScopes/${userId}`);
+        },
+        getMissingOauthScopes: function(userId, platform) {
+            return client.get(`/platform/${platform}/unacceptedOauthScopes/${userId}`);
+        },
+        addOAuthScopes: async function (userId, platform, scopes) {
+            const response = await client.post(`/platform/${platform}/authorizationUrl`, scopes)
+            const url = response.data
+            window.location.href = url;
+        },
+        addToken: async function (platform, code) {
+            const user = await this.getCurrentUser()
+            const userId = user.data.id
+            console.log("Sending request to: " + `/platform/${platform}/oauthToken/${userId}?code=${code}`)
+            return client.get(`/platform/${platform}/oauthToken/${userId}?code=${code}`);
+        },
+        getPlatformName: function(id) {
+            //TODO: add the endpoint
+            return id;
+        }
     }
 }

@@ -7,34 +7,45 @@ import { useLocation } from 'react-router-dom';
 function Header(props) {
     const location = useLocation();
     const locationsWithHeader = [
-        '/profile',
-        '/action/register',
-        '/trigger/register',
+        '/automations',
+        '/home',
+        '/explore',
         '/user',
         '/login',
         '/signup',
         '/create-automation',
+        '/create-automation/scopes',
         '/developers/login',
-        '/developers/signup'
+        '/developers/signup',
+        '/developers/create'
     ]
-    const showHeader = locationsWithHeader.includes(location.pathname);
+    // All the locations that starts with the string in the following Array should display the Header
+    // Ex. /scopes/*
+    const sublocationsWithHeader = [
+        '/scopes/'
+    ]
+    const isSublocation = sublocationsWithHeader.map((x) => location.pathname.startsWith(x)).reduce((acc, element) => acc || element, false);
+    const showHeader = locationsWithHeader.includes(location.pathname) || isSublocation;
     const developers = location.pathname.startsWith("/developers");
 
+    console.log(props.providerAuthenticated)
+
     return showHeader? (
+        developers ? null :
         <Navbar bg="dark" variant="dark" className="header">
             <Container>
                 { developers ?
-                    <Navbar.Brand href={props.authenticated ? '/developers/profile' : '/developers'}>
+                    <Navbar.Brand href={props.providerAuthenticated ? '/developers/home' : '/developers'}>
                         <h4 className="brand">privTAP for developers</h4>
                     </Navbar.Brand> :
-                    <Navbar.Brand href={props.authenticated ? '/profile' : '/'}>
+                    <Navbar.Brand href={props.authenticated ? '/home' : '/'}>
                         <h4 className="brand">privTAP</h4>
                     </Navbar.Brand>
                 }
                 {props.authenticated ?
                     <Nav>
-                        <Person href="/profile" color="white" size={40}/>
-                        <Nav.Link href="/profile">{props.user.username}</Nav.Link>
+                        <Person href="/home" color="white" size={40}/>
+                        <Nav.Link href="/home">{props.user.username}</Nav.Link>
                         <Nav.Link className="mx-3" onClick={props.onLogout}>Logout</Nav.Link>
                     </Nav>
                     :

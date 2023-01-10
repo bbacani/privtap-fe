@@ -13,7 +13,7 @@ export default function NoAutomations() {
                 <p className="sub-text">Your automation list is looking really empty...</p>
                 <p className="sub-text">Try creating one!</p>
                 <Col align="center" className="mb-3  gap-2">
-                    <Button className="home-button" variant="secondary" mar size="lg" href="/create-automation">Create
+                    <Button className="home-button" variant="secondary"  size="lg" href="/create-automation">Create
                         new automation</Button>
                 </Col>
             </Col>

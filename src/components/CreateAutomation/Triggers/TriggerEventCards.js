@@ -32,7 +32,7 @@ export default function TriggerEventCards(props) {
                     {triggerTypes?.map((trigger) => {
                         return (
                             <Col className="mb-2">
-                                <Button className="button">
+                                <Button className="button-choice" variant="secondary" >
                                     <TypeCard active={active} object={trigger} onChange={activeButton}/>
                                 </Button>
                             </Col>
