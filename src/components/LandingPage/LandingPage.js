@@ -43,7 +43,7 @@ const LandingPage = () => {
                         </button>
                     </a>
                     <a href="/developers" className="developer">
-                        I am a developer >
+                        I am a developer {'>'}
                     </a>
                 </div>
             </div>
@@ -90,7 +90,7 @@ const LandingPage = () => {
                         <div className="landing-page-container06">
                             <img
                                 src={bro}
-                                alt="image"
+                                alt=""
                                 className="landing-page-image1"
                             />
                         </div>
@@ -101,7 +101,7 @@ const LandingPage = () => {
                         <div className="landing-page-container07">
                             <img
                                 src={rafiki}
-                                alt="image"
+                                alt=""
                                 className="landing-page-image3"
                             />
                         </div>
@@ -186,7 +186,7 @@ const LandingPage = () => {
                         <div className="landing-page-container12">
                             <img
                                 src={lastfiki}
-                                alt="image"
+                                alt=""
                                 className="landing-page-image5"
                             />
                         </div>
@@ -197,7 +197,7 @@ const LandingPage = () => {
                 <div className="landing-page-container13">
                     <img
                         src={security}
-                        alt="image"
+                        alt=""
                         className="landing-page-image6"
                     />
                 </div>
