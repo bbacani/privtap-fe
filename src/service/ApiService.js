@@ -34,7 +34,7 @@ export function service() {
             return client.get(`/platform/${platformName}/allTriggerTypes`)
         },
         registerTriggerType: function (platformName, triggerType) {
-            return client.post(`/${platformName}/triggerType`, triggerType)
+            return client.post(`/serviceProvider/${platformName}/triggerType`, triggerType)
         },
         getAllActionPlatforms: function () {
             return client.get("/platform/actionPlatforms")
@@ -43,7 +43,7 @@ export function service() {
             return client.get(`/platform/${platformName}/allActionTypes`)
         },
         registerActionType: function (platformName, actionType) {
-            return client.post(`/${platformName}/actionTypes`, actionType)
+            return client.post(`/serviceProvider/${platformName}/actionType`, actionType)
         },
         addAutomation: function (userId, automationRequest) {
             return client.post(`/automation/${userId}`, automationRequest)
@@ -60,6 +60,23 @@ export function service() {
         getCurrentUser: function () {
             return client.get(`/user`)
         },
+        // ana
+        getPlatformLogin: function (scopes) {
+            return client.get(`/platform/spotify/authorizationUrl?scopes=${scopes.map((scope) => scope).join(',')}`)
+        },
+        getOAuthToken: function (platformName, userId, code) {
+            return client.get(`/platform/${platformName}/oauthToken/${userId}`, {params: {code: code}})
+        },
+        getPlatformScopes: function (platformName) {
+            return client.get(`/platform/${platformName}/oauthScopes`)
+        },
+        getPlatformNames: function () {
+            return client.get(`/platform/`)
+        },
+        getPlatformByName: function (platformName) {
+            return client.get(`/platform/${platformName}/name`)
+        }
+        // miei giù
         sendFormData: function(userId, formData) {
             //TODO: add the endpoint
             console.log(userId)

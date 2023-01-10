@@ -6,7 +6,7 @@ import {useNavigate} from "react-router-dom";
 function Home(props) {
     const navigate = useNavigate();
     if (props.authenticated) {
-        navigate('/profile')
+        navigate('/home')
     }
     return (
         <LandingPage />

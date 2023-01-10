@@ -1,29 +1,43 @@
 import React, {useEffect, useState} from "react";
-import {Form} from "react-bootstrap";
+import {Button, Col, Container, Form, Row} from "react-bootstrap";
 import {service} from "../../../service/ApiService";
+import PlatformCard from "../../common/PlatformCard";
+import TypeCard from "../TypeCard";
+import PlatformCardExplore from "../../Explore/PlatformCardExplore";
 
 export default function TriggerPlatformList(props) {
     const [triggerPlatforms, setTriggerPlatforms] = useState();
+    const [active, setActive] = useState();
 
     useEffect(() => {
         const getAllTriggerPlatforms = async () => {
             const response = await service().getAllTriggerPlatforms();
             setTriggerPlatforms(response.data);
         }
-            getAllTriggerPlatforms();
-        },[]);
+        getAllTriggerPlatforms();
+    }, []);
+
+    const activeButton = (platform) => {
+        setActive(platform)
+        props.setTriggerPlatform(platform)
+    }
 
     return (
-        <Form.Select aria-label="Select the platform" onChange={props.onChange}>
-            <option>Select the platform</option>
-
-            {triggerPlatforms?.map((triggerPlatform) => {
-                return (
-                    <option>
-                        {triggerPlatform}
-                    </option>
-                )})
-            }
-        </Form.Select>
+        <div>
+            <Container fluid className="mt-3">
+                <Row xs={1} md={2} lg={2}>
+                    {triggerPlatforms?.map((triggerPlatform) => {
+                        return (
+                            <Col>
+                                <Button className="button-choice" variant="secondary" >
+                                    <TypeCard active={active} platform={triggerPlatform} onChange={activeButton}/>
+                                </Button>
+                            </Col>
+                        )
+                    })
+                    }
+                </Row>
+            </Container>
+        </div>
     )
 }

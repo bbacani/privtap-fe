@@ -31,3 +31,65 @@
 .personAndComputer {
     width: 500px;
 }
+
+
+input[type="text"],
+input[type="password"] {
+    height: 25px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+input[type="submit"] {
+    background: #A98EE7;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(20px);
+    color: #FFFFFF;
+    border: none;
+    font-weight: 600;
+    font-size: 25px;
+    line-height: 40px;
+    text-align: center;
+    margin-top: 3rem;
+    border-radius: 20px;
+    padding: 5px 30px;
+}
+
+input[type="submit"]:hover {
+    background: #676767;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+}
+
+.login-form {
+    background-color: white;
+    padding: 2rem;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.list-container {
+    display: flex;
+}
+
+.error {
+    color: red;
+    font-size: 12px;
+}
+
+.title {
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+
+.input-container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin: 10px;
+}
+
+.login-button {
+
+}

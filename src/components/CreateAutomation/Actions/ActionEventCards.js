@@ -31,7 +31,7 @@ export default function ActionEventCards(props) {
                     {actionTypes?.map((action) => {
                         return (
                             <Col className="mb-2">
-                                <Button className="button">
+                                <Button className="button-choice" variant="secondary" >
                                     <TypeCard active={active} object={action} onChange={activeButton}/>
                                 </Button>
                             </Col>

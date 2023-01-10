@@ -16,6 +16,9 @@ import SpLogin from "./components/ServiceProviders/Login/SpLogin";
 import SpSignUp from "./components/ServiceProviders/SignUp/SpSignUp";
 import SpLandingPage from "./components/ServiceProviders/LandingPage/SpLandingPage";
 import ProtectedRoute from "./components/common/ProtectedRoute";
+import Homepage from "./components/Home/Homepage";
+import HomepageSP from "./components/ServiceProviders/Homepage/HomepageSP";
+import Explore from "./components/Explore/Explore";
 import SpRegistrationForm from "./components/ServiceProviders/RegistrationForm/SpRegistrationForm";
 import OAuthScopes from "./components/OAuthScopes/OAuthScopes";
 import PlatformOAuthScopes from "./components/OAuthScopes/PlatformOAuthScopes";
@@ -57,17 +60,17 @@ function App() {
             </div>
             <Routes>
                 <Route path="/" exact element={<Home authenticated={authenticated}/>}/>
+                <Route path="/home" exact element={<Homepage authenticated={authenticated} user={user}/>}/>
+                <Route path="/explore" exact element={<Explore authenticated={authenticated}/>}/>
                 <Route path="/login" exact element={<Login/>}/>
                 <Route path="/signup" exact element={<SignUp/>}/>
                 <Route path="/oauth2/redirect" element={<OAuth2RedirectHandler authenticated={authenticated}/>}/>
+                <Route path="/automations" element={
                 <Route path="/:platform/successfulLogin" element={<OAuth2ScopesRedirectHandler authenticated={authenticated}/>}/>
-                <Route path="/profile" exact element={
-                    <ProtectedRoute authenticated={authenticated}>
-                        <Profile authenticated={authenticated} user={user}/>
-                    </ProtectedRoute> }/>
-                <Route path="/create-automation" exact element={
+                <Route path="/create-automation" element={
                     <ProtectedRoute authenticated={authenticated}>
                         <CreateAutomation authenticated={authenticated} user={user}/>
+                    </ProtectedRoute>}/>
                     </ProtectedRoute> }/>
                 <Route path='/scopes/:platform' exact element={
                     <ProtectedRoute authenticated={authenticated}>
@@ -81,6 +84,7 @@ function App() {
                 <Route path="/developers/login" exact element={<SpLogin/>}/>
                 <Route path="/developers/signup" exact element={<SpSignUp/>}/>
                 <Route path="/developers" exact element={<SpLandingPage/>}/>
+                <Route path="/developers/home" exact element={<HomepageSP/>}/>
                 <Route path='/action/register' exact element={<RegisterActionType/>}/>
                 <Route path='/trigger/register' exact element={<RegisterTriggerType/>}/>
                 <Route path='/developers/create' exact element={<SpRegistrationForm/>}/>

@@ -1,0 +1,23 @@
+.text-big {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 50px;
+    color: #000000;
+
+}
+
+
+.text-small {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 50px;
+    max-width: 50%;
+    color: #000000;
+}
+
+.image-logo {
+    position: absolute;
+    right: 5%;
+    top: 200px;
+    width: 400px;
+}

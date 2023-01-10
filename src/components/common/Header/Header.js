@@ -7,9 +7,9 @@ import { useLocation } from 'react-router-dom';
 function Header(props) {
     const location = useLocation();
     const locationsWithHeader = [
-        '/profile',
-        '/action/register',
-        '/trigger/register',
+        '/automations',
+        '/home',
+        '/explore',
         '/user',
         '/login',
         '/signup',
@@ -28,21 +28,23 @@ function Header(props) {
     const showHeader = locationsWithHeader.includes(location.pathname) || isSublocation;
     const developers = location.pathname.startsWith("/developers");
 
+    console.log(props.providerAuthenticated)
+
     return showHeader? (
-        <Navbar variant="dark" className="header">
+        <Navbar bg="dark" variant="dark" className="header">
             <Container>
                 { developers ?
-                    <Navbar.Brand href={props.authenticated ? '/developers/profile' : '/developers'}>
+                    <Navbar.Brand href={props.providerAuthenticated ? '/developers/home' : '/developers'}>
                         <h4 className="brand">privTAP for developers</h4>
                     </Navbar.Brand> :
-                    <Navbar.Brand href={props.authenticated ? '/profile' : '/'}>
+                    <Navbar.Brand href={props.authenticated ? '/home' : '/'}>
                         <h4 className="brand">privTAP</h4>
                     </Navbar.Brand>
                 }
                 {props.authenticated ?
                     <Nav>
-                        <Person href="/profile" color="white" size={40}/>
-                        <Nav.Link href="/profile">{props.user.username}</Nav.Link>
+                        <Person href="/home" color="white" size={40}/>
+                        <Nav.Link href="/home">{props.user.username}</Nav.Link>
                         <Nav.Link className="mx-3" onClick={props.onLogout}>Logout</Nav.Link>
                     </Nav>
                     :
