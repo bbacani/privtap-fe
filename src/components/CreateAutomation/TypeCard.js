@@ -31,7 +31,6 @@ function TypeCard(props) {
                 >
                     <Card.Body>
                         <Card.Title className="text-uppercase">{props.platform}</Card.Title>
-                        <div className="platform-button">3 triggers</div>
                     </Card.Body>
                 </Card>
             }

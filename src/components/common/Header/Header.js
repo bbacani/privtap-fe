@@ -24,7 +24,7 @@ function Header(props) {
         <Navbar bg="dark" variant="dark" className="header">
             <Container>
                 { developers ?
-                    <Navbar.Brand href={props.providerAuthenticated ? '/developers/profile' : '/developers'}>
+                    <Navbar.Brand href={props.providerAuthenticated ? '/developers/home' : '/developers'}>
                         <h4 className="brand">privTAP for developers</h4>
                     </Navbar.Brand> :
                     <Navbar.Brand href={props.authenticated ? '/home' : '/'}>

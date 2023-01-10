@@ -34,7 +34,7 @@ export function service() {
             return client.get(`/platform/${platformName}/allTriggerTypes`)
         },
         registerTriggerType: function (platformName, triggerType) {
-            return client.post(`/${platformName}/triggerType`, triggerType)
+            return client.post(`/serviceProvider/${platformName}/triggerType`, triggerType)
         },
         getAllActionPlatforms: function () {
             return client.get("/platform/actionPlatforms")
@@ -43,7 +43,7 @@ export function service() {
             return client.get(`/platform/${platformName}/allActionTypes`)
         },
         registerActionType: function (platformName, actionType) {
-            return client.post(`/${platformName}/actionTypes`, actionType)
+            return client.post(`/serviceProvider/${platformName}/actionType`, actionType)
         },
         addAutomation: function (userId, automationRequest) {
             return client.post(`/automation/${userId}`, automationRequest)

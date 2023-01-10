@@ -16,7 +16,7 @@ function HeaderSPlogged() {
         <Navbar bg="dark" variant="dark" className="header">
             <Container>
 
-                    <Navbar.Brand href='/developers/profile'>
+                    <Navbar.Brand href='/developers/home'>
                         <h4 className="brand">privTAP for developers</h4>
                     </Navbar.Brand>
 
