@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from 'react';
 import NoAutomations from "./NoAutomations";
 import {Col, Container, Row, Stack} from "react-bootstrap";

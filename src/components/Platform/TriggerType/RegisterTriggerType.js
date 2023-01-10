@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, {useState} from 'react';
 import {useForm} from 'react-hook-form';
 import {Button, Col, Container, Form, Row} from "react-bootstrap";

@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-concat */
 import Axios from 'axios'
 import {ACCESS_TOKEN, API_BASE_URL} from "../config/constants";
 

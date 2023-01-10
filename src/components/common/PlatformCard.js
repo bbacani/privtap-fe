@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import {Col} from "react-bootstrap";
 import React, {useEffect, useState} from "react";
 import "../Profile/Profile.css"

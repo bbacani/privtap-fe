@@ -1,7 +1,7 @@
+/* eslint-disable no-unused-vars */
 import React, {useEffect, useState} from "react";
 import {Button, Col, Container, Form, Row} from "react-bootstrap";
 import {service} from "../../../service/ApiService";
-import PlatformCard from "../../common/PlatformCard";
 import TypeCard from "../TypeCard";
 import PlatformCardExplore from "../../Explore/PlatformCardExplore";
 

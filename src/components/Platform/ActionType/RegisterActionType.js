@@ -1,6 +1,7 @@
+/* eslint-disable no-unused-vars */
 import React, {useState} from 'react';
 import {useForm} from 'react-hook-form';
-import {Button, Col, Container, Form, Row} from "react-bootstrap";
+import {Button, Col, Form, Row} from "react-bootstrap";
 import HeaderSPlogged from "../../common/Header/HeaderSPlogged";
 import {service} from "../../../service/ApiService";
 import "../RegisterType.css"

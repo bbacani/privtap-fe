@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, {useState} from "react";
 import "./CreateAutomation.css";
 import {Col, Container, Image, Row} from "react-bootstrap";
