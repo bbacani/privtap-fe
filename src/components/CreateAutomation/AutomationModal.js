@@ -21,7 +21,7 @@ function AutomationModal(props) {
         }
 
         await service().addAutomation(props.userId, automation)
-        navigate(`/home`)
+        navigate(`/create-automation/scopes`)
     }
 
     const checkFieldsCount = () => {
@@ -43,13 +43,14 @@ function AutomationModal(props) {
             <Modal.Body>
                 {checkFieldsCount() ?
                     <div align="center">
-                        <p>To create an automation:</p>
+                        <p>To create the automation:</p>
                         <Stack direction="horizontal" className="justify-content-center mx-auto" gap={3}>
                             <h5> {props.trigger.name}</h5>
                             <ArrowRight color="purple" size={96}/>
                             <h5> {props.action.name}</h5>
                         </Stack>
-                        <p>You must accept the following information:</p>
+                        <p>you must select the privacy preferences.</p>
+                        <p>You will be redirected to the OAuth scopes page.</p>
                         <ul className="check-list">
                             {props.action.requestFields.map((field) => {
                                 return (

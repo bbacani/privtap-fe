@@ -23,6 +23,7 @@ import SpRegistrationForm from "./components/ServiceProviders/RegistrationForm/S
 import OAuthScopes from "./components/OAuthScopes/OAuthScopes";
 import PlatformOAuthScopes from "./components/OAuthScopes/PlatformOAuthScopes";
 import OAuth2ScopesRedirectHandler from "./components/OAuthScopes/OAuth2ScopesRedirectHandler";
+import AutomationSuccessful from "./components/CreateAutomation/AutomationSuccessful";
 
 function App() {
     const [user, setUser] = useState(null)
@@ -70,6 +71,7 @@ function App() {
                         <Profile authenticated={authenticated} user={user}/>
                     </ProtectedRoute> }/>
                 <Route path="/:platform/successfulLogin" element={<OAuth2ScopesRedirectHandler authenticated={authenticated}/>}/>
+                <Route path="/create-automation/successful" element={<AutomationSuccessful/>}/>
                 <Route path="/create-automation" element={
                     <ProtectedRoute authenticated={authenticated}>
                         <CreateAutomation authenticated={authenticated} user={user}/>
