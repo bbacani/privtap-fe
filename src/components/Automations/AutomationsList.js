@@ -1,7 +1,7 @@
+/* eslint-disable no-unused-vars */
 import React, {useEffect, useState} from 'react';
 import {Container, Row, Stack} from "react-bootstrap";
 import {ArrowRight} from "react-bootstrap-icons";
-import Button from "react-bootstrap/Button";
 import {service} from "../../service/ApiService";
 
 function AutomationList(props) {

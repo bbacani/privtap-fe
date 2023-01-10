@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, {useEffect, useState} from "react";
 import {Button, Container, Image, Row, Stack} from "react-bootstrap";
 import SubHeader from "../common/SubHeader/SubHeader";

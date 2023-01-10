@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, {useState} from "react";
 import "./SpLogin.css";
 import googleLogo from "../Login/img/google-logo.png"

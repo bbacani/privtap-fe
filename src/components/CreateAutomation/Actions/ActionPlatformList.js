@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import {Button, Col, Container, Form, Row} from "react-bootstrap";
+import {Button, Col, Container, Row} from "react-bootstrap";
 import {service} from "../../../service/ApiService";
 import TypeCard from "../TypeCard";
 
