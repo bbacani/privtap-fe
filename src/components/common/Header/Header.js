@@ -31,6 +31,7 @@ function Header(props) {
     console.log(props.providerAuthenticated)
 
     return showHeader? (
+        developers ? null :
         <Navbar bg="dark" variant="dark" className="header">
             <Container>
                 { developers ?

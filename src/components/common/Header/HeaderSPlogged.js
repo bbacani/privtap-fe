@@ -2,8 +2,6 @@ import React from "react";
 import "./Header.css";
 import {Container, Nav, Navbar} from "react-bootstrap";
 import {Person} from "react-bootstrap-icons";
-import { useLocation } from 'react-router-dom';
-import {ACCESS_TOKEN} from "../../../config/constants";
 
 function HeaderSPlogged() {
 
