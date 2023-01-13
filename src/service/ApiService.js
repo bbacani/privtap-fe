@@ -75,6 +75,9 @@ export function service() {
         getPlatform: function (serviceProviderId) {
             return client.get(`/serviceProvider/platform/${serviceProviderId}`)
         },
+        getPlatformByName: function (platformName) {
+            return client.get(`/platform/${platformName}/name`)
+        },
         registerPlatform: function(serviceProviderId, data) {
            return client.post(`/serviceProvider/platform/${serviceProviderId}`,data)
         },

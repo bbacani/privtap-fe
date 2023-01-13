@@ -17,7 +17,6 @@ function Homepage(props) {
         const getPlatformNames = async () => {
             const response = await service().getPlatformNames();
             setPlatforms(response.data);
-            console.log("platforme" + response.data)
         }
 
 

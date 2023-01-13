@@ -2,8 +2,14 @@ import React from "react";
 import "./Header.css";
 import {Container, Nav, Navbar} from "react-bootstrap";
 import {Person} from "react-bootstrap-icons";
+import {ACCESS_TOKEN} from "../../../config/constants";
 
 function HeaderSP(props) {
+
+    function onLogout() {
+        localStorage.removeItem('profile');
+        window.location.href = "/developers";
+    }
 
     return (
         <Navbar bg="dark" variant="dark" className="header">
@@ -15,7 +21,7 @@ function HeaderSP(props) {
                     <Nav>
                         <Person href="/developers/home" color="white" size={40}/>
                         <Nav.Link href="/developers/home">{props.user.email}</Nav.Link>
-                        <Nav.Link className="mx-3" onClick={props.onLogout}>Logout</Nav.Link>
+                        <Nav.Link className="mx-3" onClick={onLogout}>Logout</Nav.Link>
                     </Nav>
                     :
 
