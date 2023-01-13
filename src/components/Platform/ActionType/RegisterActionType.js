@@ -5,12 +5,13 @@ import HeaderSPlogged from "../../common/Header/HeaderSPlogged";
 import {service} from "../../../service/ApiService";
 import "../RegisterType.css"
 import RegisterScopes from "../RegisterScopes";
-import {useNavigate} from "react-router-dom";
+import {useNavigate, useOutletContext} from "react-router-dom";
 
 function RegisterActionType() {
 
     const [scopes, setScopes] = useState([]);
     const navigate = useNavigate();
+    const user = useOutletContext();
 
 
     const {

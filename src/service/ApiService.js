@@ -72,13 +72,11 @@ export function service() {
         getPlatformNames: function () {
             return client.get(`/platform/`)
         },
-        getPlatformByName: function (platformName) {
-            return client.get(`/platform/${platformName}/name`)
+        getPlatform: function (serviceProviderId) {
+            return client.get(`/serviceProvider/platform/${serviceProviderId}`)
         },
-        sendFormData: function(userId, formData) {
-            //TODO: add the endpoint
-            console.log(userId)
-            console.log(formData)
+        registerPlatform: function(serviceProviderId, data) {
+           return client.post(`/serviceProvider/platform/${serviceProviderId}`,data)
         },
         getOauthScopes: function(userId, platform) {
             return client.get(`/platform/${platform}/oauthScopes`)
@@ -103,6 +101,13 @@ export function service() {
         getPlatformName: function(id) {
             //TODO: add the endpoint
             return id;
-        }
+        },
+        loginServiceProvider: function(data) {
+            return client.post(`/serviceProvider/login`,data);
+        },
+        registerServiceProvider: function(data) {
+            return client.post(`/serviceProvider/register`,data);
+        },
+
     }
 }

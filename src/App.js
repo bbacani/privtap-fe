@@ -24,6 +24,7 @@ import OAuthScopes from "./components/OAuthScopes/OAuthScopes";
 import PlatformOAuthScopes from "./components/OAuthScopes/PlatformOAuthScopes";
 import OAuth2ScopesRedirectHandler from "./components/OAuthScopes/OAuth2ScopesRedirectHandler";
 import AutomationSuccessful from "./components/CreateAutomation/AutomationSuccessful";
+import SProuter from "./components/common/SProuter";
 
 function App() {
     const [user, setUser] = useState(null)
@@ -69,8 +70,9 @@ function App() {
                 <Route path="/automations" element={
                     <ProtectedRoute authenticated={authenticated}>
                         <Profile authenticated={authenticated} user={user}/>
-                    </ProtectedRoute> }/>
-                <Route path="/:platform/successfulLogin" element={<OAuth2ScopesRedirectHandler authenticated={authenticated}/>}/>
+                    </ProtectedRoute>}/>
+                <Route path="/:platform/successfulLogin"
+                       element={<OAuth2ScopesRedirectHandler authenticated={authenticated}/>}/>
                 <Route path="/create-automation/successful" element={<AutomationSuccessful/>}/>
                 <Route path="/create-automation" element={
                     <ProtectedRoute authenticated={authenticated}>
@@ -78,20 +80,22 @@ function App() {
                     </ProtectedRoute>}/>
                 <Route path='/scopes/:platform' exact element={
                     <ProtectedRoute authenticated={authenticated}>
-                        <PlatformOAuthScopes authenticated={authenticated} user={user} />
-                    </ProtectedRoute> }/>
+                        <PlatformOAuthScopes authenticated={authenticated} user={user}/>
+                    </ProtectedRoute>}/>
                 <Route path='/create-automation/scopes' exact element={
                     <ProtectedRoute authenticated={authenticated}>
-                        <OAuthScopes authenticated={authenticated} user={user} />
-                    </ProtectedRoute> }/>
+                        <OAuthScopes authenticated={authenticated} user={user}/>
+                    </ProtectedRoute>}/>
                 {/* Service Provider */}
                 <Route path="/developers/login" exact element={<SpLogin/>}/>
                 <Route path="/developers/signup" exact element={<SpSignUp/>}/>
                 <Route path="/developers" exact element={<SpLandingPage/>}/>
-                <Route path="/developers/home" exact element={<HomepageSP/>}/>
-                <Route path='/action/register' exact element={<RegisterActionType/>}/>
-                <Route path='/trigger/register' exact element={<RegisterTriggerType/>}/>
-                <Route path='/developers/create' exact element={<SpRegistrationForm/>}/>
+                <Route element={<SProuter/>}>
+                    <Route path="/developers/home" exact element={<HomepageSP/>}/>
+                    <Route path='/action/register' exact element={<RegisterActionType/>}/>
+                    <Route path='/trigger/register' exact element={<RegisterTriggerType/>}/>
+                    <Route path='/developers/create' exact element={<SpRegistrationForm/>}/>
+                </Route>
             </Routes>
         </BrowserRouter>
     );
