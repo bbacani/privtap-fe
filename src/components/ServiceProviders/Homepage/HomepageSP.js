@@ -36,23 +36,26 @@ function HomepageSP() {
 
     return (
         <div>
-            <HeaderSPlogged/>
+            <HeaderSP user={user}/>
 
             <div>
-                <div align="start" >
-                    <h1 className="my-5 bottom-big-text text-uppercase">{user.email}</h1>
-                    {!platform &&
+                {!platform &&
+                    <div align="start">
+                        <h1 className="my-5 bottom-big-text text-uppercase">{user.email}</h1>
+
                         <Button variant="secondary" size="lg" type="submit" className="browse-button"
                                 onClick={() => navigate('/developers/create')}>
                             REGISTER PLATFORM
                         </Button>
-                    }
-                </div>
+                    </div>}
                 {platform &&
                     <Container fluid className="p-5"
                                style={{backgroundColor: platform?.color}}>
-                        <h1 className="my-5 bottom-big-text text-uppercase">{platform?.name}</h1>
-                        <div align="start" className="">
+                        <Stack direction="horizontal" className="justify-content-between" >
+                            <h1 className=" p-3 bottom-big-text text-uppercase">{platform?.name}</h1>
+                            <h4 className="  text-uppercase">{user.email}</h4>
+                        </Stack>
+                        <div align="start">
                             <Stack direction="horizontal">
                                 <Stack direction="vertical" className="type-container " gap={3}>
                                     <h2>{platform?.actionTypes.length} actions</h2>

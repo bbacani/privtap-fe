@@ -4,6 +4,7 @@ import group from "../RegistrationForm/img/Group.png"
 import {Button, Col, Container, Form, FormControl, FormGroup, Image, Row} from "react-bootstrap";
 import {service} from "../../../service/ApiService";
 import {useNavigate, useOutletContext} from "react-router-dom";
+import HeaderSP from "../../common/Header/HeaderSP";
 
 function SpRegistrationForm(props) {
     const navigate = useNavigate();
@@ -39,6 +40,7 @@ function SpRegistrationForm(props) {
 
     return (
         <div>
+            <HeaderSP user={user}/>
             <Container className="p-5">
                 <Row className="justify-content-md-center">
                     <Col lg="6">

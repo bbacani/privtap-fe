@@ -6,6 +6,7 @@ import {service} from "../../../service/ApiService";
 import "../RegisterType.css"
 import RegisterScopes from "../RegisterScopes";
 import {useNavigate, useOutletContext} from "react-router-dom";
+import HeaderSP from "../../common/Header/HeaderSP";
 
 function RegisterTriggerType() {
 
@@ -54,7 +55,7 @@ function RegisterTriggerType() {
 
     return (
         <div>
-            <HeaderSPlogged/>
+            <HeaderSP user={user}/>
             <div className="dark-background">
                 <div className="p-5">
 

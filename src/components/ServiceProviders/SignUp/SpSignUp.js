@@ -55,7 +55,7 @@ function SpSignUp() {
 
     return (
         <div>
-            <HeaderSP/>
+            <HeaderSP />
             <div className="box">
                 <Container>
                     <Row>

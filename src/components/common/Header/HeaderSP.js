@@ -1,23 +1,29 @@
 import React from "react";
 import "./Header.css";
 import {Container, Nav, Navbar} from "react-bootstrap";
+import {Person} from "react-bootstrap-icons";
 
 function HeaderSP(props) {
 
     return (
         <Navbar bg="dark" variant="dark" className="header">
             <Container>
-
-                    <Navbar.Brand href='/developers'>
-                        <h4 className="brand">privTAP for developers</h4>
-                    </Navbar.Brand>
-
+                <Navbar.Brand href={props.user ? '/developers/home' : '/developers'}>
+                    <h4 className="brand">privTAP for developers</h4>
+                </Navbar.Brand>
+                {props.user ?
+                    <Nav>
+                        <Person href="/developers/home" color="white" size={40}/>
+                        <Nav.Link href="/developers/home">{props.user.email}</Nav.Link>
+                        <Nav.Link className="mx-3" onClick={props.onLogout}>Logout</Nav.Link>
+                    </Nav>
+                    :
 
                     <Nav className="justify-content-end">
                         <Nav.Link href={"/developers/login"}>Login</Nav.Link>
                     </Nav>
 
-
+                }
             </Container>
         </Navbar>
     )
