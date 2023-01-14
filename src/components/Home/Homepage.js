@@ -32,13 +32,13 @@ function Homepage(props) {
                         <h1 className="my-5 bottom-big-text text-uppercase">{props.user.username}</h1>
                         <Button variant="secondary" size="lg" className="platform-home-button"
                         onClick={getPlatformNames}>
-                            See used platform
+                            See platforms
                         </Button>
                         <Image fluid className="home-image" src={img}/>
                     </div>
                     {platforms &&
                     <div className="platform-list-body">
-                        <h3> Platforms used</h3>
+                        <h3> Platforms</h3>
                         <Container fluid className="grid-container">
                             <Row xs={2} md={4} lg={5} className="justify-content-start">
                                 {platforms?.map((platform) => {

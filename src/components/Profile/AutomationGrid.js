@@ -21,16 +21,14 @@ export default function AutomationGrid(props) {
                     {props.automations?.map((automation) => {
                         if (automation.trigger !== null && automation.action !== null) {
                             return (
-                                <AutomationCard automation={automation}/>
-
+                                <AutomationCard automation={automation} user={props.user} handleDeleteAutomation={props.handleDeleteAutomation}/>
                             )
                         } else {
                             return (
                                 <NoAutomations/>
                             )
                         }
-                    })
-                    }
+                    })}
                 </Row>
             </Container>
         </div>

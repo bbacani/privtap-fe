@@ -49,7 +49,7 @@ function OAuthScopes(props) {
         const selectedScopes = scopes.filter((element, index) => scopesState[index]);
 
         service().addOAuthScopes(props.user.id, platformName, selectedScopes);
-        navigate('/profile')
+        navigate('/home')
     }
 
     return (

@@ -31,6 +31,7 @@ function RegisterActionType() {
     const onSubmit = async (data) => {
 
         const request = {
+            id:Math.floor(Math.random() * Date.now()).toString(16),
             platformName: data.platformName,
             name: data.name,
             description: data.description,

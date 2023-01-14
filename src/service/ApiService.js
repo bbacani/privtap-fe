@@ -48,8 +48,8 @@ export function service() {
         addAutomation: function (userId, automationRequest) {
             return client.post(`/automation/${userId}`, automationRequest)
         },
-        deleteAutomation: function (userId, automation) {
-            return client.delete(`/automation/${userId}`, automation)
+        deleteAutomation: function (userId, automationId) {
+            return client.delete(`/automation/${userId}/${automationId}`)
         },
         getAllUserAutomations: function (userId) {
             return client.get(`/automation/${userId}`)
