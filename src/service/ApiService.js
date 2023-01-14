@@ -60,9 +60,6 @@ export function service() {
         getCurrentUser: function () {
             return client.get(`/user`)
         },
-        getPlatformLogin: function (scopes) {
-            return client.get(`/platform/spotify/authorizationUrl?scopes=${scopes.map((scope) => scope).join(',')}`)
-        },
         getOAuthToken: function (platformName, userId, code) {
             return client.get(`/platform/${platformName}/oauthToken/${userId}`, {params: {code: code}})
         },

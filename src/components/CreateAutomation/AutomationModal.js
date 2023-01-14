@@ -20,6 +20,7 @@ function AutomationModal(props) {
             triggerTypeId: props.trigger.id,
         }
         await service().addAutomation(props.userId, automation)
+        localStorage.setItem('actionPlatform', JSON.stringify(props.action.platformName));
         navigate(`/create-automation/scopes`)
     }
 
