@@ -27,7 +27,7 @@ export default function ActionEventCards(props) {
     return (
         <div>
             <Container fluid className="mt-3">
-                <Row xs={1} md={2} lg={2}>
+                <Row xs={1} md={2} lg={2} className=" flex-nowrap overflow-auto customScrollbar">
                     {actionTypes?.map((action) => {
                         return (
                             <Col className="mb-2">

@@ -6,12 +6,14 @@ import HeaderSPlogged from "../../common/Header/HeaderSPlogged";
 import {service} from "../../../service/ApiService";
 import "../RegisterType.css"
 import RegisterScopes from "../RegisterScopes";
-import {useNavigate} from "react-router-dom";
+import {useNavigate, useOutletContext} from "react-router-dom";
+import HeaderSP from "../../common/Header/HeaderSP";
 
 function RegisterActionType() {
 
     const [scopes, setScopes] = useState([]);
     const navigate = useNavigate();
+    const user = useOutletContext();
 
 
     const {
@@ -30,6 +32,7 @@ function RegisterActionType() {
     const onSubmit = async (data) => {
 
         const request = {
+            id:Math.floor(Math.random() * Date.now()).toString(16),
             platformName: data.platformName,
             name: data.name,
             description: data.description,
@@ -55,7 +58,7 @@ function RegisterActionType() {
     
     return (
         <div>
-            <HeaderSPlogged/>
+            <HeaderSP user={user}/>
             <div className="dark-background">
                 <div className="p-5">
 

@@ -11,7 +11,6 @@ export default function PlatformCardExplore(props) {
         const getPlatformByName = async () => {
             const response = await service().getPlatformByName(props.name);
             setPlatform(response.data);
-            console.log(response.data)
         }
         getPlatformByName().then();
     }, []);

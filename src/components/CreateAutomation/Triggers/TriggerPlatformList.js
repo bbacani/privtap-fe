@@ -25,11 +25,11 @@ export default function TriggerPlatformList(props) {
     return (
         <div>
             <Container fluid className="mt-3">
-                <Row xs={1} md={2} lg={2}>
+                <Row xs={1} md={2} lg={2} className=" flex-nowrap overflow-auto customScrollbar">
                     {triggerPlatforms?.map((triggerPlatform) => {
                         return (
                             <Col>
-                                <Button className="button-choice" variant="secondary" >
+                                <Button className="button-choice" variant="secondary">
                                     <TypeCard active={active} platform={triggerPlatform} onChange={activeButton}/>
                                 </Button>
                             </Col>

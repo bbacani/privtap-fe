@@ -23,7 +23,7 @@ export default function ActionPlatformList(props) {
     return (
         <div>
             <Container fluid className="mt-3">
-                <Row xs={1} md={2} lg={2}>
+                <Row xs={1} md={2} lg={2} className=" flex-nowrap overflow-auto customScrollbar">
                     {actionPlatforms?.map((actionPlatform) => {
                         return (
                             <Col className="mb-2">

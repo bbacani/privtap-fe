@@ -22,11 +22,16 @@
 
 .bottom-centered {
     position: absolute;
-    left:50%;
-    margin-left:-250px;
+
     bottom: 0;
 }
 
+.bottom-centered-container{
+    position: relative;
+   width: 500px;
+}
+
 .personAndComputer {
-    width: 500px;
+    height: 100%;
+    object-fit: cover;
 }

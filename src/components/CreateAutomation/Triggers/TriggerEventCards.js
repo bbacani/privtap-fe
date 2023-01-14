@@ -28,7 +28,7 @@ export default function TriggerEventCards(props) {
     return (
         <div>
             <Container fluid className="mt-3">
-                <Row xs={1} md={2} lg={2} >
+                <Row xs={1} md={2} lg={2} className=" flex-nowrap overflow-auto customScrollbar">
                     {triggerTypes?.map((trigger) => {
                         return (
                             <Col className="mb-2">

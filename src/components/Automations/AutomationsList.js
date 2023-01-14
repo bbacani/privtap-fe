@@ -17,13 +17,7 @@ function AutomationList(props) {
         getAllUserAutomations().then();
     });
 
-    const handleDeleteAutomation = async (id) => {
-        const request = {
-            data: id
-        }
-        await service().deleteAutomation(props.userId, request)
-        await getAllUserAutomations();
-    }
+
 
 
     return (

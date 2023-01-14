@@ -3,10 +3,12 @@ import "./SpRegistrationForm.css";
 import group from "../RegistrationForm/img/Group.png"
 import {Button, Col, Container, Form, FormControl, FormGroup, Image, Row} from "react-bootstrap";
 import {service} from "../../../service/ApiService";
-import {useNavigate} from "react-router-dom";
+import {useNavigate, useOutletContext} from "react-router-dom";
+import HeaderSP from "../../common/Header/HeaderSP";
 
 function SpRegistrationForm(props) {
     const navigate = useNavigate();
+    const user = useOutletContext();
 
     const [name, setName] = useState();
     const [color, setColor] = useState("#0c0c54");
@@ -19,19 +21,26 @@ function SpRegistrationForm(props) {
         const formData = {
             name: name,
             color: color,
-            endpoint: endpoint,
-            token: token,
-            id: id,
-            secret: secret,
+            oauthUrl: endpoint,
+            oauthTokenUrl: token,
+            clientId: id,
+            clientSecret: secret
         }
-
-        //TODO: Check if props.userId is correct or change to props.devId
-        await service().sendFormData(props.userId, formData)
-        navigate(`/developers`)
+        const response=await service().registerPlatform(user.id, formData);
+        const platformId=response.data.id;
+        const userNewData={
+            id:user.id,
+            email:user.email,
+            password:user.password,
+            platformId:platformId
+        }
+        localStorage.setItem('profile', JSON.stringify(userNewData) );
+        navigate(`/developers/home`)
     }
 
     return (
         <div>
+            <HeaderSP user={user}/>
             <Container className="p-5">
                 <Row className="justify-content-md-center">
                     <Col lg="6">
@@ -55,7 +64,8 @@ function SpRegistrationForm(props) {
                                             onChange={e => setColor(e.target.value)}
                                         />
                                     </Col>
-                                    <Form.Text className="mb-3">The color will be used in all the pages of your Platform</Form.Text>
+                                    <Form.Text className="mb-3">The color will be used in all the pages of your
+                                        Platform</Form.Text>
                                 </Row>
                             </FormGroup>
                             <FormGroup className="mb-3">
@@ -101,9 +111,9 @@ function SpRegistrationForm(props) {
                     </Col>
                 </Row>
             </Container>
-                <div>
-                    <Image className="d-none d-lg-block group" src={group}/>
-                </div>
+            <div>
+                <Image className="d-none d-lg-block group" src={group}/>
+            </div>
         </div>
     );
 }

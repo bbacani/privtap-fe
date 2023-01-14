@@ -49,8 +49,8 @@ export function service() {
         addAutomation: function (userId, automationRequest) {
             return client.post(`/automation/${userId}`, automationRequest)
         },
-        deleteAutomation: function (userId, automation) {
-            return client.delete(`/automation/${userId}`, automation)
+        deleteAutomation: function (userId, automationId) {
+            return client.delete(`/automation/${userId}/${automationId}`)
         },
         getAllUserAutomations: function (userId) {
             return client.get(`/automation/${userId}`)
@@ -61,9 +61,6 @@ export function service() {
         getCurrentUser: function () {
             return client.get(`/user`)
         },
-        getPlatformLogin: function (scopes) {
-            return client.get(`/platform/spotify/authorizationUrl?scopes=${scopes.map((scope) => scope).join(',')}`)
-        },
         getOAuthToken: function (platformName, userId, code) {
             return client.get(`/platform/${platformName}/oauthToken/${userId}`, {params: {code: code}})
         },
@@ -73,13 +70,14 @@ export function service() {
         getPlatformNames: function () {
             return client.get(`/platform/`)
         },
+        getPlatform: function (serviceProviderId) {
+            return client.get(`/serviceProvider/platform/${serviceProviderId}`)
+        },
         getPlatformByName: function (platformName) {
             return client.get(`/platform/${platformName}/name`)
         },
-        sendFormData: function(userId, formData) {
-            //TODO: add the endpoint
-            console.log(userId)
-            console.log(formData)
+        registerPlatform: function(serviceProviderId, data) {
+           return client.post(`/serviceProvider/platform/${serviceProviderId}`,data)
         },
         getOauthScopes: function(userId, platform) {
             return client.get(`/platform/${platform}/oauthScopes`)
@@ -104,6 +102,13 @@ export function service() {
         getPlatformName: function(id) {
             //TODO: add the endpoint
             return id;
-        }
+        },
+        loginServiceProvider: function(data) {
+            return client.post(`/serviceProvider/login`,data);
+        },
+        registerServiceProvider: function(data) {
+            return client.post(`/serviceProvider/register`,data);
+        },
+
     }
 }

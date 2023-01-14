@@ -22,7 +22,7 @@ function createPairs(strings) {
 function OAuthScopes(props) {
     const navigate = useNavigate();
 
-    const platformName = "spotify"
+    const platformName = JSON.parse(localStorage.getItem('actionPlatform'));
     const [scopes, setScopes] = useState([]);
     const pairedScopes = createPairs(scopes);
     // Boolean Array to indicate if a scope is selected or not
@@ -49,7 +49,7 @@ function OAuthScopes(props) {
         const selectedScopes = scopes.filter((element, index) => scopesState[index]);
 
         service().addOAuthScopes(props.user.id, platformName, selectedScopes);
-        navigate('/profile')
+        navigate('/home')
     }
 
     return (

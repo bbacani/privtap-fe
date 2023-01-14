@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React, {useState} from "react";
 import "./CreateAutomation.css";
-import {Col, Container, Image, Row} from "react-bootstrap";
+import {Col, Container, Image, Row, Stack} from "react-bootstrap";
 import TriggerPlatformList from "./Triggers/TriggerPlatformList";
 import ActionPlatformList from "./Actions/ActionPlatformList";
 import TriggerEventCards from "./Triggers/TriggerEventCards";
@@ -61,12 +61,14 @@ function CreateAutomation(props) {
                     </Col>
                 </Row>
                 <Row>
-                    <Col md className="platform-col">
-                        <TriggerPlatformList setTriggerPlatform={handleSetTriggerPlatform}/>
-                    </Col>
-                    <Col md className="platform-col">
-                        <ActionPlatformList setActionPlatform={handleSetActionPlatform}/>
-                    </Col>
+                    <Stack direction="horizontal" className="justify-content-center mx-auto">
+                        <Col md className="platform-col">
+                            <TriggerPlatformList setTriggerPlatform={handleSetTriggerPlatform}/>
+                        </Col>
+                        <Col md className="platform-col">
+                            <ActionPlatformList setActionPlatform={handleSetActionPlatform}/>
+                        </Col>
+                    </Stack>
                 </Row>
             </Container>
             {(triggerPlatform || actionPlatform) &&
@@ -86,17 +88,20 @@ function CreateAutomation(props) {
                             }
                         </Row>
                         <Row>
-                            {triggerPlatform &&
-                                <Col md className="platform-col-secondary">
-                                    <TriggerEventCards setSelectedTrigger={handleSetTrigger}
-                                                       platform={triggerPlatform}/>
-                                </Col>
-                            }
-                            {actionPlatform &&
-                                <Col md className="platform-col-secondary">
-                                    <ActionEventCards setSelectedAction={handleSetAction} platform={actionPlatform}/>
-                                </Col>
-                            }
+                            <Stack direction="horizontal" className="justify-content-center mx-auto">
+                                {triggerPlatform &&
+                                    <Col md className="platform-col-secondary">
+                                        <TriggerEventCards setSelectedTrigger={handleSetTrigger}
+                                                           platform={triggerPlatform}/>
+                                    </Col>
+                                }
+                                {actionPlatform &&
+                                    <Col md className="platform-col-secondary">
+                                        <ActionEventCards setSelectedAction={handleSetAction}
+                                                          platform={actionPlatform}/>
+                                    </Col>
+                                }
+                            </Stack>
                         </Row>
 
                         <Row>
